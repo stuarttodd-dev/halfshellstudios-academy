@@ -1,14 +1,9 @@
-# Composer `composer.json` autoload (hands-on)
+# Composer `composer.json` autoload
 
-Minimal example of **PSR-4 autoloading** with Composer:
+Sample code for the same Academy chapter: **`composer.json` autoload** maps namespaces to directories; **`vendor/autoload.php`** is the generated bootstrap you `require` once so PSR-4 classes load without manual `require` per file.
 
 - `composer.json` — `autoload.psr-4` maps `App\` to `src/`
-- `src/` — namespaced PHP classes
-- `public/index.php` — loads `vendor/autoload.php` and runs the demo
-
-## Run it
-
-1. `composer install`
-2. `php public/index.php`
+- `src/` — namespaced classes under that prefix
+- `public/index.php` — includes `vendor/autoload.php` (created when you run Composer in this directory)
 
 ← [Zero to PHP](../README.md)

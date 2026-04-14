@@ -1,0 +1,12 @@
+{
+    "name": "halfshellstudios/zero-to-php-chapter-7-calculator",
+    "description": "Chapter 7 practice: CalculatorService + thin public/index.php",
+    "type": "project",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
