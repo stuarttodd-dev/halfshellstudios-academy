@@ -25,4 +25,4 @@ Course materials and learning paths from Half Shell Studios.
 | [PHP to TypeScript](php-to-ts/README.md) | Types, tooling, and TS patterns vs PHP |
 | [PHP to Vue](php-to-vue/README.md) | Vue.js for developers used to server-rendered PHP |
 | [Writing decent PHP](writing-decent-php/README.md) | Style, structure, and maintainability in PHP |
-| [Zero to PHP](zero-to-php/README.md) | First steps into PHP for new programmers |
+| [Zero to PHP](zero-to-php/README.md) | Hands-on PHP exercises: small runnable projects you can open and run locally (e.g. Composer PSR-4 autoload) |
