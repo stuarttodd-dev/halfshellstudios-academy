@@ -2,9 +2,11 @@
 declare(strict_types=1);
 
 session_start();
-$_SESSION['basket'] ??= [
-    ['product_id' => 1, 'name' => 'T-Shirt', 'price_cents' => 1999, 'qty' => 1],
-];
+if (!isset($_SESSION['basket']) || !is_array($_SESSION['basket']) || $_SESSION['basket'] === []) {
+    $_SESSION['basket'] = [
+        ['product_id' => 1, 'name' => 'T-Shirt', 'price_cents' => 1999, 'qty' => 1],
+    ];
+}
 
 function validateCheckout(string $name, string $email, array $basket): array
 {
@@ -32,12 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = 'Checkout complete.';
     }
 }
+$basketCount = array_sum(array_map(static fn(array $row): int => (int) ($row['qty'] ?? 0), $_SESSION['basket']));
 ?>
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><title>Basket Checkout</title></head>
 <body>
 <h1>Basket checkout flow and validation</h1>
+<p>Basket item count: <?= (int) $basketCount ?></p>
 <?php if ($message !== ''): ?><p><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
 <?php foreach ($errors as $error): ?><p><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p><?php endforeach; ?>
 <form method="post">
