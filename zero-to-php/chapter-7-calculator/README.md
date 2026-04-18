@@ -21,4 +21,6 @@ You should see four numeric lines (`13`, `7`, `20`, `5`) and a fifth line starti
 
 If PHP cannot find the class after adding files, run `composer dump-autoload`.
 
+**Recap:** [Chapter 7 recap — step-by-step solution](../chapter-7-recap.md) (also on [GitHub](https://github.com/stuarttodd-dev/halfshellstudios-academy/tree/main/zero-to-php/chapter-7-calculator)).
+
 ← [Zero to PHP](../README.md)
