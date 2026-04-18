@@ -31,12 +31,15 @@ It provides `GET /health`, `GET /api/items`, and a consistent JSON 404 error sha
 
 ## How to test
 
-1. Start server with this entry script.
+1. From this folder, start the API:
+   ```bash
+   php -S 127.0.0.1:8027 -t public
+   ```
 2. Run:
    ```bash
-   curl -i http://127.0.0.1:8000/health
-   curl -i http://127.0.0.1:8000/api/items
-   curl -i http://127.0.0.1:8000/nope
+   curl -i http://127.0.0.1:8027/health
+   curl -i http://127.0.0.1:8027/api/items
+   curl -i http://127.0.0.1:8027/nope
    ```
 3. Confirm JSON responses and expected status codes.
 

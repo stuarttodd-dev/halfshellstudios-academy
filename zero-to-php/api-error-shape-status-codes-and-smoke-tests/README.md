@@ -29,12 +29,18 @@ It also defines clear status code rules so API clients can handle responses cons
 
 ## How to test
 
-1. Run a 5-command smoke suite:
-   - `GET /health`
-   - `GET /api/items`
-   - `POST /api/items` valid
-   - `POST /api/items` invalid
-   - unknown route
-2. Confirm status codes match this README and all errors use the same JSON structure.
+1. From this folder, start the API:
+   ```bash
+   php -S 127.0.0.1:8031 -t public
+   ```
+2. Run a 5-command smoke suite:
+   ```bash
+   curl -i http://127.0.0.1:8031/health
+   curl -i http://127.0.0.1:8031/api/items
+   curl -i -X POST http://127.0.0.1:8031/api/items -H "Content-Type: application/json" -d '{"name":"Tee","price":1999}'
+   curl -i -X POST http://127.0.0.1:8031/api/items -H "Content-Type: application/json" -d '{"name":"","price":0}'
+   curl -i http://127.0.0.1:8031/nope
+   ```
+3. Confirm status codes match the lesson and all error responses share `error.code` and `error.message`.
 
 ← [Zero to PHP](../README.md)

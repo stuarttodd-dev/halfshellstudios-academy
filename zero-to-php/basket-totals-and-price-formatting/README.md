@@ -31,8 +31,11 @@ Totals are calculated only in integer cents to avoid float rounding issues.
 
 ## How to test
 
-1. Build a basket with known values (for example 1999 x2 and 1299 x1).
-2. Call `basketTotals()` and verify subtotal cents are correct.
-3. Render with `money()` and confirm formatted values like `$52.97`.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8020 -t public
+   ```
+2. Open `http://127.0.0.1:8020`.
+3. Confirm item count and subtotal are shown, and money output is formatted currency.
 
 ← [Zero to PHP](../README.md)

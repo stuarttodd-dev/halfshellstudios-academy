@@ -27,8 +27,12 @@ The handler validates id input and only proceeds when the target record exists.
 
 ## How to test
 
-1. Attempt delete via `GET` and confirm `405`.
-2. Submit `POST` with invalid id and confirm `400`.
-3. Submit valid `POST` for existing record and confirm redirect + row removal.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8025 -t public
+   ```
+2. Open `http://127.0.0.1:8025`, click delete on a row, and confirm the browser confirmation prompt.
+3. Confirm the row is removed and feedback message is shown.
+4. Reload and confirm session-backed list remains updated.
 
 ← [Zero to PHP](../README.md)

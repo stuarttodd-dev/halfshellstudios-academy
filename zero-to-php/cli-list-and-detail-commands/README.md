@@ -30,13 +30,13 @@ function showTask(array $tasks, int $id): void {
 
 ## How to test
 
-1. Add both helpers to your CLI app with sample task data.
-2. Run:
+1. From this folder, run:
    ```bash
    php bin/app.php list
    php bin/app.php show 1
    php bin/app.php show 999
    ```
-3. Confirm list output is consistent and missing ids show a readable error.
+2. Confirm `list` prints id/title/status lines from `storage/tasks.json`.
+3. Confirm `show` returns task JSON for an existing id and a readable error for missing ids.
 
 ← [Zero to PHP](../README.md)

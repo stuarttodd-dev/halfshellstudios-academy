@@ -30,8 +30,12 @@ Checkout succeeds only when the returned error array is empty, then basket clear
 
 ## How to test
 
-1. Submit checkout with empty name, bad email, and empty basket.
-2. Confirm each failure produces the expected validation error.
-3. Submit valid name/email with basket items and confirm successful checkout then basket clear.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8021 -t public
+   ```
+2. Open `http://127.0.0.1:8021` and submit checkout with invalid values.
+3. Confirm validation errors for required name/email format and empty basket.
+4. Submit valid values and confirm checkout success message and basket clear behavior.
 
 ← [Zero to PHP](../README.md)

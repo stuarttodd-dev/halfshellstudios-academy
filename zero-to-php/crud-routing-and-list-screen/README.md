@@ -27,11 +27,11 @@ This gives a predictable navigation skeleton for later CRUD actions.
 
 ## How to test
 
-1. Add this to your web entry script.
-2. Start server:
+1. From this folder, run:
    ```bash
-   php -S 127.0.0.1:8000 -t public
+   php -S 127.0.0.1:8022 -t public
    ```
-3. Visit `/tasks`, `/tasks/create`, `/tasks/edit`, and an unknown route to confirm 404 handling.
+2. Open `http://127.0.0.1:8022/?action=list`, `?action=create`, and `?action=edit&id=1`.
+3. Try an unknown action and confirm fallback/not-found behavior.
 
 ← [Zero to PHP](../README.md)

@@ -29,13 +29,13 @@ It keeps one consistent command shape: `list` and `add "Task"`.
 
 ## How to test
 
-1. Save the snippet in `bin/app.php`.
-2. Run:
+1. From this folder, run:
    ```bash
    php bin/app.php list
    php bin/app.php add "Buy milk"
    php bin/app.php nope
    ```
-3. Confirm `list` and `add` work and unknown commands print usage with a non-zero exit.
+2. Confirm `list` and `add` work.
+3. Confirm unknown command prints usage and exits non-zero.
 
 ← [Zero to PHP](../README.md)

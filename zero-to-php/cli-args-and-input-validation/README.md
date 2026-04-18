@@ -28,13 +28,14 @@ Validation errors are printed to `STDERR` and exit with status `1`.
 
 ## How to test
 
-1. Save the snippet in `bin/app.php`.
-2. Run:
+1. From this folder, run:
    ```bash
+   php bin/app.php add "Buy milk"
    php bin/app.php add ""
    php bin/app.php done abc
    php bin/app.php done 2
    ```
-3. Confirm invalid inputs fail with clear messages and valid input prints `ok`.
+2. Confirm valid inputs succeed and invalid inputs fail with clear error messages.
+3. Confirm invalid commands exit non-zero.
 
 ← [Zero to PHP](../README.md)

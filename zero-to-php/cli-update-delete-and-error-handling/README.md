@@ -30,14 +30,13 @@ function deleteTask(array &$tasks, int $id): bool {
 
 ## How to test
 
-1. Add these helpers to your CLI app.
-2. Run a sequence:
+1. From this folder, run:
    ```bash
-   php bin/app.php add "A"
    php bin/app.php done 1
-   php bin/app.php delete 1
+   php bin/app.php delete 2
    php bin/app.php done 999
    ```
-3. Confirm valid ids mutate state and missing ids return clean failure handling.
+2. Confirm valid ids mutate `storage/tasks.json`.
+3. Confirm missing ids return clean error handling and non-zero exit.
 
 ← [Zero to PHP](../README.md)

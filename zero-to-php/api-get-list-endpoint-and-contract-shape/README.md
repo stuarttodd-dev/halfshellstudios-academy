@@ -24,10 +24,13 @@ Keeping this contract stable makes frontend/client parsing reliable.
 
 ## How to test
 
-1. Serve the endpoint locally.
+1. From this folder, start the API:
+   ```bash
+   php -S 127.0.0.1:8028 -t public
+   ```
 2. Run:
    ```bash
-   curl -s http://127.0.0.1:8000/api/items
+   curl -s http://127.0.0.1:8028
    ```
 3. Confirm JSON shape is `{"items":[...]}` with expected item fields.
 

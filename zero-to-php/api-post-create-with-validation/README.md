@@ -27,11 +27,14 @@ Valid payloads return `201` with created item data.
 
 ## How to test
 
-1. Serve the endpoint locally.
+1. From this folder, start the API:
+   ```bash
+   php -S 127.0.0.1:8029 -t public
+   ```
 2. Run:
    ```bash
-   curl -i -X POST http://127.0.0.1:8000/api/items -H "Content-Type: application/json" -d '{"name":"Tee","price":1999}'
-   curl -i -X POST http://127.0.0.1:8000/api/items -H "Content-Type: application/json" -d '{"name":"","price":0}'
+   curl -i -X POST http://127.0.0.1:8029 -H "Content-Type: application/json" -d '{"name":"Tee","price":1999}'
+   curl -i -X POST http://127.0.0.1:8029 -H "Content-Type: application/json" -d '{"name":"","price":0}'
    ```
 3. Confirm valid request returns `201` and invalid request returns `400`.
 

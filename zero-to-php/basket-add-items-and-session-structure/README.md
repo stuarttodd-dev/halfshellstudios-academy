@@ -30,8 +30,11 @@ This avoids duplicate rows for the same `product_id`.
 
 ## How to test
 
-1. Wire `addToBasket()` into your add action.
-2. Add the same product twice in one session.
-3. Confirm there is one basket row for that product and `qty` increments to `2`.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8018 -t public
+   ```
+2. Open `http://127.0.0.1:8018` and click the same product button twice.
+3. Confirm basket output has one row for that `product_id` and `qty` increments.
 
 ← [Zero to PHP](../README.md)

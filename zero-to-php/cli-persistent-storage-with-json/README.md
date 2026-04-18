@@ -30,8 +30,13 @@ function saveTasks(string $path, array $tasks): void {
 
 ## How to test
 
-1. Put the helper functions in your CLI app.
-2. Add a task, call `saveTasks()`, then run the script again and call `loadTasks()`.
-3. Confirm `storage/tasks.json` exists and data survives multiple runs.
+1. From this folder, run:
+   ```bash
+   php bin/app.php list
+   php bin/app.php add "Buy milk"
+   php bin/app.php list
+   ```
+2. Confirm `storage/tasks.json` is created automatically.
+3. Re-run `php bin/app.php list` and confirm the saved task persists.
 
 ← [Zero to PHP](../README.md)

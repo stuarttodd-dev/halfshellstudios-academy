@@ -23,11 +23,11 @@ This creates a stable session boundary for the next basket lessons.
 
 ## How to test
 
-1. Add the snippet to your web app entry point (for example, `public/index.php`).
-2. Start PHP built-in server:
+1. From this folder, start the lesson app:
    ```bash
-   php -S 127.0.0.1:8000 -t public
+   php -S 127.0.0.1:8017 -t public
    ```
-3. Load the page multiple times and confirm basket count persists within the same browser session.
+2. Open `http://127.0.0.1:8017`.
+3. Refresh a few times and confirm the session basket structure is initialized without errors.
 
 ← [Zero to PHP](../README.md)

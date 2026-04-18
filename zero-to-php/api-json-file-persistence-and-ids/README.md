@@ -28,8 +28,16 @@ Persist to `storage/items.json` after each create so IDs and data survive restar
 
 ## How to test
 
-1. Start with no `storage/items.json`.
-2. Create two items through your API create flow and persist each write.
-3. Restart server and confirm both records remain and new item gets the next id.
+1. From this folder, start the API:
+   ```bash
+   php -S 127.0.0.1:8030 -t public
+   ```
+2. Create items and list them:
+   ```bash
+   curl -i -X POST http://127.0.0.1:8030 -H "Content-Type: application/json" -d '{"name":"Tee","price":1999}'
+   curl -i -X POST http://127.0.0.1:8030 -H "Content-Type: application/json" -d '{"name":"Mug","price":1299}'
+   curl -i http://127.0.0.1:8030
+   ```
+3. Restart the server and re-run `curl -i http://127.0.0.1:8030` to confirm persisted items and stable incremental ids.
 
 ← [Zero to PHP](../README.md)

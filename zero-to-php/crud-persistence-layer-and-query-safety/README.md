@@ -29,8 +29,12 @@ Prepared statements protect writes from malformed input and keep query behavior 
 
 ## How to test
 
-1. Wire repository into list/create routes.
-2. Create a record with normal input and confirm it appears in list.
-3. Submit edge-case strings (quotes/symbols) and confirm query still works safely.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8026 -t public
+   ```
+2. Open `http://127.0.0.1:8026`, create a few tasks, and confirm they are listed.
+3. Check `storage/tasks.json` to confirm persistence.
+4. Submit titles with quotes/symbols and confirm output remains escaped and stable.
 
 ← [Zero to PHP](../README.md)

@@ -31,8 +31,11 @@ function removeItem(array &$basket, int $productId): void {
 
 ## How to test
 
-1. Add at least two products to the basket.
-2. Update one quantity to a valid number, then try `0` to confirm rejection.
-3. Remove one product and confirm it disappears while other rows remain intact.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8019 -t public
+   ```
+2. Open `http://127.0.0.1:8019`, update quantity for an item, then try quantity `0`.
+3. Remove one item and confirm the basket re-renders with remaining rows intact.
 
 ← [Zero to PHP](../README.md)

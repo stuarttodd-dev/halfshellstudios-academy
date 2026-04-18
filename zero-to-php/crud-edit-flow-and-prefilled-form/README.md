@@ -35,8 +35,12 @@ Use `findById()` to prefill edit form and return 404 for missing ids.
 
 ## How to test
 
-1. Open edit page for an existing id and confirm form prefill.
-2. Submit valid updates and confirm values change on list/detail.
-3. Open edit page for missing id and confirm 404/not-found behavior.
+1. From this folder, run:
+   ```bash
+   php -S 127.0.0.1:8024 -t public
+   ```
+2. Open `http://127.0.0.1:8024/?id=1` and confirm the form is prefilled.
+3. Submit updated values and confirm success message.
+4. Open `http://127.0.0.1:8024/?id=999` and confirm not-found behavior.
 
 ← [Zero to PHP](../README.md)
