@@ -25,8 +25,21 @@ The command sequence demonstrates a full lifecycle from create to removal.
 
 ## How to test
 
-1. Ensure your CLI app includes all commands from lessons 16.1-16.5.
-2. Run the command sequence shown in this README from an empty `storage/tasks.json`.
-3. Confirm each step behaves correctly and JSON state changes as expected after each command.
+1. From this folder, run:
+   ```bash
+   php bin/app.php add "Buy milk"
+   php bin/app.php add "Write recap"
+   php bin/app.php list
+   php bin/app.php done 1
+   php bin/app.php show 1
+   php bin/app.php delete 1
+   php bin/app.php list
+   ```
+2. Confirm invalid inputs fail with non-zero exit codes:
+   ```bash
+   php bin/app.php done nope
+   php bin/app.php add ""
+   ```
+3. Confirm `storage/tasks.json` persists updates between command runs.
 
 ← [Zero to PHP](../README.md)

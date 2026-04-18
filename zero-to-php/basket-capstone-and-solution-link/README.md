@@ -16,8 +16,17 @@ It represents a full mini ecommerce basket journey in plain PHP.
 
 ## How to test
 
-1. Start from an empty session.
-2. Add products, update quantity, remove one item, and verify totals after each step.
-3. Attempt checkout with invalid data, then valid data, and confirm only valid checkout clears basket.
+1. From this folder, start the app:
+   ```bash
+   php -S 127.0.0.1:8012 -t public
+   ```
+2. Open `http://127.0.0.1:8012` and run a full journey:
+   - add products
+   - update quantity
+   - remove an item
+   - verify subtotal and item count updates
+3. Checkout twice:
+   - first with invalid fields (empty name or invalid email) and confirm validation errors
+   - then with valid name/email and confirm basket is cleared on success
 
 ← [Zero to PHP](../README.md)

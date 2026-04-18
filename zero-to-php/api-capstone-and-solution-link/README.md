@@ -16,8 +16,19 @@ It reflects a complete minimal workflow that clients can reliably consume.
 
 ## How to test
 
-1. Run end-to-end smoke tests for health, list, valid create, invalid create, and unknown route.
-2. Confirm JSON content type and status code consistency across all responses.
-3. Restart the server and verify persisted items are still returned by list.
+1. From this folder, start the API:
+   ```bash
+   php -S 127.0.0.1:8024 -t public
+   ```
+2. Run smoke tests:
+   ```bash
+   curl -i http://127.0.0.1:8024/health
+   curl -i http://127.0.0.1:8024/api/items
+   curl -i -X POST http://127.0.0.1:8024/api/items -H "Content-Type: application/json" -d '{"name":"Tee","price":1999}'
+   curl -i -X POST http://127.0.0.1:8024/api/items -H "Content-Type: application/json" -d '{"name":"","price":0}'
+   curl -i http://127.0.0.1:8024/nope
+   ```
+3. Confirm status codes and error JSON shape are consistent.
+4. Stop/restart the server and confirm created items persist in `storage/items.json`.
 
 ← [Zero to PHP](../README.md)

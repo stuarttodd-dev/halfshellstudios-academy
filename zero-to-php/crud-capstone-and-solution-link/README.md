@@ -16,8 +16,16 @@ The result is a complete beginner CRUD app with predictable behavior.
 
 ## How to test
 
-1. Run through full lifecycle: create, list, edit, and delete.
-2. Verify invalid submissions do not write data.
-3. Confirm missing-record operations return clear errors and app remains stable.
+1. From this folder, start the app:
+   ```bash
+   php -S 127.0.0.1:8018 -t public
+   ```
+2. Open `http://127.0.0.1:8018` and run full CRUD flow:
+   - create task
+   - edit task
+   - delete task
+3. Submit invalid create/edit values and confirm inline validation blocks writes.
+4. Try editing a missing id (`/?action=edit&id=999`) and confirm not-found behavior.
+5. Confirm persistence by checking `storage/tasks.json` and reloading the app.
 
 ← [Zero to PHP](../README.md)
