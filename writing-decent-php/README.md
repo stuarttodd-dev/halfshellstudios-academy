@@ -23,4 +23,11 @@ walkthrough of *why* the refactor counts as "decent".
   three rename-only refactors covering local names + magic numbers, class /
   namespace / file location, and consistent domain language across collections.
 
+### Chapter 3 — functions that do one job
+
+- [functions-that-do-one-job-chapter-3-guided-practice](functions-that-do-one-job-chapter-3-guided-practice/) —
+  three structural refactors covering splitting a too-much-work function,
+  command/query separation, and removing flag arguments via value objects
+  and split methods.
+
 ← [Half Shell Studios Academy](../README.md)
