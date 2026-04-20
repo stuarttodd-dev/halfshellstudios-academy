@@ -28,6 +28,21 @@ The starter nests two `if` blocks two levels deep before doing any real work.
 The fix is to invert each condition and `return` early, leaving the happy path
 flat at the bottom of the function.
 
+**Before:**
+
+```php
+function sendReceiptIfNeeded(array $order, array &$sentEmails): void
+{
+    if (($order['is_paid'] ?? false) === true) {
+        if (($order['customer_email'] ?? '') !== '') {
+            $sentEmails[] = $order['customer_email'];
+        }
+    }
+}
+```
+
+**After:**
+
 ```php
 function sendReceiptIfNeeded(array $order, array &$sentEmails): void
 {
@@ -61,6 +76,32 @@ The starter reaches into `$_ENV['MAIL_ENABLED']` and a `global $currentHour`,
 which makes the function impossible to test in isolation and easy to break by
 accident from anywhere in the codebase. The fix is to make every value the
 function needs an explicit parameter.
+
+**Before:**
+
+```php
+$_ENV['MAIL_ENABLED'] = '1';
+
+function canSendDigest(array $user): bool
+{
+    global $currentHour;
+    $currentHour = $currentHour ?? 9;
+
+    if (($_ENV['MAIL_ENABLED'] ?? '0') !== '1') {
+        return false;
+    }
+
+    if (($user['email'] ?? '') === '') {
+        return false;
+    }
+
+    return $currentHour >= 9;
+}
+
+var_export(canSendDigest(['email' => 'sam@example.com']));
+```
+
+**After:**
 
 ```php
 function canSendDigest(array $user, bool $mailEnabled, int $currentHour): bool
@@ -103,6 +144,57 @@ The starter introduces a `UserSelectionStrategy` interface, an
 ~30 lines of indirection for what is fundamentally one filter over an array.
 There is no current need for multiple selection strategies, so the abstraction
 costs more than it earns.
+
+**Before:**
+
+```php
+interface UserSelectionStrategy
+{
+    public function include(array $user): bool;
+}
+
+final class ActiveUserSelectionStrategy implements UserSelectionStrategy
+{
+    public function include(array $user): bool
+    {
+        return ($user['active'] ?? false) === true;
+    }
+}
+
+final class UserExportPipeline
+{
+    public function __construct(private UserSelectionStrategy $strategy) {}
+
+    public function run(array $users): array
+    {
+        $emails = [];
+
+        foreach ($users as $user) {
+            if (! $this->strategy->include($user)) {
+                continue;
+            }
+
+            $email = (string) ($user['email'] ?? '');
+            if ($email === '') {
+                continue;
+            }
+
+            $emails[] = $email;
+        }
+
+        return $emails;
+    }
+}
+
+$pipeline = new UserExportPipeline(new ActiveUserSelectionStrategy());
+var_export($pipeline->run([
+    ['active' => true,  'email' => 'a@example.com'],
+    ['active' => false, 'email' => 'b@example.com'],
+    ['active' => true,  'email' => ''],
+]));
+```
+
+**After:**
 
 ```php
 function activeEmails(array $users): array
