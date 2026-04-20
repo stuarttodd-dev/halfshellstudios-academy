@@ -14,5 +14,13 @@ walkthrough of *why* the refactor counts as "decent".
 - [readable-naming-chapter-1-guided-practice](readable-naming-chapter-1-guided-practice/) —
   three guided refactors covering early returns, hidden dependencies, and
   unnecessary abstraction.
+- [readable-naming-quiz](readable-naming-quiz/) — answer key and rationale
+  for the 20-question Chapter 1 quiz on the maintainability mindset.
+
+### Chapter 2 — naming variables, functions, classes, and files well
+
+- [naming-things-well-chapter-2-guided-practice](naming-things-well-chapter-2-guided-practice/) —
+  three rename-only refactors covering local names + magic numbers, class /
+  namespace / file location, and consistent domain language across collections.
 
 ← [Half Shell Studios Academy](../README.md)
