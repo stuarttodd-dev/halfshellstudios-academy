@@ -156,11 +156,10 @@ namespace App\Billing;
 
 final class OrderTotalCalculator
 {
-    private $database;
+    private const VAT_MULTIPLIER = 1.2;
 
-    public function __construct($database)
+    public function __construct(private $database)
     {
-        $this->database = $database;
     }
 
     public function findOrderAndTouchLastViewed(int $orderId): array
@@ -189,8 +188,6 @@ final class OrderTotalCalculator
 
         return $order;
     }
-
-    private const VAT_MULTIPLIER = 1.2;
 }
 ```
 
