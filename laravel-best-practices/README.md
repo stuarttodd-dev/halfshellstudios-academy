@@ -4,27 +4,75 @@ Reference material for the **PHP to Laravel** course on Half Shell Studios Acade
 
 ## Runnable Laravel app in each chapter
 
-**Every** `chNN-exercise-*/` folder (chapters 2–17) now includes a full **`laravel/`** sub-project generated from [\_laravel-skeleton](_laravel-skeleton/) (Laravel 13, PHP 8.2+). After `composer install` it is a normal, runnable app.
+**Every** `chNN-exercise-*/` folder (chapters 2–17) now includes a full **`laravel/`** sub-project generated from [\_laravel-skeleton](_laravel-skeleton/) (Laravel 13, PHP 8.3+). After `composer install` it is a normal, runnable app.
 
-**You should not** run anything from the repo root `laravel-best-practices/`; **always** `cd` into a chapter, then into `laravel/`.
+**You should not** run anything from the Academy repo root; work inside **`laravel-best-practices/`** (the folder that contains `ch02-exercise-...`).
 
-**First-time setup in one chapter (example, chapter 2):**
+### Prerequisites (install once on your machine)
+
+- **PHP 8.3+** on your `PATH` (`php -v`) — Laravel 13 requires this; the skeleton’s `composer.json` uses `"php": "^8.3"`. Extensions typically required by Laravel: `ctype`, `curl`, `dom`, `fileinfo`, `mbstring`, `openssl`, `pdo`, `tokenizer`, `xml`, and **PDO SQLite** (`pdo_sqlite`) so the default SQLite database works.
+- **Composer 2** on your `PATH` — install from [getcomposer.org](https://getcomposer.org/download/), then check `composer -V`.
+- **Node.js** (LTS) and **npm** are optional: only needed if you run Vite/frontend builds (`npm install`, `npm run build`) in an app. Most chapter exercises are fine with `php artisan serve` alone.
+
+`vendor/`, `node_modules/`, `.env`, and `database/database.sqlite` are **not** committed. After a fresh clone, each `laravel/` app needs `composer install` (see [per-chapter paths](#per-chapter-where-to-cd-and-extra-commands) below).
+
+### Per-chapter: where to cd and extra commands
+
+All paths are relative to `laravel-best-practices/`. The **`cd` target** column is the folder you `cd` into (it always ends in `…/laravel`).
+
+| Ch | `cd` target | After `php artisan migrate --force` |
+| --- | --- | --- |
+| 2 | `ch02-exercise-build-crud-routes/laravel` | — |
+| 3 | `ch03-exercise-build-access-control-layer/laravel` | — |
+| 4 | `ch04-exercise-validate-complex-form/laravel` | `php artisan db:seed` (sample user + product for checkout) |
+| 5 | `ch05-exercise-build-dashboard-ui/laravel` | `php artisan db:seed` (sample user) |
+| 6 | `ch06-exercise-build-model-layer/laravel` | — |
+| 7 | `ch07-exercise-build-relational-data-model/laravel` | — |
+| 8 | `ch08-exercise-optimise-queries/laravel` | `php artisan db:seed` (user + order data for reports) |
+| 9 | `ch09-exercise-seed-complex-dataset/laravel` | `php artisan db:seed` (main exercise) |
+| 10 | `ch10-exercise-build-auth-system/laravel` | — (optional: `php artisan test` for `AuthenticationTest`) |
+| 11 | `ch11-exercise-build-role-system/laravel` | — (optional: `php artisan test` for `ProjectPolicyTest`) |
+| 12 | `ch12-exercise-build-strategy-system/laravel` | — (optional: `php artisan test` for `PricingStrategyTest`) |
+| 13 | `ch13-exercise-refactor-app/laravel` | — |
+| 14 | `ch14-exercise-deploy-app/laravel` | **Thin** scaffold — exercise is the deploy runbook; see `SOLUTION.md` |
+| 15 | `ch15-exercise-build-queue-system/laravel` | **Thin** scaffold — queue write-up; see `SOLUTION.md` |
+| 16 | `ch16-exercise-full-test-suite/laravel` | **Thin** scaffold — CI/testing write-up; see `SOLUTION.md` |
+| 17 | `ch17-exercise-build-roles-and-media/laravel` | **Thin** scaffold — Spatie install steps in `SOLUTION.md` (not a full package demo in this repo) |
+
+### First-time setup for **one** app (repeat for every chapter you open)
+
+**Always** start from the **`cd` target** for that chapter in the [table above](#per-chapter-where-to-cd-and-extra-commands), then run:
 
 ```bash
-cd ch02-exercise-build-crud-routes/laravel
-cp .env.example .env
+# From: laravel-best-practices/
+cd ch02-exercise-build-crud-routes/laravel   # example — use the "cd" target from the table for your chapter
+
+cp -n .env.example .env
 composer install
 php artisan key:generate
-php artisan migrate
+php artisan migrate --force
+# If the table says to seed, run:
+# php artisan db:seed
+
 php artisan serve
 ```
 
-- Health: [http://127.0.0.1:8000/exercise](http://127.0.0.1:8000/exercise) should return `ok`.
-- `vendor/`, `node_modules/`, `.env`, and `database/database.sqlite` are **gitignored**; after a fresh clone, run `composer install` in each `laravel/` you need (or `bash scripts/composer-install-all.sh`).
+- Quick health check when the server is up: [http://127.0.0.1:8000/exercise](http://127.0.0.1:8000/exercise) should return `ok`.
+- **Stop the server** with `Ctrl+C`, then `cd` to another chapter’s `laravel/` and run the same block again. Each app is independent (its own `vendor/`, `.env`, and `database/database.sqlite`).
+
+**Default database:** `DB_CONNECTION=sqlite` in `.env.example`; SQLite file is `laravel/database/database.sqlite` (created by the materialize script, or on first migrate). You do not need MySQL/Postgres for these exercises.
+
+**Reset an app’s database:** from that app’s `laravel/` folder, e.g. `rm -f database/database.sqlite && touch database/database.sqlite && php artisan migrate --force` (add `db:seed` if that chapter uses seeders — see table).
+
+**Install PHP dependencies in every chapter’s app at once** (optional, uses a lot of disk and time). From `laravel-best-practices/`:
+
+```bash
+bash scripts/composer-install-all.sh
+```
+
+You still need **`cp` / `.env`**, **`php artisan key:generate`**, and **`php artisan migrate`** in each `laravel/` you actually run; Composer does not do those.
 
 **Rebuilding `laravel/` from source** (after you edit a chapter’s `files/`): from `laravel-best-practices/`, run `php scripts/materialize_laravel_apps.php` then `composer install` in that chapter’s `laravel/` again. Maintainers: keep [\_laravel-skeleton](_laravel-skeleton/) in sync when upgrading the framework, then re-run the materialize script.
-
-**Chapters 14–17** are still mostly **operational** exercises (runbooks, tests, Spatie); the `laravel/` app there has minimal routes and points you at `SOLUTION.md`.
 
 ## Source trees: `files/` and `laravel/`
 
@@ -56,6 +104,6 @@ If you **prefer not** to use the bundled `laravel/`, you can still copy from `fi
 
 ## Course site and GitHub
 
-**View on GitHub** (when wired from `code_examples_repo` in `course-template`) points at this course folder. Run the code from each chapter’s `laravel/` subfolder after `composer install`, as in the [example above](#runnable-laravel-app-in-each-chapter).
+**View on GitHub** (when wired from `code_examples_repo` in `course-template`) points at this course folder. For each exercise app, use the [prerequisites and commands](#runnable-laravel-app-in-each-chapter) and the [per-chapter `cd` paths](#per-chapter-where-to-cd-and-extra-commands).
 
 ← [Half Shell Studios Academy](../README.md)
