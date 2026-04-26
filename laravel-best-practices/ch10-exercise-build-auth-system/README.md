@@ -34,7 +34,7 @@ Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login)
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl). **In this chapter, prefer the browser:** open **`/register`**, then **`/login`** and **`/dashboard`**; the `curl` blocks that follow repeat the same flow for the shell and for teaching raw HTTP and cookies.
+**`GET` / forms:** Open **`/exercise`** in the **browser** (step 1). For **register, login, dashboard, and logout**, prefer the **browser** and the Blade section under **6 — Browser (UX)** below. The **`curl`** blocks are optional: same flow from the **terminal**, with cookie jars and **raw HTTP** teaching. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8010`. In this exercise app, `register`, `login`, and `logout` are **excluded from CSRF** in `bootstrap/app.php` so you can also run the full flow with `curl` and a **cookie jar** (still use real CSRF in your own projects).
 
@@ -51,9 +51,9 @@ Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login)
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8010/exercise"
-```
+In the browser, open **`http://127.0.0.1:8010/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8010/exercise"`
 
 **2 — Register a new user (form body; unique email + `password` / `password_confirmation` ≥ 8 chars)**
 
@@ -84,7 +84,9 @@ curl -sS -b cj -o /dev/null -w "dashboard:%{http_code} URL:%{url_effective}\n" "
 
 Expect: **register `302`**, **dashboard `200`**.
 
-**3 — Dashboard (must send cookies from step 2)**
+**3 — Dashboard (after register/login in the browser, or after step 2 with `cj` from `curl`)**
+
+In the **browser** (same session as register/login), open **`http://127.0.0.1:8010/dashboard`**. Or, from the `curl` register flow, run:
 
 ```bash
 curl -sS -b cj "http://127.0.0.1:8010/dashboard" | head -c 400

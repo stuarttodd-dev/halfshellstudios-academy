@@ -40,8 +40,7 @@ Under **`laravel/database/`** (seeders, factories) and related models/migrations
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** Open **`/exercise`** and **`/seed-demo`** in the **browser**; **db:seed** and tinker are **terminal** steps. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8009`. The main deliverable is running **`db:seed`** and verifying the **exercise** you implement (this repo’s `DemoContentSeeder` body may be empty until you add it; **`RoleSeeder` still runs**).
 
@@ -56,15 +55,15 @@ Under **`laravel/database/`** (seeders, factories) and related models/migrations
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8009/exercise"
-```
+In the browser, open **`http://127.0.0.1:8009/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8009/exercise"`
 
 **2 — Seeder “banner” (JSON)**
 
-```bash
-curl -sS "http://127.0.0.1:8009/seed-demo"
-```
+In the browser, open **`http://127.0.0.1:8009/seed-demo`**. Expect JSON nudging you toward `artisan db:seed`.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8009/seed-demo"`
 
 **3 — The exercise (seeder) — from `ch09-exercise-seed-complex-dataset/laravel/`**
 

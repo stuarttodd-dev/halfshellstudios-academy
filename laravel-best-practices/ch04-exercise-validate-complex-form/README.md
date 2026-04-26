@@ -41,8 +41,7 @@ Under **`laravel/`**: `StoreCheckoutRequest`, `CheckoutController`, `routes/chec
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Unauthenticated `GET`:** open **`/exercise`** in the **browser** (step 1). **`POST /checkout`** (and the dev login cookie) need **`curl`** or a REST client — there is no browser form for the JSON happy path in this sample. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8004`. The [Run the app](#run-the-app) block already runs `db:seed` so you have a **user** and at least one **product** (check `id` in DB or assume product id **1** from seeder). `POST /checkout` is **CSRF-exempt** in `bootstrap/app.php`.
 
@@ -57,9 +56,9 @@ Under **`laravel/`**: `StoreCheckoutRequest`, `CheckoutController`, `routes/chec
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8004/exercise"
-```
+In the browser, open **`http://127.0.0.1:8004/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8004/exercise"`
 
 **2 — Login (local only) — same cookie file for next requests**
 

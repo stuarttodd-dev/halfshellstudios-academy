@@ -35,8 +35,7 @@ php artisan serve --host=127.0.0.1 --port=8014
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** If you run the bundled app, open **`/exercise`** and **`/chapter-14`** in the **browser**; `curl` is optional. The real deliverable is the **write-up** in [SOLUTION.md](SOLUTION.md). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8014`. This chapter is **ops-focused**: the runnable app is a **smoke** surface; the real deliverable is the **runbook and evidence** in **[SOLUTION.md](SOLUTION.md)** (deploy, health checks, rollback story).
 
@@ -48,16 +47,16 @@ php artisan serve --host=127.0.0.1 --port=8014
 | 3 | Open **SOLUTION.md** — you should be able to **execute your runbook** on your target host (VPS, PaaS) without guessing missing steps |
 | 4 | Cross-check: env vars, `php artisan config:cache` / `route:cache` story, and **how you roll back** if a deploy fails |
 
-**1 — Health**
+**1 — Health** (if the app is running)
 
-```bash
-curl -sS "http://127.0.0.1:8014/exercise"
-```
+In the browser, open **`http://127.0.0.1:8014/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8014/exercise"`
 
 **2 — Chapter pointer**
 
-```bash
-curl -sS "http://127.0.0.1:8014/chapter-14"
-```
+In the browser, open **`http://127.0.0.1:8014/chapter-14`**. Expect a small **JSON/HTTP** response from the scaffold.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8014/chapter-14"`
 
 *Vite / asset build / zero-downtime: document in your **SOLUTION.md**, not in this minimal scaffold.*

@@ -38,8 +38,7 @@ Under **`laravel/`**: `Order` model, `orders` migration, `AdminOrderController` 
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (all GETs here):** These routes are not behind auth — open each URL in the **browser**; you’ll see **JSON** in the tab (use a formatter or devtools if you like). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8008`. Run **`php artisan db:seed`** (included in the Run block if you used it) so **orders** exist.
 
@@ -53,21 +52,21 @@ Under **`laravel/`**: `Order` model, `orders` migration, `AdminOrderController` 
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8008/exercise"
-```
+In the browser, open **`http://127.0.0.1:8008/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8008/exercise"`
 
 **2 — Admin orders (JSON)**
 
-```bash
-curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/admin/orders"
-```
+In the browser, open **`http://127.0.0.1:8008/admin/orders`**. Expect JSON (orders with selected columns; `Accept: application/json` is the default in many clients).
+
+*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/admin/orders"`
 
 **3 — Monthly revenue report**
 
-```bash
-curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/reports/monthly-revenue"
-```
+In the browser, open **`http://127.0.0.1:8008/reports/monthly-revenue`**. Expect the aggregate JSON from the report action.
+
+*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/reports/monthly-revenue"`
 
 **4 — Implementation**
 

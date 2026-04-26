@@ -35,8 +35,7 @@ Under **`laravel/`**: `config/pricing.php`, `App\Contracts\DiscountStrategy`, `A
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (all GETs):** Open the URLs in the **browser**; you will see **JSON** for the pricing query. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8012`. The container resolves a **`DiscountStrategy`**; the demo only outputs `subtotal_pence` and `total_pence` from `GET /pricing-demo?subtotal=…`.
 
@@ -52,21 +51,21 @@ Under **`laravel/`**: `config/pricing.php`, `App\Contracts\DiscountStrategy`, `A
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8012/exercise"
-```
+In the browser, open **`http://127.0.0.1:8012/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8012/exercise"`
 
 **2 — Default strategy**
 
-```bash
-curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=10000"
-```
+In the browser, open **`http://127.0.0.1:8012/pricing-demo?subtotal=10000`**. Expect JSON with `subtotal_pence` / `total_pence` (or your lesson’s field names).
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=10000"`
 
 **3 — Edge / comparison**
 
-```bash
-curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=0"
-```
+In the browser, open **`http://127.0.0.1:8012/pricing-demo?subtotal=0`**. Compare with step 2 and the lesson (clamping, etc.).
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=0"`
 
 **4 — Tests**
 

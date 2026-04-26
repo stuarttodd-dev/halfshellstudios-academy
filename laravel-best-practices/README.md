@@ -47,7 +47,7 @@ When the server is running, you can usually **open the same URLs in a browser** 
 
 - **No auth required:** visiting the URL is enough for read-only checks.
 - **Auth required:** if the app exposes **`/login`**, **`/register`**, or **`/_exercise/login`**, sign in **in the browser** and use normal navigation for **GET** flows and form **POST**s (with CSRF where the app expects it). You do **not** need `curl` for those unless you want scripted checks.
-- **Use `curl` (or another HTTP client)** when the lesson shows **POST / PUT / PATCH / DELETE** with JSON, custom headers, status codes, or **cookie jars** for copy-paste reproducibility—or when you are learning **raw HTTP**. The chapter READMEs keep `curl` for those cases; **GET** steps are often easier in the browser.
+- **Use `curl` (or another HTTP client)** when the lesson shows **POST / PUT / PATCH / DELETE** with JSON, custom headers, status codes, or **cookie jars** for copy-paste reproducibility—or when you are learning **raw HTTP**. In each **chapter’s `README.md`**, the **numbered steps** say **in the browser** for **GET**s that are not blocked (including **after** `/_exercise/login` in local, or `/login` where the app has forms), and list **`curl`** as **optional** or for mutating/JSON steps.
 
 **Install Composer deps in every chapter at once** (optional, large download):
 

@@ -40,8 +40,7 @@ You can tick these off as “done” for the tour mini project (details in [SOLU
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser:** This chapter is all **unauthenticated GET**s — use your browser. The `curl` lines under each step are **optional** terminal checks. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8001` (all examples use `http://127.0.0.1:8001`).
 
@@ -55,15 +54,15 @@ Work through these in order. After [Run the app](#run-the-app), the server shoul
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8001/exercise"
-```
+In the browser, open **`http://127.0.0.1:8001/exercise`**. The page should show **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8001/exercise"`
 
 **2 — Hello (Blade)**
 
-```bash
-curl -sS "http://127.0.0.1:8001/hello"
-```
+In the browser, open **`http://127.0.0.1:8001/hello`**. You should see the greeting HTML from the Blade view.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8001/hello"`
 
 **3 — Route inventory (from `ch01-exercise-hello-laravel-app/laravel/`)**
 

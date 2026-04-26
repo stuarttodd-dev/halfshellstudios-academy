@@ -37,10 +37,9 @@ Under **`laravel/`**: `users.is_subscribed` migration, `EnsureUserIsSubscribed` 
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+**Browser (recommended for all GETs):** Nothing here blocks a normal browser. Open **`/exercise`**, then **`/_exercise/login`** (local only — it logs you in and shows a short message), then **`/dashboard`** and **`/billing`** in the same tab/session. For **`POST /billing/plan`**, throttling, and the **copy-pastable** checks that need a **cookie file**, use the **`curl`** blocks below. [Browser vs curl](../README.md#browser-vs-curl).
 
-
-**Port:** `8003`. `POST` to `/billing/plan` is **CSRF-exempt** in this app’s `bootstrap/app.php` so the commands below are copy-pasteable with a cookie jar.
+**Port:** `8003`. `POST` to `/billing/plan` is **CSRF-exempt** in this app’s `bootstrap/app.php` so the `curl` examples work without a token; in a real app you would submit a form with CSRF.
 
 `/_exercise/login` only works when `APP_ENV=local` and `APP_DEBUG` is on (default after setup).
 
@@ -57,17 +56,19 @@ Under **`laravel/`**: `users.is_subscribed` migration, `EnsureUserIsSubscribed` 
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8003/exercise"
-```
+In the browser, open **`http://127.0.0.1:8003/exercise`**. Expect **`ok`**.
 
-**2 — Dev login (session cookie file `cj`)** — you **must** use `-c cj` here so the session is **written**; later commands only need `-b cj` to read it. The path `cj` is **relative to your shell’s current directory** (e.g. `~/cj` if you are in your home folder). If you see **`{"message":"Unauthenticated."}`** on a later request, you are sending **no** or the **wrong** cookies: run step 2 again in the same directory, or use one absolute file for both steps, e.g. `-c /tmp/ch03.cj -b /tmp/ch03.cj` then `-b /tmp/ch03.cj`.
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8003/exercise"`
+
+**2 — Dev login (same browser session as the steps above)** — in the browser, open **`http://127.0.0.1:8003/_exercise/login`**. You should see text that you are logged in (local). Then continue with steps 3–4 **without** closing the tab.
+
+*Cookie-jar / `curl` path (if you are not using the browser for GETs):* you **must** use `-c cj` so the session is **written**; later commands use `-b cj`. The path `cj` is **relative to your current directory**; or use e.g. `-c /tmp/ch03.cj -b /tmp/ch03.cj` consistently. If a later request says **`Unauthenticated`**, re-run the login.
 
 ```bash
 curl -sS -c cj -b cj "http://127.0.0.1:8003/_exercise/login"
 ```
 
-**2b — All-in-one (avoids a stale or missing `cj`)**
+**2b — All-in-one (terminal: login + one POST, avoids a missing cookie file)**
 
 ```bash
 curl -sS -c cj -b cj "http://127.0.0.1:8003/_exercise/login" >/dev/null && \
@@ -76,19 +77,15 @@ curl -sS -X POST -b cj "http://127.0.0.1:8003/billing/plan" \
   -d '{"plan":"premium"}'
 ```
 
-**3 — Dashboard (requires auth)**
+**3 — Dashboard (requires auth)** — in the same browser **after** step 2, open **`http://127.0.0.1:8003/dashboard`**.
 
-```bash
-curl -sS -b cj "http://127.0.0.1:8003/dashboard"
-```
+*Optional (curl):* `curl -sS -b cj "http://127.0.0.1:8003/dashboard"` (if using `cj` from the terminal)
 
-**4 — Billing (requires `subscribed` user)**
+**4 — Billing (requires `subscribed` user)** — in the browser, open **`http://127.0.0.1:8003/billing`**.
 
-```bash
-curl -sS -b cj "http://127.0.0.1:8003/billing"
-```
+*Optional (curl):* `curl -sS -b cj "http://127.0.0.1:8003/billing"`
 
-**5 — Change plan**
+**5 — Change plan (POST — `curl` or API client)**
 
 ```bash
 curl -sS -X POST -b cj "http://127.0.0.1:8003/billing/plan" -H "Content-Type: application/json" -H "Accept: application/json" -d '{"plan":"premium"}'

@@ -35,8 +35,7 @@ Under **`laravel/`**: `StoreLeadRequest`, DTO, `CreateLead` action, `CrmClient` 
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser:** Open **`/exercise`** in the **browser** (step 1). **`POST /leads`** is JSON-only in this walkthrough—use **`curl`** or a REST client (or build a public form in your own work with CSRF). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8013`. The `leads` route is **CSRF-exempt** in this exercise’s `bootstrap/app.php` so a plain `curl` `POST` works for smoke tests. In production you would **not** disable CSRF for public forms.
 
@@ -51,9 +50,9 @@ Under **`laravel/`**: `StoreLeadRequest`, DTO, `CreateLead` action, `CrmClient` 
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8013/exercise"
-```
+In the browser, open **`http://127.0.0.1:8013/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8013/exercise"`
 
 **2 — Create a lead (expect 201 + id)**
 

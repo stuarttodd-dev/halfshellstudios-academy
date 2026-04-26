@@ -34,8 +34,7 @@ Under **`laravel/`**: `posts` migration (soft deletes, `user_id` FK), `Post` mod
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** Open **`/exercise`** and **`/posts-demo`** in the **browser** (JSON for the demo is fine in the tab). Tinker and artisan stay in the **terminal**. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8006`.
 
@@ -49,15 +48,15 @@ Under **`laravel/`**: `posts` migration (soft deletes, `user_id` FK), `Post` mod
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8006/exercise"
-```
+In the browser, open **`http://127.0.0.1:8006/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8006/exercise"`
 
 **2 — Demo route (JSON count)**
 
-```bash
-curl -sS "http://127.0.0.1:8006/posts-demo"
-```
+In the browser, open **`http://127.0.0.1:8006/posts-demo`**. The tab shows JSON with a `count` field.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8006/posts-demo"`
 
 **3 — Create a post in tinker (from `laravel/`)** — this app does not ship a `PostFactory` by default, so create a `User` then a `Post` with a unique `slug`:
 

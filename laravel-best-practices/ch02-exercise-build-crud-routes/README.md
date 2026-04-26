@@ -38,10 +38,9 @@ php artisan serve --host=127.0.0.1 --port=8002
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+**Browser (GET):** The API is not behind auth — open the **GET** URLs in the browser to see `ok`, JSON lists, a single product, or a **404** page (e.g. non-numeric id). Use **`curl`** for **POST / PATCH / DELETE** and for exact status codes. [Browser vs curl](../README.md#browser-vs-curl).
 
-
-**Port:** `8002`. Work through the steps in order. Use **separate** terminal tabs if you like: one for `php artisan serve`, one for `curl`.
+**Port:** `8002`. Work through the steps in order. Use **separate** terminal tabs if you like: one for `php artisan serve`, one for `curl` where a step is mutating.
 
 ### 0 — Preconditions
 
@@ -58,19 +57,15 @@ You should see `GET/POST` on `products`, and `GET/PATCH/DELETE` on `products/{pr
 
 ### 2 — Health
 
-```bash
-curl -sS "http://127.0.0.1:8002/exercise"
-```
+In the browser, open **`http://127.0.0.1:8002/exercise`**. Expect the plain text **`ok`**.
 
-Expect: the plain text `ok`.
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8002/exercise"`
 
 ### 3 — List products (start empty or after you delete all)
 
-```bash
-curl -sS -H "Accept: application/json" "http://127.0.0.1:8002/products"
-```
+In the browser, open **`http://127.0.0.1:8002/products`**. The tab shows **JSON** (`{"data":[]}` or a list) — you may need “View source” or a JSON formatter to read it.
 
-Expect: `{"data":[]}` or an array of products.
+*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8002/products"`
 
 ### 4 — Create a product
 
@@ -84,19 +79,15 @@ Expect: **201** and JSON with `data.id` (an integer). **Note that `id`** as `$ID
 
 ### 5 — Show that product (replace `1` with `$ID` if different)
 
-```bash
-curl -sS -H "Accept: application/json" "http://127.0.0.1:8002/products/1"
-```
+In the browser, open **`http://127.0.0.1:8002/products/1`** (or your real id). Expect **200** and JSON for that product, or the framework’s **404** if the id does not exist.
 
-Expect: **200** and the product JSON. **404** if the id does not exist.
+*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8002/products/1"`
 
 ### 6 — Non-numeric id (route constraint + binding)
 
-```bash
-curl -sS -i -H "Accept: application/json" "http://127.0.0.1:8002/products/abc"
-```
+In the browser, open **`http://127.0.0.1:8002/products/abc`**. Expect a **404** (non-numeric segment does not match `whereNumber`).
 
-Expect: **404** (non-numeric segment does not match `whereNumber`).
+*Optional (terminal, shows status line):* `curl -sS -i -H "Accept: application/json" "http://127.0.0.1:8002/products/abc"`
 
 ### 7 — Update (PATCH) (replace `1` with `$ID` as needed)
 
@@ -118,9 +109,9 @@ Expect: **204** No Content (or the empty response your controller returns).
 
 ### 9 — List again (confirm row gone)
 
-```bash
-curl -sS -H "Accept: application/json" "http://127.0.0.1:8002/products"
-```
+In the browser, re-open **`http://127.0.0.1:8002/products`**. The list should reflect the delete.
+
+*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8002/products"`
 
 ### 10 — Read the implementation (optional but recommended)
 

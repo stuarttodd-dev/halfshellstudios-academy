@@ -33,8 +33,7 @@ php artisan serve --host=127.0.0.1 --port=8015
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** If the bundled app is up, use **`/exercise`** and **`/chapter-15`** in the **browser**; `curl` is optional. The deliverable is your **SOLUTION.md** / write-up. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8015`. The hand-in is a **written** description of a queue-backed feature (idempotency, failures, `QUEUE_CONNECTION`, Horizon if applicable). The bundled app is a **thin** scaffold; operational detail lives in **[SOLUTION.md](SOLUTION.md)**.
 
@@ -46,14 +45,14 @@ php artisan serve --host=127.0.0.1 --port=8015
 | 3 | In **SOLUTION.md** / your write-up: **worker command** (or supervisor), **how you spot poison messages**, and **idempotency** for your job (what happens on retry) |
 | 4 | (On your own machine) Run `php artisan queue:work` (or your chosen approach) against the sample job(s) in this repo if present — *if the scaffold has no real job, state that in your doc and test in a branch where you add one* |
 
-**1 — Health**
+**1 — Health** (if the app is running)
 
-```bash
-curl -sS "http://127.0.0.1:8015/exercise"
-```
+In the browser, open **`http://127.0.0.1:8015/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8015/exercise"`
 
 **2 — Chapter pointer**
 
-```bash
-curl -sS "http://127.0.0.1:8015/chapter-15"
-```
+In the browser, open **`http://127.0.0.1:8015/chapter-15`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8015/chapter-15"`

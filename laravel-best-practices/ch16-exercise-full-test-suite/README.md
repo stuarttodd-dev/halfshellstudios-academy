@@ -33,8 +33,7 @@ php artisan serve --host=127.0.0.1 --port=8016
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** If the bundled app is up, open **`/exercise`** and **`/chapter-16`** in the **browser**; `curl` is optional. The main work is **tests** + [SOLUTION.md](SOLUTION.md). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8016`. The course asks for a **test strategy + CI** narrative; use **[SOLUTION.md](SOLUTION.md)** for the hand-in. The `laravel/` app still gives you a **concrete** `php artisan test` pass/fail.
 
@@ -47,17 +46,17 @@ php artisan serve --host=127.0.0.1 --port=8016
 | 4 | In **SOLUTION.md**: your **test pyramid** (unit vs feature), **what runs in CI** vs local-only, and a sample **CI YAML** or bullet list of jobs |
 | 5 | (Optional) `php artisan test --parallel` if your app supports it — note any SQLite caveats from the course |
 
-**1 — Health**
+**1 — Health** (if the app is running)
 
-```bash
-curl -sS "http://127.0.0.1:8016/exercise"
-```
+In the browser, open **`http://127.0.0.1:8016/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8016/exercise"`
 
 **2 — Chapter pointer**
 
-```bash
-curl -sS "http://127.0.0.1:8016/chapter-16"
-```
+In the browser, open **`http://127.0.0.1:8016/chapter-16`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8016/chapter-16"`
 
 **3 — Test suite**
 

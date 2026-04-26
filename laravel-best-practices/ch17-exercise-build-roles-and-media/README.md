@@ -33,8 +33,7 @@ php artisan serve --host=127.0.0.1 --port=8017
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** If the bundled app is up, open **`/exercise`** and **`/chapter-17`** in the **browser**; `curl` is optional. You will spend most of your time in **SOLUTION.md**, tests, and the UI you build. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8017`. The capstone expects **package integration** (Spatie permission + media library style), seeds where needed, and a **test matrix** in your solution. This repo’s `laravel/` is intentionally **thin** — follow **[SOLUTION.md](SOLUTION.md)** for the full checklist, then test **your** app where you add those packages.
 
@@ -47,14 +46,14 @@ php artisan serve --host=127.0.0.1 --port=8017
 | 4 | In your feature branch: `php artisan test` after wiring — green before you call the capstone done |
 | 5 | Manual: upload a file in the UI you build, verify **storage** and **media** records (or Spatie’s tables) in SQLite |
 
-**1 — Health**
+**1 — Health** (if the app is running)
 
-```bash
-curl -sS "http://127.0.0.1:8017/exercise"
-```
+In the browser, open **`http://127.0.0.1:8017/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8017/exercise"`
 
 **2 — Chapter pointer**
 
-```bash
-curl -sS "http://127.0.0.1:8017/chapter-17"
-```
+In the browser, open **`http://127.0.0.1:8017/chapter-17`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8017/chapter-17"`

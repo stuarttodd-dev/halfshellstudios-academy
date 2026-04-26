@@ -34,8 +34,7 @@ Under **`laravel/`**: migrations for `posts`, `tags`, `post_tag`, `comments` (an
 
 ## How to test everything
 
-**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
-
+**Browser (GETs):** **`/exercise`** and **`/posts`** are unauthenticated; open them in the **browser** (the post index is a small HTML fragment, not always a full document). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8007`. After migrate, you may have **no** posts — still expect **200** HTML. Add posts via tinker or factories, then re-open `/posts` and watch **N+1** / query count in the lesson (Debugbar / `DB::listen`).
 
@@ -49,15 +48,13 @@ Under **`laravel/`**: migrations for `posts`, `tags`, `post_tag`, `comments` (an
 
 **1 — Health**
 
-```bash
-curl -sS "http://127.0.0.1:8007/exercise"
-```
+In the browser, open **`http://127.0.0.1:8007/exercise`**. Expect **`ok`**.
+
+*Optional (terminal):* `curl -sS "http://127.0.0.1:8007/exercise"`
 
 **2 — Post index (this sample is a small `<ul>` fragment, not a full `<!DOCTYPE>` page)**
 
-```bash
-curl -sS "http://127.0.0.1:8007/posts" | head -c 500
-```
+In the browser, open **`http://127.0.0.1:8007/posts`**. “View page source” if you need to see the list markup; or use a terminal snippet to peek: `curl -sS "http://127.0.0.1:8007/posts" | head -c 500`
 
 **3 — Tinker: create a user, post, tag, attach, and comment, then re-open `/posts` in a browser** (one line; no `PostFactory` in this sample):
 
