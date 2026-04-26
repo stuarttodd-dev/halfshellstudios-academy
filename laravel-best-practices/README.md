@@ -33,7 +33,11 @@ php artisan migrate --force
 php artisan serve --host=127.0.0.1 --port=8004
 ```
 
-**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter’s `README.md`** includes the same setup **with that chapter’s folder, port, and `db:seed` when needed**; use the chapter README for **what to open, curl, or test** (all URLs use that chapter’s port).
+**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter’s `README.md`** includes the same setup **with that chapter’s folder, port, and `db:seed` when needed**; a short **prerequisites** line, **“Lesson acceptance (course)”** (maps to the hand-in), and **“How to test everything”** (ordered checks you can run locally).
+
+### CSRF in exercise apps
+
+A few chapters relax CSRF for specific routes in `laravel/bootstrap/app.php` so state-changing `curl` examples work without a token. **Do not** copy that pattern to production; it is for local **learning and smoke tests** only.
 
 **Install Composer deps in every chapter at once** (optional, large download):
 

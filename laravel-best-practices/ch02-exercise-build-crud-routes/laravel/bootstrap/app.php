@@ -11,7 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // So local `curl` in the chapter README can exercise the JSON API (CSRF is web middleware).
+        $middleware->validateCsrfTokens(except: [
+            'products',
+            'products/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

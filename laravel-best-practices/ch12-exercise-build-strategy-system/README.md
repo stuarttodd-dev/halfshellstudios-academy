@@ -2,6 +2,8 @@
 
 **Course page:** [Build a strategy system bound in the container](https://laravel.learnio.dev/learn/sections/chapter-12-service-container-and-providers/exercise-build-strategy-system)
 
+**Prerequisites:** [Root README](../README.md#prerequisites-install-once-on-your-machine) — `php artisan test` must run from **`ch12-…/laravel`**.
+
 ## Run the app
 
 From `laravel-best-practices/`:
@@ -23,8 +25,48 @@ php artisan serve --host=127.0.0.1 --port=8012
 
 Under **`laravel/`**: `config/pricing.php`, `App\Contracts\DiscountStrategy`, `App\Services\Pricing\*` strategies, `AppServiceProvider` binding, `routes/pricing-demo.php` → `GET /pricing-demo?subtotal=10000`, `tests/Feature/PricingStrategyTest.php`.
 
-## How to test
+### Lesson acceptance (course)
 
-1. **Health:** `GET /exercise` → `ok`.
-2. **Automated:** `php artisan test --filter=PricingStrategyTest` — config driver + container swap behaviour.
-3. **HTTP:** [http://127.0.0.1:8012/pricing-demo?subtotal=10000](http://127.0.0.1:8012/pricing-demo?subtotal=10000) — response should follow the selected strategy; toggle `PRICING_STRATEGY` in `.env` and clear config cache if you use one (`php artisan config:clear`).
+- **Contract + strategies:** a `DiscountStrategy` interface and two or more concrete classes under a clear namespace.
+- **Container binding** in a provider: changing the default implementation changes the JSON from `/pricing-demo` without editing the controller.
+- **Tests** assert the **wired** strategy behaviour the course asked for (run `PricingStrategyTest` below).
+
+---
+
+## How to test everything
+
+**Port:** `8012`. The container resolves a **`DiscountStrategy`**; the demo only outputs `subtotal_pence` and `total_pence` from `GET /pricing-demo?subtotal=…`.
+
+| Step | Check |
+| ---- | ----- |
+| 0 | Migrated, server **8012** |
+| 1 | `/exercise` → `ok` |
+| 2 | `GET /pricing-demo?subtotal=10000` — JSON with pence fields |
+| 3 | Try `subtotal=0` and a **large** value — still **200** JSON (strategy math may clamp or not; compare with lesson) |
+| 4 | **Swap binding** in `AppServiceProvider` to another strategy, hit the same URL — `total_pence` should change (the point of the pattern) |
+| 5 | `php artisan test --filter=PricingStrategyTest` — green |
+| 6 | Read `config/pricing.php` and `app/Services/Pricing/*` for mapping keys → classes |
+
+**1 — Health**
+
+```bash
+curl -sS "http://127.0.0.1:8012/exercise"
+```
+
+**2 — Default strategy**
+
+```bash
+curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=10000"
+```
+
+**3 — Edge / comparison**
+
+```bash
+curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=0"
+```
+
+**4 — Tests**
+
+```bash
+cd ch12-exercise-build-strategy-system/laravel && php artisan test --filter=PricingStrategyTest
+```

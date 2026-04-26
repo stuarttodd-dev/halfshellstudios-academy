@@ -2,6 +2,8 @@
 
 **Course page:** [Tighten a slow list endpoint and prove the win with query counts](https://laravel.learnio.dev/learn/sections/chapter-8-query-builder-vs-eloquent/exercise-optimise-queries)
 
+**Prerequisites:** [Root README](../README.md#prerequisites-install-once-on-your-machine) — you **need** [Run the app](#run-the-app) with `db:seed` so `orders` exist.
+
 ## Run the app
 
 Seeded orders + users make the admin list meaningful.
@@ -26,10 +28,45 @@ php artisan serve --host=127.0.0.1 --port=8008
 
 Under **`laravel/`**: `Order` model, `orders` migration, `AdminOrderController` (filtered query + `with` + limit), optional `MonthlyRevenueReportController`, index migration for `status`/`created_at`, routes under `routes/solution.php`.
 
-## How to test
+### Lesson acceptance (course)
 
-1. **Health:** `GET /exercise` → `ok`.
-2. **List endpoint:** open the admin orders route from `routes/solution.php` (or `php artisan route:list --path=admin`) — list should load without loading every row into memory.
-3. **Query count:** enable `DB::listen` in `AppServiceProvider` (temporarily) or use Debugbar/Telescope; compare to the “load everything” anti-pattern in the lesson.
-4. **EXPLAIN (optional):** on MySQL/Postgres in a real environment, `EXPLAIN` the indexed query; SQLite in this repo is for convenience only.
-5. **Revenue report:** if implemented, hit the report route and confirm aggregate SQL shape.
+- **Narrow the query** for the admin list: `select` only needed columns, `with` the relations you need, `limit` / pagination as the lesson says — compare to a “load the world” version.
+- **Index migration** (if the course required it) matches your filter / sort column(s).
+- **Cache or aggregate** endpoint (here `/reports/monthly-revenue`) should behave as described in the lesson (hit it twice, observe cached behaviour if you wired `Cache`).
+
+---
+
+## How to test everything
+
+**Port:** `8008`. Run **`php artisan db:seed`** (included in the Run block if you used it) so **orders** exist.
+
+| Step | Check |
+| ---- | ----- |
+| 0 | Migrated, seeded, server **8008** |
+| 1 | `/exercise` → `ok` |
+| 2 | `GET /admin/orders` — JSON list (limited columns, with `user`) |
+| 3 | `GET /reports/monthly-revenue` — JSON aggregate (uses cache in controller) |
+| 4 | Lesson: compare query count to “load everything” anti-pattern (Debugbar / `DB::listen`) |
+
+**1 — Health**
+
+```bash
+curl -sS "http://127.0.0.1:8008/exercise"
+```
+
+**2 — Admin orders (JSON)**
+
+```bash
+curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/admin/orders"
+```
+
+**3 — Monthly revenue report**
+
+```bash
+curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/reports/monthly-revenue"
+```
+
+**4 — Implementation**
+
+- `app/Http/Controllers/AdminOrderController.php` — `select`, `with`, `limit`.
+- Migrations for index on `status` + `created_at` (when present).

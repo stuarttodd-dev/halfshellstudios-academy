@@ -2,6 +2,8 @@
 
 **Course page:** [Build a complete Eloquent model layer for a blog post domain](https://laravel.learnio.dev/learn/sections/chapter-6-eloquent-models-migrations/exercise-build-model-layer)
 
+**Prerequisites:** [Root README](../README.md#prerequisites-install-once-on-your-machine) — the `/posts-demo` check needs **migrated** tables; a row is not created until you use the tinker line below or your own seeder.
+
 ## Run the app
 
 From `laravel-best-practices/`:
@@ -23,9 +25,43 @@ php artisan serve --host=127.0.0.1 --port=8006
 
 Under **`laravel/`**: `posts` migration (soft deletes, `user_id` FK), `Post` model with `fillable`, `casts`, `SoftDeletes`, `scopePublished`, and routes in `routes/solution.php` as needed for the lesson.
 
-## How to test
+### Lesson acceptance (course)
 
-1. **Health:** `GET /exercise` → `ok`.
-2. **Migrate:** `php artisan migrate --force` (already run by setup).
-3. **Tinker:** `php artisan tinker` — `Post::factory()->create([...]); Post::published()->count();` (adjust for your factory/attributes).
-4. **Code review:** open `app/Models/Post.php` and confirm mass assignment and scopes match the lesson checklist.
+- **Model API:** `fillable` (or explicit `$guarded` pattern from the course), `casts`, **`SoftDeletes`**, and at least one **`scope*`** the lesson names (e.g. `published()`).
+- **Prove it:** `/posts-demo` `count` increases after you insert a `Post` (tinker in this README) or via your factory once you add one.
+
+---
+
+## How to test everything
+
+**Port:** `8006`.
+
+| Step | Check |
+| ---- | ----- |
+| 0 | Migrated, server **8006** |
+| 1 | `/exercise` → `ok` |
+| 2 | `/posts-demo` returns JSON `count` (may be `0` until you add posts) |
+| 3 | **Tinker / factory** — create `Post` rows, re-hit `/posts-demo` and see `count` increase |
+| 4 | Model: `Post` fillable, casts, `scopePublished`, soft deletes (per your migration) |
+
+**1 — Health**
+
+```bash
+curl -sS "http://127.0.0.1:8006/exercise"
+```
+
+**2 — Demo route (JSON count)**
+
+```bash
+curl -sS "http://127.0.0.1:8006/posts-demo"
+```
+
+**3 — Create a post in tinker (from `laravel/`)** — this app does not ship a `PostFactory` by default, so create a `User` then a `Post` with a unique `slug`:
+
+```bash
+cd ch06-exercise-build-model-layer/laravel && php artisan tinker --execute='$u = \App\Models\User::factory()->create(); \App\Models\Post::query()->create(["user_id" => $u->id, "title" => "Demo", "slug" => "demo-".time(), "body" => "Hi", "is_published" => 1, "published_at" => now()]);'
+```
+
+Run step 2 again — `count` should be ≥ 1.
+
+**4 — Read `app/Models/Post.php`** against the lesson checklist (mass assignment, scopes, `SoftDeletes`).

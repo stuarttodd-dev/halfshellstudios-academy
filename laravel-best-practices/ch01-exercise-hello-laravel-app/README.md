@@ -2,6 +2,8 @@
 
 **Course page:** [mini-project-hello-laravel-app](https://laravel.learnio.dev/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app)
 
+**Prerequisites:** PHP 8.3+, Composer, SQLite (PDO) — [install path list](../README.md#prerequisites-install-once-on-your-machine). Run the commands below from `laravel-best-practices/`, not the monorepo root.
+
 ## Run the app
 
 From `laravel-best-practices/`:
@@ -18,17 +20,58 @@ php artisan migrate --force
 php artisan serve --host=127.0.0.1 --port=8001
 ```
 
-
 ## What’s in the app
 
-The runnable solution is under **`laravel/`** — including `routes/solution.php` with **`GET /hello`** and `resources/views/hello.blade.php`. `routes/web.php` loads the health routes and `solution.php`.
+The runnable solution is under **`laravel/`** — `routes/solution.php` with **`GET /hello`** and `resources/views/hello.blade.php`. `routes/web.php` loads the health routes and `solution.php`.
 
-A parallel **`files/`** tree holds the same paths for quick reference. After **`rsync -a files/ laravel/`** (if you work from `files/`), the app matches; see the [main README](../README.md#runnable-app-in-each-chapter).
+A parallel **`files/`** tree holds the same paths for quick reference.
 
-## How to test
+### Lesson acceptance (map this to the course)
 
-1. **Health:** [http://127.0.0.1:8001/exercise](http://127.0.0.1:8001/exercise) should return the text `ok`.
-2. **Hello page:** [http://127.0.0.1:8001/hello](http://127.0.0.1:8001/hello) should render the “Hello, Laravel” Blade view.
-3. Compare with the lesson: you should be able to point a new developer at `routes/web.php` + `routes/solution.php` and explain the request lifecycle at a high level.
+You can tick these off as “done” for the tour mini project (details in [SOLUTION.md](SOLUTION.md)):
 
-See [SOLUTION.md](SOLUTION.md) for the learning outcomes check. Global commands: [main README](../README.md).
+- App boots with `php artisan serve` on the **8001** (or the port you choose — keep commands consistent).
+- **`GET /exercise`** returns `ok` and **`GET /hello`** returns a Blade view (a short HTML greeting, not 500/404).
+- You can name **`routes/*` + `web.php` wiring** and the flow from the lesson questions.
+
+**If you get stuck:** `cd` to `ch01-…/laravel` and confirm `php artisan` runs; re-run the [Run the app](#run-the-app) block; ensure nothing else is bound to the same port.
+
+---
+
+## How to test everything
+
+**Port:** `8001` (all examples use `http://127.0.0.1:8001`).
+
+Work through these in order. After [Run the app](#run-the-app), the server should be up and migrations applied.
+
+| Step | What to do | What you should see |
+| ---- | ---------- | ------------------- |
+| 1 | Health route responds | `ok` plain text |
+| 2 | Hello route responds | HTML with the Blade “Hello” view |
+| 3 | Optional: `route:list` | `exercise` and `hello` registered as you expect |
+
+**1 — Health**
+
+```bash
+curl -sS "http://127.0.0.1:8001/exercise"
+```
+
+**2 — Hello (Blade)**
+
+```bash
+curl -sS "http://127.0.0.1:8001/hello"
+```
+
+**3 — Route inventory (from `ch01-exercise-hello-laravel-app/laravel/`)**
+
+```bash
+cd ch01-exercise-hello-laravel-app/laravel && php artisan route:list
+```
+
+**4 — Outcomes in the code**
+
+- `routes/web.php` — loads `solution.php` when present.
+- `routes/solution.php` — `GET /hello` → `view('hello')`.
+- `resources/views/hello.blade.php` — the greeting.
+
+See [SOLUTION.md](SOLUTION.md) for the learning goals. General setup: [main README](../README.md).
