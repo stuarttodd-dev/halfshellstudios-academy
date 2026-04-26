@@ -1,13 +1,8 @@
 # `_laravel-skeleton` (Half Shell Studios Academy)
 
-This directory is a **Laravel 13** app used as a **template**. It is **not** the place learners run the course from day to day.
+Laravel 13 app used as a **template** for each `chNN-exercise-*/laravel/`. **Course setup, `files/` vs `laravel/`, the materialize script, and a per-chapter `cd` table** all live in **`laravel-best-practices/README.md`** in this repository — work from there, not this folder in isolation. After editing the skeleton, run `php scripts/materialize_laravel_apps.php` with your shell’s working directory set to `laravel-best-practices/`.
 
-## How it fits the repo
-
-- [`php scripts/materialize_laravel_apps.php`](https://github.com/stuarttodd-dev/halfshellstudios-academy/blob/main/laravel-best-practices/scripts/materialize_laravel_apps.php) (run from the `laravel-best-practices/` directory) copies this folder to each `chNN-exercise-*/laravel/`, merges that chapter’s `files/` on top, and wires `routes/web.php` to `routes/solution.php`. *Source-trees* are explained in the [parent README #source-trees](https://github.com/stuarttodd-dev/halfshellstudios-academy/blob/main/laravel-best-practices/README.md#source-trees-files-and-laravel).
-- **Learners and instructors:** use the [Laravel best practices README](https://github.com/stuarttodd-dev/halfshellstudios-academy/blob/main/laravel-best-practices/README.md) (prerequisites, **per-chapter `cd` table**, `composer` / `.env` / `migrate` / `serve` for every exercise). In a local clone, from a path like `ch02-exercise-…/laravel/`, that file is at `../../README.md`.
-
-## Working on the skeleton (maintainers)
+## Working on the skeleton
 
 1. `cd` to **this** directory (`_laravel-skeleton`).
 
@@ -22,9 +17,7 @@ This directory is a **Laravel 13** app used as a **template**. It is **not** the
    php artisan serve
    ```
 
-3. `vendor/` and `node_modules/` are **not** committed; clone/fresh checkouts need `composer install` (and `npm install` only if you work on the Vite frontend).
-
-4. After changing the skeleton, from `laravel-best-practices/` run `php scripts/materialize_laravel_apps.php`, then `composer install` in any `ch*-exercise-*/laravel` apps you use.
+3. `vendor/` and `node_modules/` are **not** committed; clone/fresh checkouts need `composer install` (and `npm install` only if you work on the Vite frontend). After you change this tree, rematerialise (see intro) and run `composer install` again in any `ch*/laravel` apps you use.
 
 ## Customisations in this copy
 
