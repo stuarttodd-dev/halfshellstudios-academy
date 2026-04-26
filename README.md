@@ -19,7 +19,7 @@ Course materials and learning paths from Half Shell Studios.
 | [PHP and testing](php-and-testing/README.md) | Automated testing practices for PHP projects |
 | [PHP design patterns](php-design-patterns/README.md) | Common patterns and how they apply in PHP |
 | [PHP to JavaScript](php-to-js/README.md) | Moving concepts from PHP to modern JavaScript |
-| [PHP to Laravel](php-to-laravel/README.md) | Laravel structure, conventions, and workflows |
+| [Laravel best practices](laravel-best-practices/README.md) | Laravel structure, conventions, and exercise solutions (PHP to Laravel course) |
 | [PHP to React](php-to-react/README.md) | Thinking in components and React from a PHP background |
 | [PHP to SQL](php-to-sql/README.md) | Databases and SQL for PHP developers |
 | [PHP to TypeScript](php-to-ts/README.md) | Types, tooling, and TS patterns vs PHP |

@@ -1,0 +1,19 @@
+# Per-chapter Laravel apps (from _laravel-skeleton) — do not commit generated artefacts
+*/laravel/vendor/
+*/laravel/node_modules/
+*/laravel/.env
+*/laravel/.env.backup
+*/laravel/.phpunit.result.cache
+*/laravel/public/hot
+*/laravel/public/storage
+*/laravel/public/build
+*/laravel/storage/*.key
+*/laravel/bootstrap/cache/*
+!*/laravel/bootstrap/cache/.gitignore
+*/laravel/database/database.sqlite
+*/laravel/database/database.sqlite-journal
+*/laravel/.DS_Store
+
+# Optional: keep skeleton without vendor; maintainers re-run `composer install` in _laravel-skeleton
+# to regenerate lock file when upgrading Laravel. Comment out if you commit vendor in CI.
+# _laravel-skeleton/vendor/

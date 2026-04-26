@@ -1,0 +1,9 @@
+Add to the array returned from config/services.php:
+
+    'crm' => [
+        'base_url' => env('CRM_BASE_URL', 'https://example.test'),
+    ],
+
+In AppServiceProvider::register():
+
+    $this->app->bind(\App\Contracts\CrmClient::class, \App\Services\HttpCrmClient::class);
