@@ -38,6 +38,9 @@ php artisan serve --host=127.0.0.1 --port=8002
 
 ## How to test everything
 
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
+
 **Port:** `8002`. Work through the steps in order. Use **separate** terminal tabs if you like: one for `php artisan serve`, one for `curl`.
 
 ### 0 — Preconditions

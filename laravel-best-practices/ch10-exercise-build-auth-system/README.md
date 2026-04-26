@@ -34,7 +34,9 @@ Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login)
 
 ## How to test everything
 
-**Port:** `8010`. In this exercise app, `register`, `login`, and `logout` are **excluded from CSRF** in `bootstrap/app.php` so you can run the full flow with `curl` and a **cookie jar** (still use real CSRF in your own projects).
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl). **In this chapter, prefer the browser:** open **`/register`**, then **`/login`** and **`/dashboard`**; the `curl` blocks that follow repeat the same flow for the shell and for teaching raw HTTP and cookies.
+
+**Port:** `8010`. In this exercise app, `register`, `login`, and `logout` are **excluded from CSRF** in `bootstrap/app.php` so you can also run the full flow with `curl` and a **cookie jar** (still use real CSRF in your own projects).
 
 | Step | Check |
 | ---- | ----- |

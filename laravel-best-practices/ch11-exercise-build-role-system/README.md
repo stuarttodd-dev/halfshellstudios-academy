@@ -34,6 +34,9 @@ Under **`laravel/`**: org + project migrations, `Organisation` / `Project` / `Us
 
 ## How to test everything
 
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
+
 **Port:** `8011`. `projects` and `projects/*` are **CSRF-exempt** in `bootstrap/app.php` (exercise only). You still need a **session** (logged-in user): in **local** dev, call **`GET /_exercise/login`** once, then keep the **cookie jar** for JSON routes below.
 
 | Step | Check |

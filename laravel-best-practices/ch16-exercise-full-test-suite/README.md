@@ -33,6 +33,9 @@ php artisan serve --host=127.0.0.1 --port=8016
 
 ## How to test everything
 
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
+
 **Port:** `8016`. The course asks for a **test strategy + CI** narrative; use **[SOLUTION.md](SOLUTION.md)** for the hand-in. The `laravel/` app still gives you a **concrete** `php artisan test` pass/fail.
 
 | Step | Check |

@@ -37,6 +37,9 @@ Under **`laravel/`**: `users.is_subscribed` migration, `EnsureUserIsSubscribed` 
 
 ## How to test everything
 
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
+
 **Port:** `8003`. `POST` to `/billing/plan` is **CSRF-exempt** in this app’s `bootstrap/app.php` so the commands below are copy-pasteable with a cookie jar.
 
 `/_exercise/login` only works when `APP_ENV=local` and `APP_DEBUG` is on (default after setup).

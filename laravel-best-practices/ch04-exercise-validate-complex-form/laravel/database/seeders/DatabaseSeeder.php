@@ -10,11 +10,16 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        if (! User::query()->where('email', 'test@example.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
+        }
 
-        Product::query()->create(['name' => 'Demo', 'price' => 9.99]);
+        Product::query()->firstOrCreate(
+            ['name' => 'Demo'],
+            ['price' => 9.99],
+        );
     }
 }

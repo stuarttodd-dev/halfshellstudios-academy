@@ -40,6 +40,9 @@ You can tick these off as “done” for the tour mini project (details in [SOLU
 
 ## How to test everything
 
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
+
 **Port:** `8001` (all examples use `http://127.0.0.1:8001`).
 
 Work through these in order. After [Run the app](#run-the-app), the server should be up and migrations applied.

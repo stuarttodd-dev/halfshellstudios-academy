@@ -33,11 +33,21 @@ php artisan migrate --force
 php artisan serve --host=127.0.0.1 --port=8004
 ```
 
-**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter’s `README.md`** includes the same setup **with that chapter’s folder, port, and `db:seed` when needed**; a short **prerequisites** line, **“Lesson acceptance (course)”** (maps to the hand-in), and **“How to test everything”** (ordered checks you can run locally).
+Re-running `db:seed` is **idempotent** in these exercise apps: it will not try to re-insert the same `test@example.com` user, duplicate the ch4 demo product, the ch5 posts, the ch8 orders, etc. For a **blank database**, use `php artisan migrate:fresh --force` and then `db:seed` as needed.
+
+**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter’s `README.md`** includes the same setup **with that chapter’s folder, port, and `db:seed` when needed**; a short **prerequisites** line, **“Lesson acceptance (course)”** (maps to the hand-in), and **“How to test everything”** (ordered checks). Prefer the **browser** for simple **GET** routes and (where available) **login in the browser**; see [Browser vs curl](#browser-vs-curl).
 
 ### CSRF in exercise apps
 
 A few chapters relax CSRF for specific routes in `laravel/bootstrap/app.php` so state-changing `curl` examples work without a token. **Do not** copy that pattern to production; it is for local **learning and smoke tests** only.
+
+### Browser vs curl
+
+When the server is running, you can usually **open the same URLs in a browser** instead of using `curl`—especially for **GET** routes (health checks, HTML pages, JSON endpoints you can read in the tab or in devtools).
+
+- **No auth required:** visiting the URL is enough for read-only checks.
+- **Auth required:** if the app exposes **`/login`**, **`/register`**, or **`/_exercise/login`**, sign in **in the browser** and use normal navigation for **GET** flows and form **POST**s (with CSRF where the app expects it). You do **not** need `curl` for those unless you want scripted checks.
+- **Use `curl` (or another HTTP client)** when the lesson shows **POST / PUT / PATCH / DELETE** with JSON, custom headers, status codes, or **cookie jars** for copy-paste reproducibility—or when you are learning **raw HTTP**. The chapter READMEs keep `curl` for those cases; **GET** steps are often easier in the browser.
 
 **Install Composer deps in every chapter at once** (optional, large download):
 

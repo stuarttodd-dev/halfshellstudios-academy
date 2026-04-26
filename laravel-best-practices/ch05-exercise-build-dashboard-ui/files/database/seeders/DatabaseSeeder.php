@@ -10,22 +10,31 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $u = User::factory()->create();
-        Post::query()->create([
-            'user_id' => $u->id,
-            'title' => 'Hello',
-            'slug' => 'hello',
-            'body' => 'Body',
-            'is_published' => true,
-            'published_at' => now(),
-        ]);
-        Post::query()->create([
-            'user_id' => $u->id,
-            'title' => 'Draft',
-            'slug' => 'draft',
-            'body' => 'WIP',
-            'is_published' => false,
-            'published_at' => null,
-        ]);
+        $u = User::query()->where('email', 'dashboard-seed@example.com')->first()
+            ?? User::factory()->create([
+                'name' => 'Dashboard user',
+                'email' => 'dashboard-seed@example.com',
+            ]);
+
+        Post::query()->updateOrCreate(
+            ['slug' => 'hello'],
+            [
+                'user_id' => $u->id,
+                'title' => 'Hello',
+                'body' => 'Body',
+                'is_published' => true,
+                'published_at' => now(),
+            ],
+        );
+        Post::query()->updateOrCreate(
+            ['slug' => 'draft'],
+            [
+                'user_id' => $u->id,
+                'title' => 'Draft',
+                'body' => 'WIP',
+                'is_published' => false,
+                'published_at' => null,
+            ],
+        );
     }
 }

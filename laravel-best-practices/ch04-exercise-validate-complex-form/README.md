@@ -23,6 +23,7 @@ php artisan db:seed --force
 php artisan serve --host=127.0.0.1 --port=8004
 ```
 
+`db:seed` is **safe to run more than once** (it won’t try to create a second `test@example.com` user or duplicate the demo product). If you need a clean slate, use `php artisan migrate:fresh --force` then `db:seed` as above.
 
 ## What’s in the app
 
@@ -39,6 +40,9 @@ Under **`laravel/`**: `StoreCheckoutRequest`, `CheckoutController`, `routes/chec
 ---
 
 ## How to test everything
+
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
 
 **Port:** `8004`. The [Run the app](#run-the-app) block already runs `db:seed` so you have a **user** and at least one **product** (check `id` in DB or assume product id **1** from seeder). `POST /checkout` is **CSRF-exempt** in `bootstrap/app.php`.
 

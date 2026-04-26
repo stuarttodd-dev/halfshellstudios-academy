@@ -33,6 +33,9 @@ php artisan serve --host=127.0.0.1 --port=8015
 
 ## How to test everything
 
+**Browser first (optional):** For **GET** routes you can open the same URLs in your browser. If the app has a **login** (or `/_exercise/login`), sign in in the browser and browse—`curl` is only needed for **POST / PUT / PATCH / DELETE**, JSON bodies, or when you want a copy-pastable one-liner. See [Browser vs curl](../README.md#browser-vs-curl).
+
+
 **Port:** `8015`. The hand-in is a **written** description of a queue-backed feature (idempotency, failures, `QUEUE_CONNECTION`, Horizon if applicable). The bundled app is a **thin** scaffold; operational detail lives in **[SOLUTION.md](SOLUTION.md)**.
 
 | Step | Check |
