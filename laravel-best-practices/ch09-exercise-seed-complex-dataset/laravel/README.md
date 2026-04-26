@@ -1,29 +1,32 @@
-# `_laravel-skeleton` (Half Shell Studios Academy)
+# Runnable Laravel app (PHP to Laravel course)
 
-Laravel 13 app used as a **template** for each `chNN-exercise-*/laravel/`. **Course setup, `files/` vs `laravel/`, the materialize script, and a per-chapter `cd` table** all live in **`laravel-best-practices/README.md`** in this repository — work from there, not this folder in isolation. After editing the skeleton, run `php scripts/materialize_laravel_apps.php` with your shell’s working directory set to `laravel-best-practices/`.
+You are inside a directory that contains `artisan` — a normal Laravel 13 app.
 
-## Working on the skeleton
+- **Named chapter exercise** (e.g. `ch02-exercise-…/laravel/`, `ch01-exercise-hello-laravel-app/laravel/`): read **[this exercise’s `README.md`](../README.md)** (one level up from `laravel/`), and for every chapter’s commands see **`laravel-best-practices/README.md`** at the repository root.
+- **`_laravel-skeleton` only** (the template under `laravel-best-practices/_laravel-skeleton/`): maintainers use this tree to refresh all chapter apps; it is **not** the lesson “solution” for [chapter 1 Hello Laravel](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app). For that mini-project, open **`ch01-exercise-hello-laravel-app/`** instead.
 
-1. `cd` to **this** directory (`_laravel-skeleton`).
+## Working on this app
 
-2. Install dependencies and boot the app like any Laravel project:
+1. Stay in **this** directory (the one that contains `artisan`).
+
+2. Install dependencies and boot the app:
 
    ```bash
    cp -n .env.example .env
    composer install
    php artisan key:generate
-   touch database/database.sqlite   # if the file is missing; materialize also creates it in chapter apps
+   touch database/database.sqlite   # if missing; materialise also creates it in chapter apps
    php artisan migrate
    php artisan serve
    ```
 
-3. `vendor/` and `node_modules/` are **not** committed; clone/fresh checkouts need `composer install` (and `npm install` only if you work on the Vite frontend). After you change this tree, rematerialise (see intro) and run `composer install` again in any `ch*/laravel` apps you use.
+3. `vendor/` and `node_modules/` are **not** committed; fresh checkouts need `composer install` (and `npm install` only if you work on the Vite frontend). After changing the **template** in `_laravel-skeleton`, run `php scripts/materialize_laravel_apps.php` with the working directory set to `laravel-best-practices/`, then `composer install` again in affected `ch*/laravel` apps.
 
-## Customisations in this copy
+## Customisations in the course template
 
-- Base [`app/Http/Controllers/Controller.php`](app/Http/Controllers/Controller.php) uses `AuthorizesRequests` so course controllers can call `$this->authorize()` (e.g. authorisation chapter).
+- Base [`app/Http/Controllers/Controller.php`](app/Http/Controllers/Controller.php) uses `AuthorizesRequests` so course controllers can call `$this->authorize()` where needed.
 - `composer.json` requires **PHP `^8.3`** to match [Laravel 13](https://laravel.com/docs).
 
 ## Laravel itself
 
-Laravel is MIT-licenced; full framework docs, community, and security policy: [laravel.com/docs](https://laravel.com/docs).
+Laravel is MIT-licenced; full framework docs: [laravel.com/docs](https://laravel.com/docs).

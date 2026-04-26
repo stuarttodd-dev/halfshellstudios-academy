@@ -4,9 +4,9 @@ Reference material for the **PHP to Laravel** course on Half Shell Studios Acade
 
 ## Runnable Laravel app in each chapter
 
-**Every** `chNN-exercise-*/` folder (chapters 2–17) now includes a full **`laravel/`** sub-project generated from [\_laravel-skeleton](_laravel-skeleton/) (Laravel 13, PHP 8.3+). After `composer install` it is a normal, runnable app.
+**Every** `chNN-exercise-*/` folder (chapters **1–17**) includes a full **`laravel/`** sub-project generated from [\_laravel-skeleton](_laravel-skeleton/) (Laravel 13, PHP 8.3+). After `composer install` it is a normal, runnable app. Chapter 1 is the [Laravel tour “Hello Laravel” mini-project](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app) in [`ch01-exercise-hello-laravel-app`](ch01-exercise-hello-laravel-app/); **`_laravel-skeleton` is only the shared template**, not the chapter 1 lesson link target.
 
-**You should not** run anything from the Academy repo root; work inside **`laravel-best-practices/`** (the folder that contains `ch02-exercise-...`).
+**You should not** run anything from the Academy repo root; work inside **`laravel-best-practices/`** (the folder that contains `ch01-exercise-...`, `ch02-exercise-...`, etc.).
 
 ### Prerequisites (install once on your machine)
 
@@ -22,6 +22,7 @@ All paths are relative to `laravel-best-practices/`. The **`cd` target** column 
 
 | Ch | `cd` target | After `php artisan migrate --force` |
 | --- | --- | --- |
+| 1 | `ch01-exercise-hello-laravel-app/laravel` | — |
 | 2 | `ch02-exercise-build-crud-routes/laravel` | — |
 | 3 | `ch03-exercise-build-access-control-layer/laravel` | — |
 | 4 | `ch04-exercise-validate-complex-form/laravel` | `php artisan db:seed` (sample user + product for checkout) |
@@ -45,7 +46,7 @@ All paths are relative to `laravel-best-practices/`. The **`cd` target** column 
 
 ```bash
 # From: laravel-best-practices/
-cd ch02-exercise-build-crud-routes/laravel   # example — use the "cd" target from the table for your chapter
+cd ch01-exercise-hello-laravel-app/laravel   # example — use the "cd" target from the table for your chapter
 
 cp -n .env.example .env
 composer install
@@ -81,10 +82,11 @@ You still need **`cp` / `.env`**, **`php artisan key:generate`**, and **`php art
 
 If you **prefer not** to use the bundled `laravel/`, you can still copy from `files/` into your own Laravel project, one chapter at a time (avoid mixing multiple chapters in one app without resolving duplicate class names such as `User` or `Post`).
 
-## Chapters 2–17 (end-of-chapter exercises)
+## Chapters 1–17 (tour + end-of-chapter exercises)
 
 | Ch | Topic | Learn URL | This repo |
 | --- | --- | --- | --- |
+| 1 | Hello Laravel (tour) | [mini-project](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app) | [ch01-exercise-hello-laravel-app](ch01-exercise-hello-laravel-app/) |
 | 2 | CRUD routes | [exercise](http://127.0.0.1:38080/learn/sections/chapter-2-routing-controllers-request/exercise-build-crud-routes) | [ch02-exercise-build-crud-routes](ch02-exercise-build-crud-routes/) |
 | 3 | Access control (middleware) | [exercise](http://127.0.0.1:38080/learn/sections/chapter-3-middleware/exercise-build-access-control-layer) | [ch03-exercise-build-access-control-layer](ch03-exercise-build-access-control-layer/) |
 | 4 | Complex form (Form Request) | [exercise](http://127.0.0.1:38080/learn/sections/chapter-4-validation-form-requests/exercise-validate-complex-form) | [ch04-exercise-validate-complex-form](ch04-exercise-validate-complex-form/) |
