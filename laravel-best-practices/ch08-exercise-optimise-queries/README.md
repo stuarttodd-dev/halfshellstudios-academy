@@ -4,9 +4,23 @@
 
 ## Run the app
 
-Seeded orders + users make the admin list meaningful — run **`php artisan db:seed --force`** after migrate.
+Seeded orders + users make the admin list meaningful.
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch08-exercise-optimise-queries`**, port **8008**, and **seed**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch08-exercise-optimise-queries
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed --force
+php artisan serve --host=127.0.0.1 --port=8008
+```
+
 
 ## What’s in the app
 

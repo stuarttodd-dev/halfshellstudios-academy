@@ -4,7 +4,20 @@
 
 ## Run the app
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch13-exercise-refactor-app`** and port **8013**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch13-exercise-refactor-app
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8013
+```
+
 
 ## What’s in the app
 

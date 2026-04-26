@@ -4,9 +4,23 @@
 
 ## Run the app
 
-The exercise is the **seed** itself — always run **`php artisan db:seed --force`** after migrate.
+The exercise is the **seed** itself — the steps below run migrate then seed.
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch09-exercise-seed-complex-dataset`**, port **8009**, and **seed**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch09-exercise-seed-complex-dataset
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed --force
+php artisan serve --host=127.0.0.1 --port=8009
+```
+
 
 ## What’s in the app
 

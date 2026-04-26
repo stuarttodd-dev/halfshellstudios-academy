@@ -6,7 +6,20 @@ The hand-in is a **description** of a queue-backed feature (idempotency, retries
 
 ## Run the bundled app (optional)
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch15-exercise-build-queue-system`** and port **8015**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch15-exercise-build-queue-system
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8015
+```
+
 
 ## How to test (lesson)
 

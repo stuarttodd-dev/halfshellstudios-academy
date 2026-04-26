@@ -4,7 +4,20 @@
 
 ## Run the app
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch07-exercise-build-relational-data-model`** and port **8007**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch07-exercise-build-relational-data-model
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8007
+```
+
 
 ## What’s in the app
 

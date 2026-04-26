@@ -4,9 +4,23 @@
 
 ## Run the app
 
-Seed data gives you posts to render on the dashboard — run **`php artisan db:seed --force`** after migrate.
+Seed data gives you posts to render on the dashboard.
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch05-exercise-build-dashboard-ui`**, port **8005**, and **seed**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch05-exercise-build-dashboard-ui
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed --force
+php artisan serve --host=127.0.0.1 --port=8005
+```
+
 
 ## What’s in the app
 

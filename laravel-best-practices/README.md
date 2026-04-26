@@ -33,7 +33,7 @@ php artisan migrate --force
 php artisan serve --host=127.0.0.1 --port=8004
 ```
 
-**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter `README.md`** points at this recipe and the right port/seed for that exercise. Use the chapter’s **README** for **what to open, curl, or test** (all URLs use that chapter’s port).
+**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter’s `README.md`** includes the same setup **with that chapter’s folder, port, and `db:seed` when needed**; use the chapter README for **what to open, curl, or test** (all URLs use that chapter’s port).
 
 **Install Composer deps in every chapter at once** (optional, large download):
 

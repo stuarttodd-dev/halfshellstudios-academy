@@ -6,7 +6,20 @@ See **[SOLUTION.md](SOLUTION.md)** for a worked example in the hand-in style the
 
 ## Run the bundled app (optional)
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch16-exercise-full-test-suite`** and port **8016**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch16-exercise-full-test-suite
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8016
+```
+
 
 ## How to test (lesson)
 

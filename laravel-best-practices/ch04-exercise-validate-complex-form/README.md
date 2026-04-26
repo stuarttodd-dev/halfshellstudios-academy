@@ -4,9 +4,23 @@
 
 ## Run the app
 
-The checkout `exists:products,id` rule needs **seeded products** — run **`php artisan db:seed --force`** after migrate.
+The checkout `exists:products,id` rule needs **seeded products**.
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch04-exercise-validate-complex-form`**, port **8004**, and **seed** (see the main README’s migrate/seed line).
+From `laravel-best-practices/`:
+
+```bash
+cd ch04-exercise-validate-complex-form
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed --force
+php artisan serve --host=127.0.0.1 --port=8004
+```
+
 
 ## What’s in the app
 

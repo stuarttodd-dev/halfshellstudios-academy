@@ -4,7 +4,20 @@
 
 ## Run the app
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch01-exercise-hello-laravel-app`** and port **8001**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch01-exercise-hello-laravel-app
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8001
+```
+
 
 ## What’s in the app
 

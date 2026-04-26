@@ -6,7 +6,20 @@ The capstone expects **package install**, migrations, and a **test matrix** in y
 
 ## Run the bundled app (optional)
 
-From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch17-exercise-build-roles-and-media`** and port **8017**.
+From `laravel-best-practices/`:
+
+```bash
+cd ch17-exercise-build-roles-and-media
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8017
+```
+
 
 ## How to test (lesson)
 

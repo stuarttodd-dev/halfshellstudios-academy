@@ -6,7 +6,22 @@ The learning outcome is **operational** (runbook, evidence, rollback narrative),
 
 ## Run the bundled app (optional)
 
-The `laravel/` folder is a minimal scaffold so you still have a working project if needed. From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch14-exercise-deploy-app`** and port **8014**.
+The `laravel/` folder is a minimal scaffold so you still have a working project if needed.
+
+From `laravel-best-practices/`:
+
+```bash
+cd ch14-exercise-deploy-app
+[ -d files ] && rsync -a files/ laravel/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8014
+```
+
 
 ## How to test (lesson)
 
