@@ -34,7 +34,9 @@ Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login)
 
 ## How to test everything
 
-**`GET` / forms:** Open **`/exercise`** in the **browser** (step 1). For **register, login, dashboard, and logout**, prefer the **browser** and the Blade section under **6 — Browser (UX)** below. The **`curl`** blocks are optional: same flow from the **terminal**, with cookie jars and **raw HTTP** teaching. [Browser vs curl](../README.md#browser-vs-curl).
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
+**`GET` / forms:** Open [http://127.0.0.1:8010/exercise](http://127.0.0.1:8010/exercise) in the **browser** (step 1). For **register, login, dashboard, and logout**, prefer the **browser** and the Blade section under **6 — Browser (UX)** below. The **`curl`** blocks are optional: same flow from the **terminal**, with cookie jars and **raw HTTP** teaching. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8010`. In this exercise app, `register`, `login`, and `logout` are **excluded from CSRF** in `bootstrap/app.php` so you can also run the full flow with `curl` and a **cookie jar** (still use real CSRF in your own projects).
 
@@ -51,9 +53,13 @@ Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login)
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8010/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8010/exercise](http://127.0.0.1:8010/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8010/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8010/exercise"
+```
 
 **2 — Register a new user (form body; unique email + `password` / `password_confirmation` ≥ 8 chars)**
 
@@ -86,7 +92,7 @@ Expect: **register `302`**, **dashboard `200`**.
 
 **3 — Dashboard (after register/login in the browser, or after step 2 with `cj` from `curl`)**
 
-In the **browser** (same session as register/login), open **`http://127.0.0.1:8010/dashboard`**. Or, from the `curl` register flow, run:
+In the **browser** (same session as register/login), open [http://127.0.0.1:8010/dashboard](http://127.0.0.1:8010/dashboard). Or, from the `curl` register flow, run:
 
 ```bash
 curl -sS -b cj "http://127.0.0.1:8010/dashboard" | head -c 400
@@ -110,7 +116,7 @@ curl -sS -c cj -b cj -L -o /dev/null -w "HTTP:%{http_code} final_url:%{url_effec
   "http://127.0.0.1:8010/login"
 ```
 
-**6 — Browser (UX)** — open `http://127.0.0.1:8010/register` and `…/login` to exercise Blade forms and throttling in the course.
+**6 — Browser (UX)** — open [http://127.0.0.1:8010/register](http://127.0.0.1:8010/register) and [http://127.0.0.1:8010/login](http://127.0.0.1:8010/login) to exercise Blade forms and throttling in the course.
 
 **7 — Tests**
 

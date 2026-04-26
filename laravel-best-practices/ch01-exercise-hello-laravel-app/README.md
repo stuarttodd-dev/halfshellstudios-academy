@@ -40,9 +40,11 @@ You can tick these off as “done” for the tour mini project (details in [SOLU
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser:** This chapter is all **unauthenticated GET**s — use your browser. The `curl` lines under each step are **optional** terminal checks. [Browser vs curl](../README.md#browser-vs-curl).
 
-**Port:** `8001` (all examples use `http://127.0.0.1:8001`).
+**Port:** `8001` (all examples use [http://127.0.0.1:8001](http://127.0.0.1:8001)).
 
 Work through these in order. After [Run the app](#run-the-app), the server should be up and migrations applied.
 
@@ -54,15 +56,23 @@ Work through these in order. After [Run the app](#run-the-app), the server shoul
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8001/exercise`**. The page should show **`ok`**.
+In the browser, open [http://127.0.0.1:8001/exercise](http://127.0.0.1:8001/exercise). The page should show **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8001/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8001/exercise"
+```
 
 **2 — Hello (Blade)**
 
-In the browser, open **`http://127.0.0.1:8001/hello`**. You should see the greeting HTML from the Blade view.
+In the browser, open [http://127.0.0.1:8001/hello](http://127.0.0.1:8001/hello). You should see the greeting HTML from the Blade view.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8001/hello"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8001/hello"
+```
 
 **3 — Route inventory (from `ch01-exercise-hello-laravel-app/laravel/`)**
 

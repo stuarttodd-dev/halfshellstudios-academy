@@ -35,6 +35,8 @@ php artisan serve --host=127.0.0.1 --port=8014
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GETs):** If you run the bundled app, open **`/exercise`** and **`/chapter-14`** in the **browser**; `curl` is optional. The real deliverable is the **write-up** in [SOLUTION.md](SOLUTION.md). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8014`. This chapter is **ops-focused**: the runnable app is a **smoke** surface; the real deliverable is the **runbook and evidence** in **[SOLUTION.md](SOLUTION.md)** (deploy, health checks, rollback story).
@@ -49,14 +51,22 @@ php artisan serve --host=127.0.0.1 --port=8014
 
 **1 — Health** (if the app is running)
 
-In the browser, open **`http://127.0.0.1:8014/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8014/exercise](http://127.0.0.1:8014/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8014/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8014/exercise"
+```
 
 **2 — Chapter pointer**
 
-In the browser, open **`http://127.0.0.1:8014/chapter-14`**. Expect a small **JSON/HTTP** response from the scaffold.
+In the browser, open [http://127.0.0.1:8014/chapter-14](http://127.0.0.1:8014/chapter-14). Expect a small **JSON/HTTP** response from the scaffold.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8014/chapter-14"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8014/chapter-14"
+```
 
 *Vite / asset build / zero-downtime: document in your **SOLUTION.md**, not in this minimal scaffold.*

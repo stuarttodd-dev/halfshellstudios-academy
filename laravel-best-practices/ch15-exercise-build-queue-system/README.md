@@ -33,6 +33,8 @@ php artisan serve --host=127.0.0.1 --port=8015
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GETs):** If the bundled app is up, use **`/exercise`** and **`/chapter-15`** in the **browser**; `curl` is optional. The deliverable is your **SOLUTION.md** / write-up. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8015`. The hand-in is a **written** description of a queue-backed feature (idempotency, failures, `QUEUE_CONNECTION`, Horizon if applicable). The bundled app is a **thin** scaffold; operational detail lives in **[SOLUTION.md](SOLUTION.md)**.
@@ -47,12 +49,20 @@ php artisan serve --host=127.0.0.1 --port=8015
 
 **1 — Health** (if the app is running)
 
-In the browser, open **`http://127.0.0.1:8015/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8015/exercise](http://127.0.0.1:8015/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8015/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8015/exercise"
+```
 
 **2 — Chapter pointer**
 
-In the browser, open **`http://127.0.0.1:8015/chapter-15`**.
+In the browser, open [http://127.0.0.1:8015/chapter-15](http://127.0.0.1:8015/chapter-15).
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8015/chapter-15"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8015/chapter-15"
+```

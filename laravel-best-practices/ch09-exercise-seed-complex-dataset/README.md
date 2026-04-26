@@ -40,6 +40,8 @@ Under **`laravel/database/`** (seeders, factories) and related models/migrations
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GETs):** Open **`/exercise`** and **`/seed-demo`** in the **browser**; **db:seed** and tinker are **terminal** steps. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8009`. The main deliverable is running **`db:seed`** and verifying the **exercise** you implement (this repo’s `DemoContentSeeder` body may be empty until you add it; **`RoleSeeder` still runs**).
@@ -55,15 +57,23 @@ Under **`laravel/database/`** (seeders, factories) and related models/migrations
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8009/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8009/exercise](http://127.0.0.1:8009/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8009/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8009/exercise"
+```
 
 **2 — Seeder “banner” (JSON)**
 
-In the browser, open **`http://127.0.0.1:8009/seed-demo`**. Expect JSON nudging you toward `artisan db:seed`.
+In the browser, open [http://127.0.0.1:8009/seed-demo](http://127.0.0.1:8009/seed-demo). Expect JSON nudging you toward `artisan db:seed`.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8009/seed-demo"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8009/seed-demo"
+```
 
 **3 — The exercise (seeder) — from `ch09-exercise-seed-complex-dataset/laravel/`**
 

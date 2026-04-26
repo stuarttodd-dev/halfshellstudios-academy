@@ -35,6 +35,8 @@ Under **`laravel/`**: `config/pricing.php`, `App\Contracts\DiscountStrategy`, `A
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (all GETs):** Open the URLs in the **browser**; you will see **JSON** for the pricing query. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8012`. The container resolves a **`DiscountStrategy`**; the demo only outputs `subtotal_pence` and `total_pence` from `GET /pricing-demo?subtotal=…`.
@@ -51,21 +53,33 @@ Under **`laravel/`**: `config/pricing.php`, `App\Contracts\DiscountStrategy`, `A
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8012/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8012/exercise](http://127.0.0.1:8012/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8012/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8012/exercise"
+```
 
 **2 — Default strategy**
 
-In the browser, open **`http://127.0.0.1:8012/pricing-demo?subtotal=10000`**. Expect JSON with `subtotal_pence` / `total_pence` (or your lesson’s field names).
+In the browser, open [http://127.0.0.1:8012/pricing-demo?subtotal=10000](http://127.0.0.1:8012/pricing-demo?subtotal=10000). Expect JSON with `subtotal_pence` / `total_pence` (or your lesson’s field names).
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=10000"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=10000"
+```
 
 **3 — Edge / comparison**
 
-In the browser, open **`http://127.0.0.1:8012/pricing-demo?subtotal=0`**. Compare with step 2 and the lesson (clamping, etc.).
+In the browser, open [http://127.0.0.1:8012/pricing-demo?subtotal=0](http://127.0.0.1:8012/pricing-demo?subtotal=0). Compare with step 2 and the lesson (clamping, etc.).
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=0"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8012/pricing-demo?subtotal=0"
+```
 
 **4 — Tests**
 

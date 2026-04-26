@@ -34,6 +34,8 @@ Under **`laravel/`**: migrations for `posts`, `tags`, `post_tag`, `comments` (an
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GETs):** **`/exercise`** and **`/posts`** are unauthenticated; open them in the **browser** (the post index is a small HTML fragment, not always a full document). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8007`. After migrate, you may have **no** posts — still expect **200** HTML. Add posts via tinker or factories, then re-open `/posts` and watch **N+1** / query count in the lesson (Debugbar / `DB::listen`).
@@ -48,13 +50,23 @@ Under **`laravel/`**: migrations for `posts`, `tags`, `post_tag`, `comments` (an
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8007/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8007/exercise](http://127.0.0.1:8007/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8007/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8007/exercise"
+```
 
 **2 — Post index (this sample is a small `<ul>` fragment, not a full `<!DOCTYPE>` page)**
 
-In the browser, open **`http://127.0.0.1:8007/posts`**. “View page source” if you need to see the list markup; or use a terminal snippet to peek: `curl -sS "http://127.0.0.1:8007/posts" | head -c 500`
+In the browser, open [http://127.0.0.1:8007/posts](http://127.0.0.1:8007/posts). “View page source” if you need to see the list markup.
+
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8007/posts" | head -c 500
+```
 
 **3 — Tinker: create a user, post, tag, attach, and comment, then re-open `/posts` in a browser** (one line; no `PostFactory` in this sample):
 

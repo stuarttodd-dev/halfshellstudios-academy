@@ -38,6 +38,8 @@ Under **`laravel/`**: `Order` model, `orders` migration, `AdminOrderController` 
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (all GETs here):** These routes are not behind auth — open each URL in the **browser**; you’ll see **JSON** in the tab (use a formatter or devtools if you like). [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8008`. Run **`php artisan db:seed`** (included in the Run block if you used it) so **orders** exist.
@@ -52,21 +54,33 @@ Under **`laravel/`**: `Order` model, `orders` migration, `AdminOrderController` 
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8008/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8008/exercise](http://127.0.0.1:8008/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8008/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8008/exercise"
+```
 
 **2 — Admin orders (JSON)**
 
-In the browser, open **`http://127.0.0.1:8008/admin/orders`**. Expect JSON (orders with selected columns; `Accept: application/json` is the default in many clients).
+In the browser, open [http://127.0.0.1:8008/admin/orders](http://127.0.0.1:8008/admin/orders). Expect JSON (orders with selected columns; `Accept: application/json` is the default in many clients).
 
-*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/admin/orders"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/admin/orders"
+```
 
 **3 — Monthly revenue report**
 
-In the browser, open **`http://127.0.0.1:8008/reports/monthly-revenue`**. Expect the aggregate JSON from the report action.
+In the browser, open [http://127.0.0.1:8008/reports/monthly-revenue](http://127.0.0.1:8008/reports/monthly-revenue). Expect the aggregate JSON from the report action.
 
-*Optional (terminal):* `curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/reports/monthly-revenue"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS -H "Accept: application/json" "http://127.0.0.1:8008/reports/monthly-revenue"
+```
 
 **4 — Implementation**
 

@@ -37,6 +37,8 @@ Under **`laravel/`**: layout `resources/views/layouts/app.blade.php`, components
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 This chapter is **read-only in the browser**: no `curl` is required. See [Browser vs curl](../README.md#browser-vs-curl) for when other chapters use the terminal.
 
 **Port:** `8005`. [Run the app](#run-the-app) must include **`db:seed`** so `posts` exist for the dashboard.
@@ -50,17 +52,27 @@ This chapter is **read-only in the browser**: no `curl` is required. See [Browse
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8005/exercise`**. The page should show **`ok`** (plain text).
+In the browser, open [http://127.0.0.1:8005/exercise](http://127.0.0.1:8005/exercise). The page should show **`ok`** (plain text).
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8005/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8005/exercise"
+```
 
 **2 — Dashboard (Blade)**
 
-In the browser, open **`http://127.0.0.1:8005/dashboard`**. You should see the layout, stats, and recent posts (not a 5xx or blank error page).
+In the browser, open [http://127.0.0.1:8005/dashboard](http://127.0.0.1:8005/dashboard). You should see the layout, stats, and recent posts (not a 5xx or blank error page).
 
-*Optional (sniff HTML in the terminal):* `curl -sS "http://127.0.0.1:8005/dashboard" | head -c 500` — expect leading `<!DOCTYPE` or your layout markers.
+*Optional — run in terminal:*
 
-**3 — (Optional) Empty `@forelse` branch** — In a throwaway environment, use a DB with **no** `posts` (e.g. `php artisan migrate:fresh` without `db:seed`, or truncate the table in tinker), then reload **`http://127.0.0.1:8005/dashboard`** and confirm the empty state from the lesson.
+```bash
+curl -sS "http://127.0.0.1:8005/dashboard" | head -c 500
+```
+
+— expect leading `<!DOCTYPE` or your layout markers.
+
+**3 — (Optional) Empty `@forelse` branch** — In a throwaway environment, use a DB with **no** `posts` (e.g. `php artisan migrate:fresh` without `db:seed`, or truncate the table in tinker), then reload [http://127.0.0.1:8005/dashboard](http://127.0.0.1:8005/dashboard) and confirm the empty state from the lesson.
 
 **4 — Code**
 

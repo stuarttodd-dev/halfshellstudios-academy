@@ -33,6 +33,8 @@ php artisan serve --host=127.0.0.1 --port=8017
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GETs):** If the bundled app is up, open **`/exercise`** and **`/chapter-17`** in the **browser**; `curl` is optional. You will spend most of your time in **SOLUTION.md**, tests, and the UI you build. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8017`. The capstone expects **package integration** (Spatie permission + media library style), seeds where needed, and a **test matrix** in your solution. This repo’s `laravel/` is intentionally **thin** — follow **[SOLUTION.md](SOLUTION.md)** for the full checklist, then test **your** app where you add those packages.
@@ -48,12 +50,20 @@ php artisan serve --host=127.0.0.1 --port=8017
 
 **1 — Health** (if the app is running)
 
-In the browser, open **`http://127.0.0.1:8017/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8017/exercise](http://127.0.0.1:8017/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8017/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8017/exercise"
+```
 
 **2 — Chapter pointer**
 
-In the browser, open **`http://127.0.0.1:8017/chapter-17`**.
+In the browser, open [http://127.0.0.1:8017/chapter-17](http://127.0.0.1:8017/chapter-17).
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8017/chapter-17"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8017/chapter-17"
+```

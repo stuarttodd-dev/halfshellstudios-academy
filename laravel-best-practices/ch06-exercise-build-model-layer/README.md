@@ -34,6 +34,8 @@ Under **`laravel/`**: `posts` migration (soft deletes, `user_id` FK), `Post` mod
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GETs):** Open **`/exercise`** and **`/posts-demo`** in the **browser** (JSON for the demo is fine in the tab). Tinker and artisan stay in the **terminal**. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8006`.
@@ -48,15 +50,23 @@ Under **`laravel/`**: `posts` migration (soft deletes, `user_id` FK), `Post` mod
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8006/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8006/exercise](http://127.0.0.1:8006/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8006/exercise"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8006/exercise"
+```
 
 **2 — Demo route (JSON count)**
 
-In the browser, open **`http://127.0.0.1:8006/posts-demo`**. The tab shows JSON with a `count` field.
+In the browser, open [http://127.0.0.1:8006/posts-demo](http://127.0.0.1:8006/posts-demo). The tab shows JSON with a `count` field.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8006/posts-demo"`
+*Optional — run in terminal:*
+
+```bash
+curl -sS "http://127.0.0.1:8006/posts-demo"
+```
 
 **3 — Create a post in tinker (from `laravel/`)** — this app does not ship a `PostFactory` by default, so create a `User` then a `Post` with a unique `slug`:
 

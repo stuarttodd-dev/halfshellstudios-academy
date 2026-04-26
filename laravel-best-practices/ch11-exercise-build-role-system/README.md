@@ -34,6 +34,8 @@ Under **`laravel/`**: org + project migrations, `Organisation` / `Project` / `Us
 
 ## How to test everything
 
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
 **Browser (GET, after local login):** In **local** dev, open **`/exercise`**, then **`/_exercise/login`** in the same session, then **`/projects`** and **`/projects/{id}`** (you will see **JSON** in the tab; devtools or a JSON viewer help). **PATCH** and scripted checks still use **`curl`** below. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8011`. `projects` and `projects/*` are **CSRF-exempt** in `bootstrap/app.php` (exercise only). A **session** (logged-in user) is required; the browser picks it up after **`GET /_exercise/login`**; for **cookie-jar** examples use the **`curl`** lines.
@@ -52,11 +54,15 @@ Under **`laravel/`**: org + project migrations, `Organisation` / `Project` / `Us
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8011/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8011/exercise](http://127.0.0.1:8011/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8011/exercise"`
+*Optional — run in terminal:*
 
-**2 — Local dev login (sets session; ignore body except project id if you need it)** — in the **browser**, open **`http://127.0.0.1:8011/_exercise/login`**, then continue in the same tab (or a new tab to the same host).
+```bash
+curl -sS "http://127.0.0.1:8011/exercise"
+```
+
+**2 — Local dev login (sets session; ignore body except project id if you need it)** — in the **browser**, open [http://127.0.0.1:8011/_exercise/login](http://127.0.0.1:8011/_exercise/login), then continue in the same tab (or a new tab to the same host).
 
 *Cookie-jar (terminal) equivalent:*
 
@@ -64,7 +70,7 @@ In the browser, open **`http://127.0.0.1:8011/exercise`**. Expect **`ok`**.
 curl -sS -c cj -b cj "http://127.0.0.1:8011/_exercise/login"
 ```
 
-**3 — List projects (JSON, requires login)** — in the same browser **after** step 2, open **`http://127.0.0.1:8011/projects`**.
+**3 — List projects (JSON, requires login)** — in the same browser **after** step 2, open [http://127.0.0.1:8011/projects](http://127.0.0.1:8011/projects).
 
 *Optional (curl with `cj` from the terminal):*
 
@@ -78,7 +84,7 @@ curl -sS -b cj "http://127.0.0.1:8011/projects"
 ID=$(curl -sS -b cj "http://127.0.0.1:8011/projects" | python3 -c "import json,sys; a=json.load(sys.stdin); print(a[0]['id'] if a else '')")
 ```
 
-**3b — Show one project (GET, browser)** — after you know a real id (from the list JSON or a seed), open **`http://127.0.0.1:8011/projects/<id>`** in the **browser** (same session as `/_exercise/login`).
+**3b — Show one project (GET, browser)** — after you know a real id (from the list JSON or a seed), open [http://127.0.0.1:8011/projects/<id>](http://127.0.0.1:8011/projects/<id>) in the **browser** (same session as `/_exercise/login`).
 
 **4 — Update title (PATCH — `curl` or API client; no HTML form in this sample)** (replace `1` with a real `id` from the list, or `curl …/projects/$ID` with `ID` from above)
 

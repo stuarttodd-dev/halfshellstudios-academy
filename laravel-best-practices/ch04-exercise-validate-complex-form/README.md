@@ -41,7 +41,9 @@ Under **`laravel/`**: `StoreCheckoutRequest`, `CheckoutController`, `routes/chec
 
 ## How to test everything
 
-**Unauthenticated `GET`:** open **`/exercise`** in the **browser** (step 1). **`POST /checkout`** (and the dev login cookie) need **`curl`** or a REST client — there is no browser form for the JSON happy path in this sample. [Browser vs curl](../README.md#browser-vs-curl).
+> **Tip:** `http://127.0.0.1:…` links in this section are **Markdown** (click in your editor or on GitHub). **Curl** and other terminal steps use a fenced `bash` block per snippet—**select and copy the whole fence** in one go (all lines, including `\` line continuations).
+
+**Unauthenticated `GET`:** open [http://127.0.0.1:8004/exercise](http://127.0.0.1:8004/exercise) in the **browser** (step 1). **`POST /checkout`** (and the dev login cookie) need **`curl`** or a REST client — there is no browser form for the JSON happy path in this sample. [Browser vs curl](../README.md#browser-vs-curl).
 
 **Port:** `8004`. The [Run the app](#run-the-app) block already runs `db:seed` so you have a **user** and at least one **product** (check `id` in DB or assume product id **1** from seeder). `POST /checkout` is **CSRF-exempt** in `bootstrap/app.php`.
 
@@ -56,17 +58,21 @@ Under **`laravel/`**: `StoreCheckoutRequest`, `CheckoutController`, `routes/chec
 
 **1 — Health**
 
-In the browser, open **`http://127.0.0.1:8004/exercise`**. Expect **`ok`**.
+In the browser, open [http://127.0.0.1:8004/exercise](http://127.0.0.1:8004/exercise). Expect **`ok`**.
 
-*Optional (terminal):* `curl -sS "http://127.0.0.1:8004/exercise"`
+*Optional — run in terminal:*
 
-**2 — Login (local only) — same cookie file for next requests**
+```bash
+curl -sS "http://127.0.0.1:8004/exercise"
+```
+
+**2 — Login (local only) — same cookie file for next requests** — *copy the whole `bash` block below.*
 
 ```bash
 curl -sS -c cj -b cj "http://127.0.0.1:8004/_exercise/login"
 ```
 
-**3 — Happy path checkout** (default seed creates a product; first id is **usually `1`**. If not, [see the lesson block above](#lesson-acceptance-course) for a one-liner to print ids)
+**3 — Happy path checkout** (default seed creates a product; first id is **usually `1`**. If not, [see the lesson block above](#lesson-acceptance-course) for a one-liner to print ids) — *copy the whole `bash` block below.*
 
 ```bash
 curl -sS -X POST -b cj "http://127.0.0.1:8004/checkout" -H "Content-Type: application/json" -H "Accept: application/json" -d '{"name":"Alex","email":"alex@example.com","account_type":"personal","items":[{"product_id":1,"quantity":2}]}'
@@ -74,7 +80,7 @@ curl -sS -X POST -b cj "http://127.0.0.1:8004/checkout" -H "Content-Type: applic
 
 Expect: **201** and JSON like `{"received":{...}}`.
 
-**4 — Validation (422) — bad email**
+**4 — Validation (422) — bad email** — *copy the whole `bash` block below.*
 
 ```bash
 curl -sS -X POST -b cj "http://127.0.0.1:8004/checkout" -H "Content-Type: application/json" -H "Accept: application/json" -d '{"name":"A","email":"not-an-email","account_type":"personal","items":[{"product_id":1,"quantity":1}]}' -i
@@ -82,7 +88,7 @@ curl -sS -X POST -b cj "http://127.0.0.1:8004/checkout" -H "Content-Type: applic
 
 Expect: **422** and `errors` for `email` (or similar).
 
-**5 — `exists:products,id` — invalid `product_id`**
+**5 — `exists:products,id` — invalid `product_id`** — *copy the whole `bash` block below.*
 
 ```bash
 curl -sS -X POST -b cj "http://127.0.0.1:8004/checkout" -H "Content-Type: application/json" -H "Accept: application/json" -d '{"name":"Alex","email":"a@a.com","account_type":"personal","items":[{"product_id":99999,"quantity":1}]}' -i
@@ -90,7 +96,7 @@ curl -sS -X POST -b cj "http://127.0.0.1:8004/checkout" -H "Content-Type: applic
 
 Expect: **422** for `items.0.product_id` (or equivalent).
 
-**6 — Guest (no cookie)**
+**6 — Guest (no cookie)** — *copy the whole `bash` block below.*
 
 ```bash
 curl -sS -X POST "http://127.0.0.1:8004/checkout" -H "Content-Type: application/json" -H "Accept: application/json" -d '{"name":"A","email":"a@a.com","account_type":"personal","items":[{"product_id":1,"quantity":1}]}' -i
@@ -103,7 +109,7 @@ Expect: **403** (FormRequest `authorize` requires a user).
 - `app/Http/Requests/StoreCheckoutRequest.php` — rules, `prepareForValidation`, `authorize`.
 - `app/Http/Controllers/CheckoutController.php` — returns `201` with `received`.
 
-**8 — Routes**
+**8 — Routes** — *copy the whole `bash` block below.*
 
 ```bash
 cd ch04-exercise-validate-complex-form/laravel && php artisan route:list --path=checkout
