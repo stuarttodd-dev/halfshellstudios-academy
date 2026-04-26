@@ -2,21 +2,17 @@
 
 **Course page:** [Build a coherent authentication layer](http://127.0.0.1:38080/learn/sections/chapter-10-authentication/exercise-build-auth-system)
 
-## Files
+## Run the app
 
-- `files/routes/auth.php` — guest group (register, login) + auth group (dashboard, logout) with throttling on POST credentials.
-- `files/app/Http/Controllers/AuthController.php` — `register`, `login`, `logout` using the `User` model and `Auth` facade, `session()->regenerate()` on success.
-- `files/app/Http/Requests/RegisterUserRequest.php`, `LoginUserRequest.php`
-- `files/tests/Feature/AuthenticationTest.php` — guest blocked from dashboard, register path, login, wrong password, logout.
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch10-exercise-build-auth-system`** and port **8010**.
 
-**Include** `require __DIR__.'/auth.php';` from `routes/web.php` (inside the `web` stack).
+## What’s in the app
 
-## Views
+Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login), `AuthController`, form requests, Blade `auth/login` + `auth/register` + `dashboard`, `tests/Feature/AuthenticationTest.php`, merged via `routes/solution.php`.
 
-The lesson expects Blade forms with `@csrf` and `old('email')`. Generate minimal `resources/views/auth/login.blade.php` and `register.blade.php` in your app (not duplicated here) pointing `action` at named routes. Or assert JSON if you are building an API-only slice (then use Sanctum as the stretch goal).
+## How to test
 
-## Commands
-
-```bash
-php artisan test --filter=AuthenticationTest
-```
+1. **Health:** `GET /exercise` → `ok`.
+2. **Feature tests:** `php artisan test --filter=AuthenticationTest` — guest blocked from dashboard, register, login, wrong password, logout paths as defined in the test.
+3. **Browser:** visit `/register`, `/login`, then `/dashboard` when authenticated; confirm CSRF and `old('email')` behaviour on failed login.
+4. **Throttle:** repeated failed logins should eventually hit 429 (rate limit), per route config.

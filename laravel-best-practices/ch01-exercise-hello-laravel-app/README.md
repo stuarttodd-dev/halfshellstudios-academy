@@ -2,29 +2,20 @@
 
 **Course page:** [mini-project-hello-laravel-app](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app)
 
-## What this folder contains
+## Run the app
 
-- **`files/`** — a small `GET /hello` route and a Blade view (what the tour walks you toward).
-- **`laravel/`** — a full runnable app (from [`_laravel-skeleton`](../_laravel-skeleton/) + `files/`), same workflow as the other chapters. See the [parent README](../README.md) for `composer` / `.env` / `migrate` / `serve`.
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch01-exercise-hello-laravel-app`** and port **8001**.
 
-`_laravel-skeleton` in the repo is only the **shared template**; this folder is the **chapter 1** reference app to link from the course.
+## What’s in the app
 
-## Apply the solution (manual merge)
+The runnable solution is under **`laravel/`** — including `routes/solution.php` with **`GET /hello`** and `resources/views/hello.blade.php`. `routes/web.php` loads the health routes and `solution.php`.
 
-1. `composer create-project laravel/laravel your-app` (or use the `laravel/` app here after `composer install`).
-2. Copy `files/resources/views/hello.blade.php` into `resources/views/`.
-3. Register the `GET /hello` route from `files/routes/solution.php` in `routes/web.php` (or use this repo’s `laravel/` layout where `web.php` already loads `solution.php`).
+A parallel **`files/`** tree holds the same paths for quick reference. After **`rsync -a files/ laravel/`** (if you work from `files/`), the app matches; see the [main README](../README.md#runnable-app-in-each-chapter).
 
-## Try it in this repo
+## How to test
 
-```bash
-cd ch01-exercise-hello-laravel-app/laravel
-cp -n .env.example .env
-composer install
-php artisan key:generate
-php artisan migrate --force
-php artisan serve
-# Open http://127.0.0.1:8000/hello
-```
+1. **Health:** [http://127.0.0.1:8001/exercise](http://127.0.0.1:8001/exercise) should return the text `ok`.
+2. **Hello page:** [http://127.0.0.1:8001/hello](http://127.0.0.1:8001/hello) should render the “Hello, Laravel” Blade view.
+3. Compare with the lesson: you should be able to point a new developer at `routes/web.php` + `routes/solution.php` and explain the request lifecycle at a high level.
 
-`GET /exercise` should still return `ok` (health check from the course template).
+See [SOLUTION.md](SOLUTION.md) for the learning outcomes check. Global commands: [main README](../README.md).

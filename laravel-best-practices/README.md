@@ -2,85 +2,80 @@
 
 Reference material for the **PHP to Laravel** course on Half Shell Studios Academy. The course slug in the app remains `php-to-laravel`; this folder is named for clarity in the Academy repo.
 
-## Runnable Laravel app in each chapter
+## Runnable app in each chapter
 
-**Every** `chNN-exercise-*/` folder (chapters **1–17**) includes a full **`laravel/`** sub-project generated from [\_laravel-skeleton](_laravel-skeleton/) (Laravel 13, PHP 8.3+). After `composer install` it is a normal, runnable app. Chapter 1 is the [Laravel tour “Hello Laravel” mini-project](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app) in [`ch01-exercise-hello-laravel-app`](ch01-exercise-hello-laravel-app/); **`_laravel-skeleton` is only the shared template**, not the chapter 1 lesson link target.
+Each `chNN-exercise-*/laravel/` directory is a **complete Laravel 13 application** (PHP 8.3+). You run the app from there after setup.
 
-**You should not** run anything from the Academy repo root; work inside **`laravel-best-practices/`** (the folder that contains `ch01-exercise-...`, `ch02-exercise-...`, etc.).
+Many chapters also include a **`files/`** directory: the **same paths** as the app root (`app/`, `routes/`, `resources/`, …). That is the **reference** copy of the solution. Keep it in sync with **`laravel/`**: if you change `files/`, run **`rsync -a files/ laravel/`** from the chapter folder before you commit, so both trees match.
+
+**You should not** run anything from the Academy repo root; work inside **`laravel-best-practices/`**.
+
+[`_laravel-skeleton`](_laravel-skeleton/) is only a **template** for bootstrapping or bulk upgrades (see [Maintaining this folder](#maintaining-this-folder)). **`_laravel-skeleton` is not** the chapter 1 “solution” by itself; use [`ch01-exercise-hello-laravel-app`](ch01-exercise-hello-laravel-app/).
+
+### Dev ports
+
+Chapter **1** → **8001**, **2** → **8002**, …, **17** → **8017** (**8000 + chapter number**). The [table below](#per-chapter-port-cd-targets-and-seed) lists each folder and whether to run `db:seed` after migrate.
+
+### Setup one chapter app
+
+From `laravel-best-practices/`, with your **chapter folder** and **port** = `8000 + chapter#` (e.g. ch **4** → folder `ch04-exercise-validate-complex-form`, port **8004**):
+
+```bash
+cd ch04-exercise-validate-complex-form    # use the folder from the table
+[ -d files ] && rsync -a files/ laravel/  # if this chapter has files/
+cd laravel
+cp -n .env.example .env
+composer install --no-interaction
+php artisan key:generate --force
+touch database/database.sqlite
+php artisan migrate --force
+# php artisan db:seed --force            # only if the table says to seed (ch4,5,8,9)
+php artisan serve --host=127.0.0.1 --port=8004
+```
+
+**Health check:** `http://127.0.0.1:<port>/exercise` → `ok` (use that chapter’s port). Each **chapter `README.md`** points at this recipe and the right port/seed for that exercise. Use the chapter’s **README** for **what to open, curl, or test** (all URLs use that chapter’s port).
+
+**Install Composer deps in every chapter at once** (optional, large download):
+
+```bash
+for d in ch*-exercise-*/laravel; do (cd "$d" && composer install --no-interaction); done
+```
+
+You still need **`.env`**, **key**, **migrate** (and **seed** where the table says) in each `laravel/` you care about.
 
 ### Prerequisites (install once on your machine)
 
-- **PHP 8.3+** on your `PATH` (`php -v`) — Laravel 13 requires this; the skeleton’s `composer.json` uses `"php": "^8.3"`. Extensions typically required by Laravel: `ctype`, `curl`, `dom`, `fileinfo`, `mbstring`, `openssl`, `pdo`, `tokenizer`, `xml`, and **PDO SQLite** (`pdo_sqlite`) so the default SQLite database works.
-- **Composer 2** on your `PATH` — install from [getcomposer.org](https://getcomposer.org/download/), then check `composer -V`.
-- **Node.js** (LTS) and **npm** are optional: only needed if you run Vite/frontend builds (`npm install`, `npm run build`) in an app. Most chapter exercises are fine with `php artisan serve` alone.
+- **PHP 8.3+** (`php -v`) and extensions Laravel typically needs, including **PDO SQLite** for the default database.
+- **Composer 2** — [getcomposer.org](https://getcomposer.org/download/), `composer -V`.
+- **Node.js** / **npm** — optional; only if you run Vite builds in an app.
 
-`vendor/`, `node_modules/`, `.env`, and `database/database.sqlite` are **not** committed. After a fresh clone, each `laravel/` app needs `composer install` (see [per-chapter paths](#per-chapter-where-to-cd-and-extra-commands) below).
+`vendor/`, `node_modules/`, `.env`, and `database/database.sqlite` are **gitignored** per app.
 
-### Per-chapter: where to cd and extra commands
+### Per-chapter: port, `cd` targets, and seed
 
-All paths are relative to `laravel-best-practices/`. The **`cd` target** column is the folder you `cd` into (it always ends in `…/laravel`).
+Paths are relative to `laravel-best-practices/`. **Port** = `8000` + **Ch** (e.g. ch **12** → **8012**). Serve with `php artisan serve --host=127.0.0.1 --port=<port>` from that chapter’s `laravel/` (see [Setup one chapter app](#setup-one-chapter-app)).
 
-| Ch | `cd` target | After `php artisan migrate --force` |
-| --- | --- | --- |
-| 1 | `ch01-exercise-hello-laravel-app/laravel` | — |
-| 2 | `ch02-exercise-build-crud-routes/laravel` | — |
-| 3 | `ch03-exercise-build-access-control-layer/laravel` | — |
-| 4 | `ch04-exercise-validate-complex-form/laravel` | `php artisan db:seed` (sample user + product for checkout) |
-| 5 | `ch05-exercise-build-dashboard-ui/laravel` | `php artisan db:seed` (sample user) |
-| 6 | `ch06-exercise-build-model-layer/laravel` | — |
-| 7 | `ch07-exercise-build-relational-data-model/laravel` | — |
-| 8 | `ch08-exercise-optimise-queries/laravel` | `php artisan db:seed` (user + order data for reports) |
-| 9 | `ch09-exercise-seed-complex-dataset/laravel` | `php artisan db:seed` (main exercise) |
-| 10 | `ch10-exercise-build-auth-system/laravel` | — (optional: `php artisan test` for `AuthenticationTest`) |
-| 11 | `ch11-exercise-build-role-system/laravel` | — (optional: `php artisan test` for `ProjectPolicyTest`) |
-| 12 | `ch12-exercise-build-strategy-system/laravel` | — (optional: `php artisan test` for `PricingStrategyTest`) |
-| 13 | `ch13-exercise-refactor-app/laravel` | — |
-| 14 | `ch14-exercise-deploy-app/laravel` | **Thin** scaffold — exercise is the deploy runbook; see `SOLUTION.md` |
-| 15 | `ch15-exercise-build-queue-system/laravel` | **Thin** scaffold — queue write-up; see `SOLUTION.md` |
-| 16 | `ch16-exercise-full-test-suite/laravel` | **Thin** scaffold — CI/testing write-up; see `SOLUTION.md` |
-| 17 | `ch17-exercise-build-roles-and-media/laravel` | **Thin** scaffold — Spatie install steps in `SOLUTION.md` (not a full package demo in this repo) |
+| Ch | Port | `cd` into `…/laravel` | After migrate |
+| --- | --- | --- | --- |
+| 1 | 8001 | `ch01-exercise-hello-laravel-app/laravel` | — |
+| 2 | 8002 | `ch02-exercise-build-crud-routes/laravel` | — |
+| 3 | 8003 | `ch03-exercise-build-access-control-layer/laravel` | — |
+| 4 | 8004 | `ch04-exercise-validate-complex-form/laravel` | `php artisan db:seed` |
+| 5 | 8005 | `ch05-exercise-build-dashboard-ui/laravel` | `php artisan db:seed` |
+| 6 | 8006 | `ch06-exercise-build-model-layer/laravel` | — |
+| 7 | 8007 | `ch07-exercise-build-relational-data-model/laravel` | — |
+| 8 | 8008 | `ch08-exercise-optimise-queries/laravel` | `php artisan db:seed` |
+| 9 | 8009 | `ch09-exercise-seed-complex-dataset/laravel` | `php artisan db:seed` |
+| 10 | 8010 | `ch10-exercise-build-auth-system/laravel` | — (optional: `php artisan test --filter=AuthenticationTest`) |
+| 11 | 8011 | `ch11-exercise-build-role-system/laravel` | — (optional: `php artisan test --filter=ProjectPolicyTest`) |
+| 12 | 8012 | `ch12-exercise-build-strategy-system/laravel` | — (optional: `php artisan test --filter=PricingStrategyTest`) |
+| 13 | 8013 | `ch13-exercise-refactor-app/laravel` | — |
+| 14 | 8014 | `ch14-exercise-deploy-app/laravel` | **Thin** — [SOLUTION.md](ch14-exercise-deploy-app/SOLUTION.md) |
+| 15 | 8015 | `ch15-exercise-build-queue-system/laravel` | **Thin** — [SOLUTION.md](ch15-exercise-build-queue-system/SOLUTION.md) |
+| 16 | 8016 | `ch16-exercise-full-test-suite/laravel` | **Thin** — [SOLUTION.md](ch16-exercise-full-test-suite/SOLUTION.md) |
+| 17 | 8017 | `ch17-exercise-build-roles-and-media/laravel` | **Thin** — [SOLUTION.md](ch17-exercise-build-roles-and-media/SOLUTION.md) |
 
-### First-time setup for **one** app (repeat for every chapter you open)
-
-**Always** start from the **`cd` target** for that chapter in the [table above](#per-chapter-where-to-cd-and-extra-commands), then run:
-
-```bash
-# From: laravel-best-practices/
-cd ch01-exercise-hello-laravel-app/laravel   # example — use the "cd" target from the table for your chapter
-
-cp -n .env.example .env
-composer install
-php artisan key:generate
-php artisan migrate --force
-# If the table says to seed, run:
-# php artisan db:seed
-
-php artisan serve
-```
-
-- Quick health check when the server is up: [http://127.0.0.1:8000/exercise](http://127.0.0.1:8000/exercise) should return `ok`.
-- **Stop the server** with `Ctrl+C`, then `cd` to another chapter’s `laravel/` and run the same block again. Each app is independent (its own `vendor/`, `.env`, and `database/database.sqlite`).
-
-**Default database:** `DB_CONNECTION=sqlite` in `.env.example`; SQLite file is `laravel/database/database.sqlite` (created by the materialize script, or on first migrate). You do not need MySQL/Postgres for these exercises.
-
-**Reset an app’s database:** from that app’s `laravel/` folder, e.g. `rm -f database/database.sqlite && touch database/database.sqlite && php artisan migrate --force` (add `db:seed` if that chapter uses seeders — see table).
-
-**Install PHP dependencies in every chapter’s app at once** (optional, uses a lot of disk and time). From `laravel-best-practices/`:
-
-```bash
-bash scripts/composer-install-all.sh
-```
-
-You still need **`cp` / `.env`**, **`php artisan key:generate`**, and **`php artisan migrate`** in each `laravel/` you actually run; Composer does not do those.
-
-**Rebuilding `laravel/` from source** (after you edit a chapter’s `files/`): from `laravel-best-practices/`, run `php scripts/materialize_laravel_apps.php` then `composer install` in that chapter’s `laravel/` again. Maintainers: keep [\_laravel-skeleton](_laravel-skeleton/) in sync when upgrading the framework, then re-run the materialize script.
-
-## Source trees: `files/` and `laravel/`
-
-- **`files/`** — the patch you would merge into a real app; edit here, then re-run the materialize script to refresh `laravel/`.
-- **`laravel/`** — generated runnable project (do not hand-edit: changes get overwritten on rematerialize).
-
-If you **prefer not** to use the bundled `laravel/`, you can still copy from `files/` into your own Laravel project, one chapter at a time (avoid mixing multiple chapters in one app without resolving duplicate class names such as `User` or `Post`).
+**Default DB:** SQLite at `laravel/database/database.sqlite` (the setup block above `touch`es it if missing).
 
 ## Chapters 1–17 (tour + end-of-chapter exercises)
 
@@ -104,8 +99,16 @@ If you **prefer not** to use the bundled `laravel/`, you can still copy from `fi
 | 16 | Test suite + CI | [exercise](http://127.0.0.1:38080/learn/sections/chapter-16-testing-laravel/exercise-full-test-suite) | [ch16-exercise-full-test-suite](ch16-exercise-full-test-suite/) |
 | 17 | Spatie roles + media | [exercise](http://127.0.0.1:38080/learn/sections/chapter-17-spatie-packages/build-a-roles-and-media-feature) | [ch17-exercise-build-roles-and-media](ch17-exercise-build-roles-and-media/) |
 
+## Maintaining this folder
+
+**`files/` and `laravel/`:** after editing `files/`, run `rsync -a files/ laravel/` in that chapter (or edit `laravel/` directly) and keep overlapping paths identical in git.
+
+**New exercise folder:** copy [`_laravel-skeleton`](_laravel-skeleton/) to `chNN-exercise-your-slug/laravel/`, add `routes/solution.php` and require it from `routes/web.php` (same pattern as other chapters: `/`, `/exercise`, then the solution routes), and commit without `vendor/`, `.env`, or `database/database.sqlite` (see each app’s [`.gitignore`](.gitignore)).
+
+**Upgrading Laravel:** update `_laravel-skeleton` from `composer create-project` or by merging `laravel/laravel`, then re-apply changes **per chapter** into each `ch*/laravel/` (there is no automatic merge from the skeleton into all chapters).
+
 ## Course site and GitHub
 
-**View on GitHub** (when wired from `code_examples_repo` in `course-template`) points at this course folder. For each exercise app, use the [prerequisites and commands](#runnable-laravel-app-in-each-chapter) and the [per-chapter `cd` paths](#per-chapter-where-to-cd-and-extra-commands).
+**View on GitHub** (when wired from `code_examples_repo` in `course-template`) points at this course folder.
 
 ← [Half Shell Studios Academy](../README.md)

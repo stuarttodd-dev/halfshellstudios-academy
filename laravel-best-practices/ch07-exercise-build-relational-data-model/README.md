@@ -2,24 +2,17 @@
 
 **Course page:** [Build a small blog domain with practical Eloquent relationships](http://127.0.0.1:38080/learn/sections/chapter-7-relations/exercise-build-relational-data-model)
 
-## Schema
+## Run the app
 
-The lesson uses `posts`, `tags`, `post_tag`, `comments`, and `users`. If you already have `posts` from chapter 6, add only the new tables (`tags`, `post_tag`, `comments`) and any missing columns. Foreign keys: `posts.user_id`, `comments.post_id`, unique `(post_id, tag_id)` on the pivot.
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch07-exercise-build-relational-data-model`** and port **8007**.
 
-## Reference files
+## What’s in the app
 
-- Migrations in `files/database/migrations/` (numbered after your existing migrations).
-- Models: `Post`, `Tag`, `Comment` with inverse relations.
-- `PostController@index` with the eager-load + `withCount` query from the lesson.
-- `database/factories/PostFactory.php` sketch for factories/seed (expand per your seeder plan).
+Under **`laravel/`**: migrations for `posts`, `tags`, `post_tag`, `comments` (and related), models `Post`, `Tag`, `Comment` with relations, `PostController@index` with eager loads / `withCount` as in the lesson, and factory sketches under `database/factories/`.
 
-## Tag sync (controller excerpt)
+## How to test
 
-```php
-$post->tags()->sync($validated['tag_ids'] ?? []);
-```
-
-## Checklist
-
-- Tinker: load `$post->author`, `$post->tags`, `comments` count.
-- `php artisan db:seed` (your demo seeder) then hit the index route: query count should stay flat when paginating (use Laravel Debugbar or `DB::listen`).
+1. **Health:** `GET /exercise` → `ok`.
+2. **Tinker:** load `$post->author`, `$post->tags`, comment counts; run `sync` on tags as in the lesson.
+3. **Index route:** hit the blog index route defined in `routes/solution.php` — with `DB::listen` or Debugbar, confirm you are not N+1 querying when listing posts (lesson goal).
+4. **Migrate + seed** (if you add seeders): `php artisan migrate` then seed demo data and paginate.

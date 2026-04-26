@@ -2,20 +2,23 @@
 
 **Course page:** [Build a complete product routing surface](http://127.0.0.1:38080/learn/sections/chapter-2-routing-controllers-request/exercise-build-crud-routes)
 
-## What this folder contains
+## Run the app
 
-A minimal `Product` resource: migration, model, `ProductController`, and `routes/web.php` fragment. Merge the route group into your app’s `routes/web.php` (or `api.php` if you prefer JSON-only; the course example uses web-style URLs).
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch02-exercise-build-crud-routes`** and port **8002**.
 
-## Apply the solution
+## What’s in the app
 
-1. `php artisan make:model Product -m` (or copy the migration from `files/`).
-2. Copy `files/database/migrations/*_create_products_table.php` into `database/migrations/`.
-3. Copy `files/app/Models/Product.php` and `files/app/Http/Controllers/ProductController.php`.
-4. Add the `Route::prefix('products')` group from `files/routes/products.php` into `routes/web.php` (e.g. `require` or paste).
-5. `php artisan migrate` then `php artisan route:list --path=products -v`.
-6. Hit the `curl` examples from the lesson (adjust host/port).
+The full example lives under **`laravel/`**: `Product` model, products migration, `ProductController`, and `routes/products.php` (included from `routes/solution.php`).
+
+## How to test
+
+1. **Health:** `GET /exercise` → `ok`.
+2. **List routes:** `php artisan route:list --path=products -v` — you should see the REST-style `products` resource routes.
+3. **Route model binding + constraint:** `GET /products/1` (after migrate) should resolve a product; **`GET /products/not-a-number`** should **404** thanks to `whereNumber('product')` on the parameter.
+4. **Verbs:** exercise `GET`, `POST`, `PUT`/`PATCH`, `DELETE` with `curl` or an HTTP client as in the lesson (adjust host/port).
+5. **Read the code:** open `app/Http/Controllers/ProductController.php` and the `Route::prefix('products')` group in `routes/products.php` and confirm PATCH and DELETE are explicit registrations.
 
 ## Notes
 
-- `whereNumber('product')` keeps non-numeric segments from being passed into binding; `GET /products/not-a-number` should 404.
-- `PATCH` and `DELETE` are separate registrations so verb intent stays explicit (REST-style).
+- `whereNumber('product')` keeps non-numeric segments from being passed into binding.
+- `PATCH` and `DELETE` are separate registrations (REST-style).

@@ -2,15 +2,20 @@
 
 **Course page:** [Tighten a slow list endpoint and prove the win with query counts](http://127.0.0.1:38080/learn/sections/chapter-8-query-builder-vs-eloquent/exercise-optimise-queries)
 
-## What to copy
+## Run the app
 
-- `files/app/Http/Controllers/AdminOrderController.php` — improved `index` (SQL filter, order, limit 50, `with`).
-- `files/app/Http/Controllers/MonthlyRevenueReportController.php` — grouped aggregate via `DB::table` (optional part of the lesson).
-- `files/database/migrations/0001_01_01_000007_add_index_to_orders_status_created.php` — composite index for `where status = paid` + `order by created_at desc`. Adjust column names to match your `orders` table, then run `EXPLAIN` on the target database.
-- `files/app/Models/Order.php` — minimal, with `user()` relation.
+Seeded orders + users make the admin list meaningful — run **`php artisan db:seed --force`** after migrate.
 
-Create an `orders` migration in your app if you do not have one yet (`id`, `user_id`, `status`, `total`, `created_at`).
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch08-exercise-optimise-queries`**, port **8008**, and **seed**.
 
-## Measure
+## What’s in the app
 
-Enable `DB::listen` in `AppServiceProvider` during local profiling, or use Telescope/Debugbar, as the lesson suggests. Assert query count dropped versus the `Order::all()` anti-pattern in the course text.
+Under **`laravel/`**: `Order` model, `orders` migration, `AdminOrderController` (filtered query + `with` + limit), optional `MonthlyRevenueReportController`, index migration for `status`/`created_at`, routes under `routes/solution.php`.
+
+## How to test
+
+1. **Health:** `GET /exercise` → `ok`.
+2. **List endpoint:** open the admin orders route from `routes/solution.php` (or `php artisan route:list --path=admin`) — list should load without loading every row into memory.
+3. **Query count:** enable `DB::listen` in `AppServiceProvider` (temporarily) or use Debugbar/Telescope; compare to the “load everything” anti-pattern in the lesson.
+4. **EXPLAIN (optional):** on MySQL/Postgres in a real environment, `EXPLAIN` the indexed query; SQLite in this repo is for convenience only.
+5. **Revenue report:** if implemented, hit the report route and confirm aggregate SQL shape.

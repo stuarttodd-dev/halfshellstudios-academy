@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-// Paste this block into routes/web.php (or require this file from web.php).
+// Required from routes/solution.php (and mirrored under ../files/ for reference).
 
 Route::prefix('products')->name('products.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('index');

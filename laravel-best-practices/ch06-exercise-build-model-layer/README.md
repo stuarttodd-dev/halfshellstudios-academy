@@ -2,14 +2,17 @@
 
 **Course page:** [Build a complete Eloquent model layer for a blog post domain](http://127.0.0.1:38080/learn/sections/chapter-6-eloquent-models-migrations/exercise-build-model-layer)
 
-## Files
+## Run the app
 
-- Migration for `posts` with soft deletes and foreign key to `users.id` (ensure `users` exists first).
-- `Post` model: `fillable`, `casts`, `SoftDeletes`, `scopePublished`.
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch06-exercise-build-model-layer`** and port **8006**.
 
-## Apply
+## What’s in the app
 
-1. Copy migration and model.
-2. `php artisan migrate`
-3. Verify in Tinker: `Post::factory()->create([...]); Post::published()->count();`
-4. Pair with Form Requests for create/update so you never pass `$request->all()` into `create`/`update`.
+Under **`laravel/`**: `posts` migration (soft deletes, `user_id` FK), `Post` model with `fillable`, `casts`, `SoftDeletes`, `scopePublished`, and routes in `routes/solution.php` as needed for the lesson.
+
+## How to test
+
+1. **Health:** `GET /exercise` → `ok`.
+2. **Migrate:** `php artisan migrate --force` (already run by setup).
+3. **Tinker:** `php artisan tinker` — `Post::factory()->create([...]); Post::published()->count();` (adjust for your factory/attributes).
+4. **Code review:** open `app/Models/Post.php` and confirm mass assignment and scopes match the lesson checklist.

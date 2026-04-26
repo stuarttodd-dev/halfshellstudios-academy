@@ -2,19 +2,17 @@
 
 **Course page:** [Build a B2B-style role and policy layer](http://127.0.0.1:38080/learn/sections/chapter-11-authorisation/exercise-build-role-system)
 
-## Files
+## Run the app
 
-- Migrations: `organisations`, add `organisation_id` + `role` on `users`, `projects` with `organisation_id`.
-- `app/Models/Organisation`, `Project`, and an updated `User` with `ProjectPolicy`.
-- `files/app/Http/Controllers/ProjectController.php` with `$this->authorize` calls.
-- `files/tests/Feature/ProjectPolicyTest.php` — cross-tenant 403/404, role gates.
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch11-exercise-build-role-system`** and port **8011**.
 
-## Status codes
+## What’s in the app
 
-Document whether cross-org `show` returns 403 or 404 and test for that, as the lesson requires.
+Under **`laravel/`**: org + project migrations, `Organisation` / `Project` / `User` updates, `ProjectPolicy`, `ProjectController` with `$this->authorize`, `ProjectPolicyTest`, enums/routes as in the solution.
 
-## Apply
+## How to test
 
-1. Run migrations, then copy models and policy.
-2. Register the policy in `AppServiceProvider` or `AuthServiceProvider` (`Project::class => ProjectPolicy::class`).
-3. `php artisan test --filter=ProjectPolicyTest`
+1. **Health:** `GET /exercise` → `ok`.
+2. **Automated:** `php artisan test --filter=ProjectPolicyTest` — cross-tenant 403/404, role matrix as you documented.
+3. **Status codes:** confirm whether **cross-org** `show` is **403** or **404** in your policy and that tests match.
+4. **Routes:** `php artisan route:list --path=projects` to see protected actions.

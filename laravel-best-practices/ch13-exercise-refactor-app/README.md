@@ -2,19 +2,20 @@
 
 **Course page:** [Refactor toward services, DTOs, and seams](http://127.0.0.1:38080/learn/sections/chapter-13-services-actions-dtos/exercise-refactor-app)
 
-## Target shape
+## Run the app
 
-1. `StoreLeadRequest` — validation + `authorize`.
-2. `CreateLeadData` — readonly DTO from validated input.
-3. `CreateLead` action — constructor-injected `CrmClient`, creates `Lead`, dispatches `SendLeadNotificationJob`, fires `LeadSubmitted`.
-4. `App\Contracts\CrmClient` + implementation using `Http::` with `config('services.crm')` base URL (merge keys from `files/config/SERVICES_CRM_SNIPPET.txt`).
-5. `LeadController@store` — three to six lines: validate via request, DTO, action, return response.
+From `laravel-best-practices/`, follow [Setup one chapter app](../README.md#setup-one-chapter-app) using folder **`ch13-exercise-refactor-app`** and port **8013**.
 
-**Bind** `CrmClient` in a service provider. Tests: unit test on `CreateLead` with a fake CRM; feature test with `Http::fake()`, `Queue::fake()`, `Event::fake()`.
+## What’s in the app
 
-## Files in `files/`
+Under **`laravel/`**: `StoreLeadRequest`, DTO, `CreateLead` action, `CrmClient` contract + `HttpCrmClient` / `NullCrmClient`, `Lead` model + migration, `LeadController@store` thin, `config/services.php` (merge pattern in `config/SERVICES_CRM_SNIPPET.txt` if you extend), jobs/events as in the solution.
 
-Core snippets for DTO, action, request, contract, job, event, and a thin controller. Merge into your app’s namespaces and add a `leads` table migration to match the `Lead` model fields you use.
+## How to test
+
+1. **Health:** `GET /exercise` → `ok`.
+2. **POST /leads** (or the route in `routes/solution.php`) with valid JSON/body per `StoreLeadRequest` — expect 201/redirect; invalid payload → 422.
+3. **Fakes in tests (lesson):** unit test `CreateLead` with a fake `CrmClient`; feature test with `Http::fake`, `Queue::fake`, `Event::fake` as in the course.
+4. **Config:** `config('services.crm')` should resolve for the HTTP client; `.env` keys documented in the lesson.
 
 ## Course link
 

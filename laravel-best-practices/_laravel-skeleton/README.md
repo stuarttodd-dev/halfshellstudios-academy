@@ -1,32 +1,29 @@
 # Runnable Laravel app (PHP to Laravel course)
 
-You are inside a directory that contains `artisan` — a normal Laravel 13 app.
+This directory contains a normal **Laravel 13** app (`artisan`, `composer.json`, etc.).
 
-- **Named chapter exercise** (e.g. `ch02-exercise-…/laravel/`, `ch01-exercise-hello-laravel-app/laravel/`): read **[this exercise’s `README.md`](../README.md)** (one level up from `laravel/`), and for every chapter’s commands see **`laravel-best-practices/README.md`** at the repository root.
-- **`_laravel-skeleton` only** (the template under `laravel-best-practices/_laravel-skeleton/`): maintainers use this tree to refresh all chapter apps; it is **not** the lesson “solution” for [chapter 1 Hello Laravel](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app). For that mini-project, open **`ch01-exercise-hello-laravel-app/`** instead.
+- **In the repo:** each exercise’s code lives under `chNN-exercise-*/laravel/`. **Edit and run that folder** — it is the source of truth for the solution.
+- **`_laravel-skeleton/`** (this tree when not inside a chapter) is a **template** for new exercises or framework upgrades — see [**Maintaining this folder**](../README.md#maintaining-this-folder) in `laravel-best-practices/README.md`.
 
-## Working on this app
+**Learners:** open the **README.md** next to this `laravel` folder (one level up) for **how to run and test** this chapter. Global setup: **`laravel-best-practices/README.md`** (repository root for that folder). The **README in the parent of this `laravel` directory** is the chapter’s run & test guide.
 
-1. Stay in **this** directory (the one that contains `artisan`).
+## Quick install (from this `laravel/` directory)
 
-2. Install dependencies and boot the app:
+```bash
+cp -n .env.example .env
+composer install
+php artisan key:generate
+touch database/database.sqlite   # if missing
+php artisan migrate
+```
 
-   ```bash
-   cp -n .env.example .env
-   composer install
-   php artisan key:generate
-   touch database/database.sqlite   # if missing; materialise also creates it in chapter apps
-   php artisan migrate
-   php artisan serve
-   ```
-
-3. `vendor/` and `node_modules/` are **not** committed; fresh checkouts need `composer install` (and `npm install` only if you work on the Vite frontend). After changing the **template** in `_laravel-skeleton`, run `php scripts/materialize_laravel_apps.php` with the working directory set to `laravel-best-practices/`, then `composer install` again in affected `ch*/laravel` apps.
+**Serve** on this chapter’s port (**8000 + chapter number**; e.g. chapter 5 → **8005** — see the parent **README** or `laravel-best-practices/README.md`). From the chapter’s `laravel/`: `php artisan serve --host=127.0.0.1 --port=<port>` (see [Setup one chapter app](../README.md#setup-one-chapter-app) in the parent `laravel-best-practices/README.md`).
 
 ## Customisations in the course template
 
-- Base [`app/Http/Controllers/Controller.php`](app/Http/Controllers/Controller.php) uses `AuthorizesRequests` so course controllers can call `$this->authorize()` where needed.
-- `composer.json` requires **PHP `^8.3`** to match [Laravel 13](https://laravel.com/docs).
+- Base `app/Http/Controllers/Controller.php` uses `AuthorizesRequests` where needed.
+- PHP **^8.3** for Laravel 13.
 
-## Laravel itself
+## Laravel
 
-Laravel is MIT-licenced; full framework docs: [laravel.com/docs](https://laravel.com/docs).
+[laravel.com/docs](https://laravel.com/docs)
