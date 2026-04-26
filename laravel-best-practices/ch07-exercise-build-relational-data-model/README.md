@@ -1,6 +1,6 @@
 # Chapter 7 — Exercise: blog relations + index query
 
-**Course page:** [Build a small blog domain with practical Eloquent relationships](http://127.0.0.1:38080/learn/sections/chapter-7-relations/exercise-build-relational-data-model)
+**Course page:** [Build a small blog domain with practical Eloquent relationships](https://laravel.learnio.dev/learn/sections/chapter-7-relations/exercise-build-relational-data-model)
 
 ## Run the app
 

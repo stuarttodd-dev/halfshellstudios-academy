@@ -1,6 +1,6 @@
 # Chapter 16 — Exercise: full test / CI (reference write-up)
 
-**Course page:** [exercise-full-test-suite](http://127.0.0.1:38080/learn/sections/chapter-16-testing-laravel/exercise-full-test-suite)
+**Course page:** [exercise-full-test-suite](https://laravel.learnio.dev/learn/sections/chapter-16-testing-laravel/exercise-full-test-suite)
 
 See **[SOLUTION.md](SOLUTION.md)** for a worked example in the hand-in style the course describes (test matrix, CI YAML ideas, smoke vs contract tests).
 

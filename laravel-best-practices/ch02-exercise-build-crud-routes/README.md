@@ -1,6 +1,6 @@
 # Chapter 2 — Exercise: build CRUD routes
 
-**Course page:** [Build a complete product routing surface](http://127.0.0.1:38080/learn/sections/chapter-2-routing-controllers-request/exercise-build-crud-routes)
+**Course page:** [Build a complete product routing surface](https://laravel.learnio.dev/learn/sections/chapter-2-routing-controllers-request/exercise-build-crud-routes)
 
 ## Run the app
 

@@ -1,6 +1,6 @@
 # Chapter 8 — Exercise: optimise queries
 
-**Course page:** [Tighten a slow list endpoint and prove the win with query counts](http://127.0.0.1:38080/learn/sections/chapter-8-query-builder-vs-eloquent/exercise-optimise-queries)
+**Course page:** [Tighten a slow list endpoint and prove the win with query counts](https://laravel.learnio.dev/learn/sections/chapter-8-query-builder-vs-eloquent/exercise-optimise-queries)
 
 ## Run the app
 

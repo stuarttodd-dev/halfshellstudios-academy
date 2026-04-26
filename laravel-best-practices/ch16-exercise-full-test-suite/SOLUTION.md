@@ -1,6 +1,6 @@
 # Chapter 16 — Exercise: test suite and CI (reference write-up)
 
-**Course page:** [Full test suite and one CI run](http://127.0.0.1:38080/learn/sections/chapter-16-testing-laravel/exercise-full-test-suite)
+**Course page:** [Full test suite and one CI run](https://laravel.learnio.dev/learn/sections/chapter-16-testing-laravel/exercise-full-test-suite)
 
 The exercise wants tests **you** add to **your** project, plus a green/red proof and either CI config or a script. This document is a **filled-in example** you can compare against.
 

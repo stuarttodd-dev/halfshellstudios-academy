@@ -1,6 +1,6 @@
 # Chapter 4 — Exercise: validate a complex checkout form
 
-**Course page:** [Build a robust validation boundary for a complex checkout form](http://127.0.0.1:38080/learn/sections/chapter-4-validation-form-requests/exercise-validate-complex-form)
+**Course page:** [Build a robust validation boundary for a complex checkout form](https://laravel.learnio.dev/learn/sections/chapter-4-validation-form-requests/exercise-validate-complex-form)
 
 ## Run the app
 

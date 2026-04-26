@@ -1,6 +1,6 @@
 # Chapter 14 — Exercise: one deploy you can hand to a teammate (solution / runbook)
 
-**Course page:** [Ship one release you can explain](http://127.0.0.1:38080/learn/sections/chapter-14-vite-deploy/exercise-deploy-app)
+**Course page:** [Ship one release you can explain](https://laravel.learnio.dev/learn/sections/chapter-14-vite-deploy/exercise-deploy-app)
 
 The lesson asks for a runbook, evidence, and a practice rollback, not a single PHP class. This file is a **template** you can copy into your project wiki or `docs/deploy.md` and fill in with real host names and commit SHAs.
 

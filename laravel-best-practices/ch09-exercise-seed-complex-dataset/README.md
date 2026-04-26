@@ -1,6 +1,6 @@
 # Chapter 9 — Exercise: seed a complex demo dataset
 
-**Course page:** [Build a multi-tenant demo with factories and seeders](http://127.0.0.1:38080/learn/sections/chapter-9-factories-seeders-transactions/exercise-seed-complex-dataset)
+**Course page:** [Build a multi-tenant demo with factories and seeders](https://laravel.learnio.dev/learn/sections/chapter-9-factories-seeders-transactions/exercise-seed-complex-dataset)
 
 ## Run the app
 

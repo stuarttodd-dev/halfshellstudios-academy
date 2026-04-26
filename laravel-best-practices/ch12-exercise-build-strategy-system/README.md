@@ -1,6 +1,6 @@
 # Chapter 12 — Exercise: Strategy pattern + service container
 
-**Course page:** [Build a strategy system bound in the container](http://127.0.0.1:38080/learn/sections/chapter-12-service-container-and-providers/exercise-build-strategy-system)
+**Course page:** [Build a strategy system bound in the container](https://laravel.learnio.dev/learn/sections/chapter-12-service-container-and-providers/exercise-build-strategy-system)
 
 ## Run the app
 

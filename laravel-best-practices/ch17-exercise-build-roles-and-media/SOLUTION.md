@@ -1,6 +1,6 @@
 # Chapter 17 — Exercise: Spatie permissions + medialibrary (checklist and notes)
 
-**Course page:** [Build a practical package-powered feature](http://127.0.0.1:38080/learn/sections/chapter-17-spatie-packages/build-a-roles-and-media-feature)
+**Course page:** [Build a practical package-powered feature](https://laravel.learnio.dev/learn/sections/chapter-17-spatie-packages/build-a-roles-and-media-feature)
 
 The lesson is a capstone: Composer packages, model traits, policies, **permission cache** discipline, and tests. A full app cannot live meaningfully in the Academy repo; use this as a **completion checklist** and operational notes (UK English) while you build in a real project branch.
 

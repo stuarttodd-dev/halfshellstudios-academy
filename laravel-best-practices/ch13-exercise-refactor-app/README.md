@@ -1,6 +1,6 @@
 # Chapter 13 — Exercise: refactor a fat “contact sales” controller
 
-**Course page:** [Refactor toward services, DTOs, and seams](http://127.0.0.1:38080/learn/sections/chapter-13-services-actions-dtos/exercise-refactor-app)
+**Course page:** [Refactor toward services, DTOs, and seams](https://laravel.learnio.dev/learn/sections/chapter-13-services-actions-dtos/exercise-refactor-app)
 
 ## Run the app
 
@@ -19,4 +19,4 @@ Under **`laravel/`**: `StoreLeadRequest`, DTO, `CreateLead` action, `CrmClient` 
 
 ## Course link
 
-[exercise-refactor-app](http://127.0.0.1:38080/learn/sections/chapter-13-services-actions-dtos/exercise-refactor-app)
+[exercise-refactor-app](https://laravel.learnio.dev/learn/sections/chapter-13-services-actions-dtos/exercise-refactor-app)

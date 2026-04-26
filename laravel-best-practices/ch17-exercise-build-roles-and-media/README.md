@@ -1,6 +1,6 @@
 # Chapter 17 — Exercise: Spatie roles + media (checklist)
 
-**Course page:** [build-a-roles-and-media-feature](http://127.0.0.1:38080/learn/sections/chapter-17-spatie-packages/build-a-roles-and-media-feature)
+**Course page:** [build-a-roles-and-media-feature](https://laravel.learnio.dev/learn/sections/chapter-17-spatie-packages/build-a-roles-and-media-feature)
 
 The capstone expects **package install**, migrations, and a **test matrix** in your app. See **[SOLUTION.md](SOLUTION.md)** for a checklist; this repository’s `laravel/` app is a **thin** scaffold (see `routes/solution.php`).
 

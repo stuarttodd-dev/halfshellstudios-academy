@@ -1,6 +1,6 @@
 # Chapter 6 — Exercise: `Post` model layer
 
-**Course page:** [Build a complete Eloquent model layer for a blog post domain](http://127.0.0.1:38080/learn/sections/chapter-6-eloquent-models-migrations/exercise-build-model-layer)
+**Course page:** [Build a complete Eloquent model layer for a blog post domain](https://laravel.learnio.dev/learn/sections/chapter-6-eloquent-models-migrations/exercise-build-model-layer)
 
 ## Run the app
 

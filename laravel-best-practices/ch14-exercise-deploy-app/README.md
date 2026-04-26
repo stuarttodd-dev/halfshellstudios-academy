@@ -1,6 +1,6 @@
 # Chapter 14 — Exercise: deploy (reference runbook)
 
-**Course page:** [exercise-deploy-app](http://127.0.0.1:38080/learn/sections/chapter-14-vite-deploy/exercise-deploy-app)
+**Course page:** [exercise-deploy-app](https://laravel.learnio.dev/learn/sections/chapter-14-vite-deploy/exercise-deploy-app)
 
 The learning outcome is **operational** (runbook, evidence, rollback narrative), not a large amount of new PHP. See **[SOLUTION.md](SOLUTION.md)** for a completed runbook template.
 

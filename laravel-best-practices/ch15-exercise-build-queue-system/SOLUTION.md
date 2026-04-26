@@ -1,6 +1,6 @@
 # Chapter 15 — Exercise: queue system (reference write-up)
 
-**Course page:** [Build a small queue system](http://127.0.0.1:38080/learn/sections/chapter-15-queues-and-horizon/exercise-build-queue-system)
+**Course page:** [Build a small queue system](https://laravel.learnio.dev/learn/sections/chapter-15-queues-and-horizon/exercise-build-queue-system)
 
 Use this as a **worked example** of what the course asks you to hand in. Replace names with your app’s, and point logs at real paths.
 

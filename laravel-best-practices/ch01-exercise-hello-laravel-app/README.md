@@ -1,6 +1,6 @@
 # Chapter 1 (Laravel tour) — Mini project: Hello Laravel app
 
-**Course page:** [mini-project-hello-laravel-app](http://127.0.0.1:38080/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app)
+**Course page:** [mini-project-hello-laravel-app](https://laravel.learnio.dev/learn/sections/chapter-laravel-tour/mini-project-hello-laravel-app)
 
 ## Run the app
 

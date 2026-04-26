@@ -1,6 +1,6 @@
 # Chapter 11 — Exercise: org-scoped authorisation (policies)
 
-**Course page:** [Build a B2B-style role and policy layer](http://127.0.0.1:38080/learn/sections/chapter-11-authorisation/exercise-build-role-system)
+**Course page:** [Build a B2B-style role and policy layer](https://laravel.learnio.dev/learn/sections/chapter-11-authorisation/exercise-build-role-system)
 
 ## Run the app
 

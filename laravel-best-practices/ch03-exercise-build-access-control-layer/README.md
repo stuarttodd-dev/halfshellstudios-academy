@@ -1,6 +1,6 @@
 # Chapter 3 — Exercise: build an access control layer (middleware)
 
-**Course page:** [Build a complete middleware-based access boundary](http://127.0.0.1:38080/learn/sections/chapter-3-middleware/exercise-build-access-control-layer)
+**Course page:** [Build a complete middleware-based access boundary](https://laravel.learnio.dev/learn/sections/chapter-3-middleware/exercise-build-access-control-layer)
 
 ## Run the app
 

@@ -3,7 +3,7 @@
 This directory contains a normal **Laravel 13** app (`artisan`, `composer.json`, etc.).
 
 - **In the repo:** each exercise’s code lives under `chNN-exercise-*/laravel/`. **Edit and run that folder** — it is the source of truth for the solution.
-- **`_laravel-skeleton/`** (this tree when not inside a chapter) is a **template** for new exercises or framework upgrades — see [**Maintaining this folder**](../README.md#maintaining-this-folder) in `laravel-best-practices/README.md`.
+- **`_laravel-skeleton/`** (this tree when not inside a chapter) is a **template** for new exercises: copy to `chNN-exercise-*/laravel/` and follow the `routes/web.php` + `routes/solution.php` pattern used in existing chapter apps.
 
 **Learners:** open the **README.md** next to this `laravel` folder (one level up) for **how to run and test** this chapter. Global setup: **`laravel-best-practices/README.md`** (repository root for that folder). The **README in the parent of this `laravel` directory** is the chapter’s run & test guide.
 

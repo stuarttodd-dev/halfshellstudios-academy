@@ -1,6 +1,6 @@
 # Chapter 10 — Exercise: authentication (web) + feature tests
 
-**Course page:** [Build a coherent authentication layer](http://127.0.0.1:38080/learn/sections/chapter-10-authentication/exercise-build-auth-system)
+**Course page:** [Build a coherent authentication layer](https://laravel.learnio.dev/learn/sections/chapter-10-authentication/exercise-build-auth-system)
 
 ## Run the app
 

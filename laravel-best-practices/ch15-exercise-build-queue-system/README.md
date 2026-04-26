@@ -1,6 +1,6 @@
 # Chapter 15 — Exercise: queues (reference write-up)
 
-**Course page:** [exercise-build-queue-system](http://127.0.0.1:38080/learn/sections/chapter-15-queues-and-horizon/exercise-build-queue-system)
+**Course page:** [exercise-build-queue-system](https://laravel.learnio.dev/learn/sections/chapter-15-queues-and-horizon/exercise-build-queue-system)
 
 The hand-in is a **description** of a queue-backed feature (idempotency, retries, monitoring). See **[SOLUTION.md](SOLUTION.md)** for a sample deliverable.
 

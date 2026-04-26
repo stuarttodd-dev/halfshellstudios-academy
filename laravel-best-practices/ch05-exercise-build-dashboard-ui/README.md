@@ -1,6 +1,6 @@
 # Chapter 5 — Exercise: Blade dashboard
 
-**Course page:** [Build a reusable Blade dashboard interface](http://127.0.0.1:38080/learn/sections/chapter-5-blade-and-frontend-choice/exercise-build-dashboard-ui)
+**Course page:** [Build a reusable Blade dashboard interface](https://laravel.learnio.dev/learn/sections/chapter-5-blade-and-frontend-choice/exercise-build-dashboard-ui)
 
 ## Run the app
 
