@@ -58,10 +58,19 @@ Under **`laravel/`**: `users.is_subscribed` migration, `EnsureUserIsSubscribed` 
 curl -sS "http://127.0.0.1:8003/exercise"
 ```
 
-**2 — Dev login (session cookie file `cj`)**
+**2 — Dev login (session cookie file `cj`)** — you **must** use `-c cj` here so the session is **written**; later commands only need `-b cj` to read it. The path `cj` is **relative to your shell’s current directory** (e.g. `~/cj` if you are in your home folder). If you see **`{"message":"Unauthenticated."}`** on a later request, you are sending **no** or the **wrong** cookies: run step 2 again in the same directory, or use one absolute file for both steps, e.g. `-c /tmp/ch03.cj -b /tmp/ch03.cj` then `-b /tmp/ch03.cj`.
 
 ```bash
 curl -sS -c cj -b cj "http://127.0.0.1:8003/_exercise/login"
+```
+
+**2b — All-in-one (avoids a stale or missing `cj`)**
+
+```bash
+curl -sS -c cj -b cj "http://127.0.0.1:8003/_exercise/login" >/dev/null && \
+curl -sS -X POST -b cj "http://127.0.0.1:8003/billing/plan" \
+  -H "Content-Type: application/json" -H "Accept: application/json" \
+  -d '{"plan":"premium"}'
 ```
 
 **3 — Dashboard (requires auth)**

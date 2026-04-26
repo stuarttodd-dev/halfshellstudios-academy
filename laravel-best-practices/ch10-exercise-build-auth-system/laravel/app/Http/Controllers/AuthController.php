@@ -34,7 +34,8 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard');
+        // `redirect('/dashboard')` can emit `Location: http://host:port` only under `php artisan serve`; build the URL from the current request.
+        return new RedirectResponse($request->getUriForPath('/dashboard'));
     }
 
     public function login(LoginUserRequest $request): RedirectResponse
@@ -46,7 +47,12 @@ class AuthController extends Controller
         }
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard'));
+        $intended = $request->session()->pull('url.intended');
+        $target = $intended
+            ? (is_string($intended) && str_starts_with($intended, 'http') ? $intended : $request->getUriForPath((string) $intended))
+            : $request->getUriForPath('/dashboard');
+
+        return new RedirectResponse($target);
     }
 
     public function logout(Request $request): RedirectResponse
@@ -55,6 +61,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return new RedirectResponse($request->getUriForPath('/login'));
     }
 }

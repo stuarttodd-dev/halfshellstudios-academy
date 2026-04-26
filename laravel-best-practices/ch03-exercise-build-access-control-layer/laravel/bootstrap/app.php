@@ -12,12 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->alias([
+            'subscribed' => EnsureUserIsSubscribed::class,
+        ]);
+        // Exercise only: allow copy-paste curl for /billing/plan with a session cookie (do not use in production).
         $middleware->validateCsrfTokens(except: [
             'billing',
             'billing/*',
-        ]);
-        $middleware->alias([
-            'subscribed' => EnsureUserIsSubscribed::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

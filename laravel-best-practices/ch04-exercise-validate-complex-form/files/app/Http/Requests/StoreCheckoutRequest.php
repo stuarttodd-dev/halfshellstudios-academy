@@ -29,7 +29,7 @@ class StoreCheckoutRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'account_type' => ['required', 'in:personal,business'],
-            'company_name' => ['required_if:account_type,business', 'string', 'max:255'],
+            'company_name' => ['nullable', 'required_if:account_type,business', 'string', 'max:255'],
             'vat_number' => ['nullable', 'string', 'max:64'],
 
             'items' => ['required', 'array', 'min:1'],

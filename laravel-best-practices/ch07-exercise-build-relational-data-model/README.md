@@ -50,10 +50,10 @@ Under **`laravel/`**: migrations for `posts`, `tags`, `post_tag`, `comments` (an
 curl -sS "http://127.0.0.1:8007/exercise"
 ```
 
-**2 — Post index (HTML)**
+**2 — Post index (this sample is a small `<ul>` fragment, not a full `<!DOCTYPE>` page)**
 
 ```bash
-curl -sS "http://127.0.0.1:8007/posts" | head -c 400
+curl -sS "http://127.0.0.1:8007/posts" | head -c 500
 ```
 
 **3 — Tinker: create a user, post, tag, attach, and comment, then re-open `/posts` in a browser** (one line; no `PostFactory` in this sample):

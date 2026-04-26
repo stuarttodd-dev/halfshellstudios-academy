@@ -40,10 +40,10 @@ Under **`laravel/`**: `routes/auth.php` (guest + auth groups, throttle on login)
 | ---- | ----- |
 | 0 | Migrated, server **8010** |
 | 1 | `/exercise` → `ok` |
-| 2 | `POST /register` — **302** to `/dashboard` (use `-L` to follow) — session established |
+| 2 | `POST /register` — **302** to `/dashboard` — session established (follow with a **second** `GET /dashboard` **or** `curl -L` **without** `-X POST`; see **note** below) |
 | 3 | `GET /dashboard` with same cookies — **200** (HTML) |
-| 4 | `POST /logout` — session cleared, **302** to `/login` |
-| 5 | `POST /login` with the same user — back to dashboard |
+| 4 | `POST /logout` — session cleared, **302** to `/login` (do not combine **`-L`** with **`-X POST`**) |
+| 5 | `POST /login` with the same user — back to dashboard (same **`-L`** rule as register) |
 | 6 | Bad login — error flash / **422** or redirect with errors (see test suite) |
 | 7 | `php artisan test --filter=AuthenticationTest` — green |
 
@@ -55,13 +55,32 @@ curl -sS "http://127.0.0.1:8010/exercise"
 
 **2 — Register a new user (form body; unique email + `password` / `password_confirmation` ≥ 8 chars)**
 
+`curl` **must not** use **`-X POST` together with `-L`**: `-X` forces the same method on every hop, so a **POST** can hit **`GET` routes** (e.g. `/dashboard`) and return **405**. Use `--data` (or `-d`) without `-X` so the first request is `POST` and **302** hops use **`GET`**, or follow steps **2a** + **2b** (two calls, no `-L`).
+
+In **`application/x-www-form-urlencoded`**, a **`+` in a field value is decoded as a space** (so e.g. `learner+123@…` can fail email validation). Use a different separator (e.g. `learner.$(date +%s)@…`) or encode `+` as `%2B`.
+
+**Option A — one line with follow (`-L`, no `-X`)**
+
 ```bash
-E="learner+$(date +%s)@example.com"
+E="learner.$(date +%s)@example.com"
 curl -sS -c cj -b cj -L -o /dev/null -w "HTTP:%{http_code} final_url:%{url_effective}\n" \
-  -X POST "http://127.0.0.1:8010/register" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  --data "name=Learner&email=$E&password=password1&password_confirmation=password1"
+  --data "name=Learner&email=$E&password=password1&password_confirmation=password1" \
+  "http://127.0.0.1:8010/register"
 ```
+
+**Option B — explicit 302, then `GET` dashboard**
+
+```bash
+E="learner.$(date +%s)@example.com"
+curl -sS -c cj -b cj -o /dev/null -w "register_status:%{http_code}\n" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  --data "name=Learner&email=$E&password=password1&password_confirmation=password1" \
+  "http://127.0.0.1:8010/register"
+curl -sS -b cj -o /dev/null -w "dashboard:%{http_code} URL:%{url_effective}\n" "http://127.0.0.1:8010/dashboard"
+```
+
+Expect: **register `302`**, **dashboard `200`**.
 
 **3 — Dashboard (must send cookies from step 2)**
 
@@ -69,20 +88,22 @@ curl -sS -c cj -b cj -L -o /dev/null -w "HTTP:%{http_code} final_url:%{url_effec
 curl -sS -b cj "http://127.0.0.1:8010/dashboard" | head -c 400
 ```
 
-**4 — Logout**
+**4 — Logout** (single `POST` — do **not** add `-L` with `-X POST` or a follow request may hit **GET** routes with `POST`)
 
 ```bash
-curl -sS -c cj -b cj -L -o /dev/null -w "HTTP:%{http_code} final_url:%{url_effective}\n" \
+curl -sS -c cj -b cj -o /dev/null -w "HTTP:%{http_code}\n" \
   -X POST "http://127.0.0.1:8010/logout"
 ```
 
-**5 — Login again** (use the **same** `email=…` you registered; if you opened a new shell, set `E` first or paste the address)
+Expect: **302** to `/login` (or **200** to login page, depending on framework redirect handling—either way, session is cleared).
+
+**5 — Login again** (use the **same** `email=…` you registered; if you opened a new shell, set `E` first or paste the address) — use `-L` **without** `-X POST`, or two steps like register
 
 ```bash
 curl -sS -c cj -b cj -L -o /dev/null -w "HTTP:%{http_code} final_url:%{url_effective}\n" \
-  -X POST "http://127.0.0.1:8010/login" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  --data "email=$E&password=password1"
+  --data "email=$E&password=password1" \
+  "http://127.0.0.1:8010/login"
 ```
 
 **6 — Browser (UX)** — open `http://127.0.0.1:8010/register` and `…/login` to exercise Blade forms and throttling in the course.
