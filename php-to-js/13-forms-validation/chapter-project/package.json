@@ -1,0 +1,7 @@
+{
+  "name": "ch13-forms-validation",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "start": "node registration-demo.js" },
+  "dependencies": { "zod": "^3.0.0" }
+}

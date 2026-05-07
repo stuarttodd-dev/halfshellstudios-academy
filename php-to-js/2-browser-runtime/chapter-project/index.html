@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form — Browser Runtime Demo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+      margin: 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    h1 { margin: 0 0 1.5rem; font-size: 1.4rem; color: #111; }
+
+    .field { margin-bottom: 1.2rem; }
+
+    label {
+      display: block;
+      font-size: .875rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: .35rem;
+    }
+
+    input {
+      width: 100%;
+      padding: .55rem .75rem;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color .15s;
+    }
+
+    input:focus { outline: none; border-color: #6366f1; }
+    input.invalid { border-color: #ef4444; }
+
+    .error {
+      color: #ef4444;
+      font-size: .8rem;
+      margin-top: .3rem;
+      min-height: 1.1em;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: .65rem;
+      background: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    button[type="submit"]:hover { background: #4f46e5; }
+
+    .success {
+      display: none;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      border-radius: 5px;
+      padding: .9rem 1rem;
+      color: #065f46;
+      font-size: .95rem;
+      margin-top: 1.2rem;
+    }
+
+    .success.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Get in touch</h1>
+
+    <form id="contact-form" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" />
+        <p class="error" id="name-error"></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" />
+        <p class="error" id="email-error"></p>
+      </div>
+
+      <button type="submit">Send message</button>
+    </form>
+
+    <div class="success" id="success-msg">
+      Thanks! We'll be in touch shortly.
+      <a href="#" id="reset-link">Send another?</a>
+    </div>
+  </div>
+
+  <script>
+    // --- Grab DOM references once up-front ---
+    const form       = document.getElementById('contact-form');
+    const nameInput  = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const nameError  = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const successMsg = document.getElementById('success-msg');
+    const resetLink  = document.getElementById('reset-link');
+
+    // --- Pure validation helpers ---
+
+    function validateName(value) {
+      if (!value.trim()) return 'Name is required.';
+      if (value.trim().length < 2) return 'Name must be at least 2 characters.';
+      return '';
+    }
+
+    function validateEmail(value) {
+      if (!value.trim()) return 'Email is required.';
+      // Simple format check — a full RFC-5322 regex is overkill here
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email.';
+      return '';
+    }
+
+    // --- UI helpers ---
+
+    function showError(input, errorEl, message) {
+      errorEl.textContent = message;
+      input.classList.toggle('invalid', Boolean(message));
+    }
+
+    function clearErrors() {
+      showError(nameInput, nameError, '');
+      showError(emailInput, emailError, '');
+    }
+
+    // --- Inline validation as the user types ---
+    nameInput.addEventListener('input', () => {
+      showError(nameInput, nameError, validateName(nameInput.value));
+    });
+
+    emailInput.addEventListener('input', () => {
+      showError(emailInput, emailError, validateEmail(emailInput.value));
+    });
+
+    // --- Form submission ---
+    // preventDefault stops the browser's default full-page POST.
+    // In PHP you'd validate server-side; here we validate client-side first.
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const nameMsg  = validateName(nameInput.value);
+      const emailMsg = validateEmail(emailInput.value);
+
+      showError(nameInput, nameError, nameMsg);
+      showError(emailInput, emailError, emailMsg);
+
+      if (nameMsg || emailMsg) {
+        // Focus the first invalid field for accessibility
+        (nameMsg ? nameInput : emailInput).focus();
+        return;
+      }
+
+      // All good — show success state
+      form.style.display = 'none';
+      successMsg.classList.add('visible');
+    });
+
+    // --- Reset button ---
+    resetLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      form.reset();
+      clearErrors();
+      form.style.display = '';
+      successMsg.classList.remove('visible');
+      nameInput.focus();
+    });
+  </script>
+</body>
+</html>

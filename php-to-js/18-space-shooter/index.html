@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Space Shooter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            position: fixed;
+        }
+        #game-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 800px !important;
+            touch-action: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

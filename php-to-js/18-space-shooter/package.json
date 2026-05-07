@@ -1,0 +1,33 @@
+{
+  "name": "project-space-shooter",
+  "version": "1.0.0",
+  "description": "A space shooter game built with TypeScript and Phaser",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": [
+    "game",
+    "phaser",
+    "typescript",
+    "space-shooter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@vitest/ui": "^1.1.0",
+    "jsdom": "^27.4.0",
+    "sharp": "^0.34.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vitest": "^1.1.0"
+  }
+}
