@@ -1,0 +1,21 @@
+{
+  "name": "10-modern-js-tooling",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint resources/js",
+    "test": "vitest run",
+    "format:check": "prettier --check resources/js",
+    "check": "npm run lint && npm run format:check && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.14"
+  }
+}

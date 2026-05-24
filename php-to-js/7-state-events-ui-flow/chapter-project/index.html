@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task board</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="board">
+      <header class="board-header">
+        <h1>Task board</h1>
+        <p class="open-count">Open: <span data-role="open-count">0</span></p>
+      </header>
+
+      <nav class="filters" aria-label="Task filters">
+        <button type="button" data-role="filter-tab" data-filter="all" class="is-active">All</button>
+        <button type="button" data-role="filter-tab" data-filter="open">Open</button>
+        <button type="button" data-role="filter-tab" data-filter="done">Done</button>
+      </nav>
+
+      <form data-role="task-form">
+        <input
+          type="text"
+          name="title"
+          data-role="title-input"
+          placeholder="Add a task"
+          autocomplete="off"
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <ul data-role="task-list"></ul>
+    </div>
+    <script type="module" src="page.js"></script>
+  </body>
+</html>

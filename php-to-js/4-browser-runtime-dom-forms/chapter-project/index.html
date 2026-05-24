@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task list — form and result list</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1>Add a task</h1>
+
+      <form data-role="task-form" novalidate>
+        <div class="field">
+          <label for="label">Label</label>
+          <input
+            type="text"
+            id="label"
+            name="label"
+            data-role="label-input"
+            placeholder="e.g. Buy milk"
+            autocomplete="off"
+          />
+          <p data-role="label-error" class="error"></p>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+
+      <ul data-role="result-list"></ul>
+      <p class="hint">Click a row to remove it. Draft text and rows persist in localStorage.</p>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
