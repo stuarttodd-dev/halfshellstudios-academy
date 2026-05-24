@@ -1,0 +1,7 @@
+{
+  "data": [
+    { "id": 1, "name": "Widget", "price": 19.99, "sku": "WDG-001" },
+    { "id": 2, "name": "Gadget", "price": 9.5, "sku": "GDG-002" }
+  ],
+  "meta": { "page": 1, "per_page": 15, "total": 2 }
+}

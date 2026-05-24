@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/_laravel-skeleton" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch01-exercise-hello-laravel-app/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch02-exercise-build-crud-routes/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch02-exercise-build-crud-routes/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch03-exercise-build-access-control-layer/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch03-exercise-build-access-control-layer/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch04-exercise-validate-complex-form/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch04-exercise-validate-complex-form/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch05-exercise-build-dashboard-ui/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch05-exercise-build-dashboard-ui/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch06-exercise-build-model-layer/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch06-exercise-build-model-layer/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch07-exercise-build-relational-data-model/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch07-exercise-build-relational-data-model/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch08-exercise-optimise-queries/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch08-exercise-optimise-queries/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch09-exercise-seed-complex-dataset/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch09-exercise-seed-complex-dataset/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch10-exercise-build-auth-system/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch10-exercise-build-auth-system/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch11-exercise-build-role-system/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch11-exercise-build-role-system/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch12-exercise-build-strategy-system/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch12-exercise-build-strategy-system/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch13-exercise-refactor-app/files" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch13-exercise-refactor-app/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch14-exercise-deploy-app/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch15-exercise-build-queue-system/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch16-exercise-full-test-suite/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-best-practices/ch17-exercise-build-roles-and-media/laravel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/writing-decent-php/files-folders-and-small-modules-chapter-7-guided-practice/exercise-2-flip-layer-first-to-feature-first/after/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/writing-decent-php/files-folders-and-small-modules-chapter-7-guided-practice/exercise-2-flip-layer-first-to-feature-first/before/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/writing-decent-php/files-folders-and-small-modules-chapter-7-guided-practice/exercise-3-split-a-too-big-module/after/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/writing-decent-php/naming-things-well-chapter-2-guided-practice/exercise-2-class-namespace-and-file-location/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/zero-to-php/chapter-7-calculator/src" isTestSource="false" packagePrefix="App" />
+      <sourceFolder url="file://$MODULE_DIR$/zero-to-php/composer-json-autoload/src" isTestSource="false" packagePrefix="App" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
