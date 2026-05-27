@@ -38,6 +38,8 @@
       <sourceFolder url="file://$MODULE_DIR$/writing-decent-php/naming-things-well-chapter-2-guided-practice/exercise-2-class-namespace-and-file-location/src" isTestSource="false" packagePrefix="App" />
       <sourceFolder url="file://$MODULE_DIR$/zero-to-php/chapter-7-calculator/src" isTestSource="false" packagePrefix="App" />
       <sourceFolder url="file://$MODULE_DIR$/zero-to-php/composer-json-autoload/src" isTestSource="false" packagePrefix="App" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-best-practices/_laravel-skeleton/storage/app" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-best-practices/_laravel-skeleton/storage/framework" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
