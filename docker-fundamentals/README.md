@@ -2,13 +2,13 @@
 
 Learn what containers are, how Docker works, and how to use images, containers, volumes, and networks in real projects.
 
-**Course:** [Docker fundamentals](http://127.0.0.1:38080/) (local learn instance) — adjust the host if your learn app runs elsewhere.
+**Course:** [Docker fundamentals](https://docker.learnio.dev/)
 
 ## Chapters
 
 | Chapter | Folder | Course chapter |
 | ------- | ------ | -------------- |
-| 1 — Why containers | [1-why-containers](1-why-containers/) | [chapter-why-containers](http://127.0.0.1:38080/learn/sections/chapter-why-containers) |
+| 1 — Why containers | [1-why-containers](1-why-containers/) | [chapter-why-containers](https://docker.learnio.dev/learn/sections/chapter-why-containers/) |
 
 ## Chapter 1 examples
 

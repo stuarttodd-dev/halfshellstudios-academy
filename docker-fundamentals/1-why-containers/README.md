@@ -1,6 +1,6 @@
 # Chapter 1 — Why containers
 
-**Course chapter:** [Install Docker, see the value, and learn the basics](http://127.0.0.1:38080/learn/sections/chapter-why-containers)
+**Course chapter:** [Install Docker, see the value, and learn the basics](https://docker.learnio.dev/learn/sections/chapter-why-containers/)
 
 Example code for chapter 1 exercises and solutions.
 

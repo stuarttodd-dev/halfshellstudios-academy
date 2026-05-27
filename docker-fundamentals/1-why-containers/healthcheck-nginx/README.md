@@ -1,8 +1,8 @@
 # Solution: add a healthcheck to nginx
 
-**Course page:** [Solution: add a healthcheck](http://127.0.0.1:38080/learn/sections/chapter-why-containers/why-containers-solution-add-a-healthcheck)
+**Course page:** [Solution: add a healthcheck](https://docker.learnio.dev/learn/sections/chapter-why-containers/why-containers-solution-add-a-healthcheck)
 
-**Exercise:** [Exercise: add a healthcheck](http://127.0.0.1:38080/learn/sections/chapter-why-containers/why-containers-exercise-add-a-healthcheck)
+**Exercise:** [Exercise: add a healthcheck](https://docker.learnio.dev/learn/sections/chapter-why-containers/why-containers-exercise-add-a-healthcheck)
 
 Worked solution for chapter 1 — a minimal nginx image with a `HEALTHCHECK` that probes HTTP inside the container.
 
