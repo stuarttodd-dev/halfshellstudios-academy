@@ -1,0 +1,26 @@
+name: ch11-fastcgi
+
+services:
+  web:
+    image: nginx:1.27-alpine
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-8080}:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default-socket.conf:/etc/nginx/conf.d/default.conf:ro
+      - php-socket:/var/run/php
+    depends_on:
+      - app
+
+  app:
+    image: php:8.3-fpm-alpine
+    working_dir: /var/www/html
+    environment:
+      FASTCGI_VIA: socket
+    volumes:
+      - ./:/var/www/html
+      - ./docker/fpm/zz-listen-socket.conf:/usr/local/etc/php-fpm.d/zz-listen-socket.conf:ro
+      - php-socket:/var/run/php
+
+volumes:
+  php-socket:

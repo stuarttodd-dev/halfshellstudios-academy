@@ -1,0 +1,14 @@
+# Production delta — pin CI image digest in real deploys (chapter 13).
+services:
+  app:
+    image: ${APP_IMAGE_PROD:-ch15-app:prod-demo}
+    read_only: true
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+    tmpfs:
+      - /tmp
+      - /var/run
+
+  web:
+    read_only: true

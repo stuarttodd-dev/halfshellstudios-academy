@@ -1,0 +1,6 @@
+# Keep secrets out of git. Do not list node_modules/ here — BuildKit uses
+# .gitignore as a fallback when .dockerignore is missing, which would hide
+# the context-size lesson. Use .dockerignore to exclude deps from builds.
+.env
+.env.*
+!.env.example

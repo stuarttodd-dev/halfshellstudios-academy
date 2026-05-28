@@ -1,0 +1,4 @@
+# Paste digest from PR comment after green CI (lesson 13.4)
+services:
+  app:
+    image: ghcr.io/OWNER/REPO@sha256:REPLACE_WITH_DIGEST_FROM_PR_COMMENT

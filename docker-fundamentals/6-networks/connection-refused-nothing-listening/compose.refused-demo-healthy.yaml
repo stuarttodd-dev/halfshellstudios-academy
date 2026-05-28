@@ -1,0 +1,22 @@
+# Same stack with healthcheck + service_healthy (lesson fix)
+name: ch6-refused-demo
+
+services:
+  probe:
+    image: busybox:1.36
+    command: ["sleep", "infinity"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: app
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-psecret"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 30s

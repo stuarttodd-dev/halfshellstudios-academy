@@ -1,0 +1,12 @@
+# syntax=docker/dockerfile:1
+# Exercise starter — complete tasks 2–4 before comparing to Dockerfile
+
+FROM composer:lts AS deps
+WORKDIR /app
+# Task 2: copy lockfiles, then composer install --no-dev
+
+FROM php:8.3-fpm-bookworm AS runtime
+WORKDIR /var/www/html
+# Task 3: docker-php-ext-install pdo_mysql opcache
+# Task 3: COPY application + COPY --from=deps vendor only
+# Task 4: USER www-data, EXPOSE 9000, CMD php-fpm

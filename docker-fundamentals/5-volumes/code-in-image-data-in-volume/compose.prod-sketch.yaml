@@ -1,0 +1,19 @@
+# Illustrative production shape — code in image, durable data in volumes (not for running as-is).
+services:
+  app:
+    image: ghcr.io/myorg/myapp@sha256:0000000000000000000000000000000000000000000000000000000000000000
+    volumes:
+      - app_uploads:/var/www/html/storage/app/public
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: app
+      MARIADB_USER: app
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
+  app_uploads:

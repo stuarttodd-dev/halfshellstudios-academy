@@ -1,0 +1,21 @@
+name: ch14-harden-exercise
+
+services:
+  app:
+    build: .
+    image: ch14-harden-exercise:local
+    user: "33:33"
+    read_only: true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+      - /var/run:size=8m,mode=755
+      - /var/www/html/bootstrap/cache:size=16m,uid=33,gid=33,mode=0755
+    volumes:
+      - app-storage:/var/www/html/storage
+    ports:
+      - "127.0.0.1:9001:9000"
+
+volumes:
+  app-storage:

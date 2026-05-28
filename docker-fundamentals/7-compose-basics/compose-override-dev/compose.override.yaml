@@ -1,0 +1,13 @@
+# Local dev deltas — auto-merged by `docker compose up` (often gitignored)
+services:
+  php:
+    build: .
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_DEBUG: "true"
+      LOG_LEVEL: debug
+
+  web:
+    volumes:
+      - .:/var/www/html:ro

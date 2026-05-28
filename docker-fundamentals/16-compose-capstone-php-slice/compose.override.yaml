@@ -1,0 +1,13 @@
+# Local dev layer — merged automatically with compose.yaml
+services:
+  app:
+    volumes:
+      - ./src:/var/www/html
+
+  worker:
+    volumes:
+      - ./src:/var/www/html
+
+  scheduler:
+    volumes:
+      - ./src:/var/www/html

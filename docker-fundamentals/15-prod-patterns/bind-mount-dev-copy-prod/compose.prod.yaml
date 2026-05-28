@@ -1,0 +1,4 @@
+# Prod — image from CI/build; no application source bind mount
+services:
+  app:
+    image: ch15-bind:local

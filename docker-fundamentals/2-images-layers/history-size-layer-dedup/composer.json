@@ -1,0 +1,6 @@
+{
+  "name": "demo/app",
+  "require": {
+    "monolog/monolog": "^3.0"
+  }
+}

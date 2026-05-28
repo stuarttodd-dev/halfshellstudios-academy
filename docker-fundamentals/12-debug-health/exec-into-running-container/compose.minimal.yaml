@@ -1,0 +1,8 @@
+# Minimal stack for compose exec (lesson step 7)
+name: ch12-exec-demo
+
+services:
+  app:
+    image: php:8.3-fpm-alpine
+    environment:
+      DB_HOST: db

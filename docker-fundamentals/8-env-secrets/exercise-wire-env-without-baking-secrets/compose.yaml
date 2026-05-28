@@ -1,0 +1,20 @@
+name: ch8-exercise-env
+
+services:
+  app:
+    build: .
+    image: ch8-exercise-env:demo
+    env_file:
+      - .env.docker
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: academy
+      MARIADB_USER: academy
+      MARIADB_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}

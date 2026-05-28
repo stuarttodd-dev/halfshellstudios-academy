@@ -1,0 +1,6 @@
+.git
+*.md
+starter/
+smoke.sh
+clean.sh
+.hadolint.yaml

@@ -1,0 +1,24 @@
+# syntax=docker/dockerfile:1
+# Pattern from lesson 9.3 — deps stage, slim FPM runtime
+FROM composer:lts AS deps
+
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+RUN composer install \
+    --no-dev \
+    --no-interaction \
+    --prefer-dist \
+    --optimize-autoloader
+
+FROM php:8.3-fpm-bookworm AS runtime
+
+WORKDIR /var/www/html
+
+COPY public/ public/
+COPY composer.json composer.lock ./
+COPY --from=deps /app/vendor ./vendor
+
+USER www-data
+EXPOSE 9000
+CMD ["php-fpm"]

@@ -1,0 +1,14 @@
+# Starter (broken) — missing libfcgi, missing zzz-health.conf, HEALTHCHECK CMD true
+FROM php:8.3-fpm-bookworm
+
+COPY docker/php-fpm/zzz-app-pool.conf /usr/local/etc/php-fpm.d/zzz-app-pool.conf
+# Bug B: zzz-health.conf not copied
+
+WORKDIR /var/www/html
+COPY public/ ./public/
+
+USER www-data
+EXPOSE 9000
+CMD ["php-fpm"]
+
+HEALTHCHECK CMD true

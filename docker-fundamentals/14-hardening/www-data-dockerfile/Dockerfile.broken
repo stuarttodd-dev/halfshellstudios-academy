@@ -1,0 +1,8 @@
+FROM php:8.3-fpm-bookworm
+WORKDIR /var/www/html
+RUN mkdir -p storage/logs
+COPY write-test.sh .
+RUN chmod +x write-test.sh
+# Missing chown — www-data cannot write storage/
+USER www-data
+CMD ["./write-test.sh"]

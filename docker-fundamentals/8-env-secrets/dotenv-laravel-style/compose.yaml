@@ -1,0 +1,24 @@
+name: ch8-laravel-env
+
+services:
+  app:
+    build: .
+    image: ch8-laravel-env:demo
+    env_file:
+      - .env.docker
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: ${DB_DATABASE:-academy}
+      MARIADB_USER: ${DB_USERNAME:-academy}
+      MARIADB_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in project .env}
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:

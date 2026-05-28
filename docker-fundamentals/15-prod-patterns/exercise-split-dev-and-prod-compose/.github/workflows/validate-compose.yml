@@ -1,0 +1,27 @@
+name: Validate prod Compose
+
+on:
+  pull_request:
+    paths:
+      - 'compose*.yaml'
+      - '.env.prod.example'
+      - '.github/workflows/validate-compose.yml'
+
+jobs:
+  compose-prod-config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate prod merge
+        run: |
+          docker compose -f compose.yaml -f compose.prod.yaml \
+            --env-file .env.prod.example config -q
+
+      - name: Fail on dev-only keys in prod merge
+        run: |
+          docker compose -f compose.yaml -f compose.prod.yaml \
+            --env-file .env.prod.example config \
+            | tee /tmp/compose-prod.yaml
+          ! grep -qiE 'APP_DEBUG.*true|XDEBUG_MODE|mailhog' /tmp/compose-prod.yaml
+          ! grep -qE 'source: \.|source: \./' /tmp/compose-prod.yaml

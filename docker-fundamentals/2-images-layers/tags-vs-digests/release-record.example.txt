@@ -1,0 +1,7 @@
+# Example: what to save from CI after a good deploy
+#
+# Tag — for humans (Slack, README, tickets)
+ghcr.io/your-org/app:1.4.2
+#
+# Digest — for staging and production (exact bytes)
+ghcr.io/your-org/app@sha256:abc123def456...

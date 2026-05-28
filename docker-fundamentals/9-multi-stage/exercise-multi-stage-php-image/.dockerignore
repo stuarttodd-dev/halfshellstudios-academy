@@ -1,0 +1,7 @@
+vendor/
+.git/
+*.md
+demo.sh
+clean.sh
+Dockerfile.single
+Dockerfile.starter

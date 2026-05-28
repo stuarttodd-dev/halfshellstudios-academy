@@ -1,0 +1,10 @@
+# Sketch for lesson 9.3 — not built by demo.sh (requires composer.json).
+FROM composer:lts AS deps
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction
+
+FROM php:8.3-fpm-bookworm AS runtime
+WORKDIR /var/www/html
+COPY --from=deps /app/vendor ./vendor
+COPY . .

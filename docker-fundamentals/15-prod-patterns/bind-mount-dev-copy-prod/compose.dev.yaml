@@ -1,0 +1,7 @@
+# Dev only — bind mount source for fast edits (never put this in compose.yaml base)
+services:
+  app:
+    build: .
+    image: ch15-bind:local
+    volumes:
+      - ./public:/var/www/html/public

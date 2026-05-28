@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$cmd = $argv[1] ?? '';
+
+if ($cmd === 'queue:work') {
+    fwrite(STDERR, "capstone worker stub running\n");
+    while (true) {
+        sleep(1);
+    }
+}
+
+if ($cmd === 'schedule:work') {
+    fwrite(STDERR, "capstone scheduler stub running\n");
+    while (true) {
+        sleep(60);
+    }
+}
+
+fwrite(STDERR, "capstone artisan stub\n");
+exit(0);

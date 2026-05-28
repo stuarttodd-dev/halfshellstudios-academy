@@ -1,0 +1,4 @@
+# Same app, but the base tag can move in the registry over time.
+FROM alpine:3.20
+RUN echo "built on pinned base" > /msg.txt
+CMD ["cat", "/msg.txt"]

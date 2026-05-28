@@ -1,0 +1,8 @@
+# Illustrative dev override — bind mount source; DB still uses named volume from base file.
+services:
+  app:
+    build: .
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_DEBUG: "true"

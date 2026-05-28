@@ -1,0 +1,6 @@
+{
+  "name": "demo/cache-order",
+  "require": {
+    "monolog/monolog": "^3.0"
+  }
+}

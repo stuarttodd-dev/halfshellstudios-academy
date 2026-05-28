@@ -1,0 +1,14 @@
+# Copy to compose.override.yaml for local dev:
+#   cp compose.override.example.yaml compose.override.yaml
+services:
+  php:
+    build: .
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_DEBUG: "true"
+      LOG_LEVEL: debug
+
+  web:
+    volumes:
+      - .:/var/www/html:ro

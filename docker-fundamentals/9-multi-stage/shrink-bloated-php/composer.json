@@ -1,0 +1,11 @@
+{
+    "name": "academy/ch9-shrink-demo",
+    "description": "Minimal app to compare single-stage bloat vs multi-stage runtime",
+    "require": {
+        "php": "^8.3",
+        "monolog/monolog": "^3.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,5 @@
+vendor
+.git
+*.md
+demo.sh
+clean.sh

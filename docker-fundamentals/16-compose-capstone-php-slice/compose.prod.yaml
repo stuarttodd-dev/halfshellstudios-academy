@@ -1,0 +1,15 @@
+# Production-shaped overlay — apply explicitly:
+# docker compose -f compose.yaml -f compose.prod.yaml up -d
+services:
+  web:
+    ports:
+      - "127.0.0.1:8082:80"
+
+  app:
+    restart: unless-stopped
+
+  db:
+    restart: unless-stopped
+
+  redis:
+    restart: unless-stopped

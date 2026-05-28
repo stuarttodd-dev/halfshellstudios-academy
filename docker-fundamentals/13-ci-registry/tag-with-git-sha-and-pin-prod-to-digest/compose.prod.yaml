@@ -1,0 +1,5 @@
+name: ch13-tags-prod
+
+services:
+  app:
+    image: 127.0.0.1:5001/ch13-app@sha256:REPLACE_ME

@@ -1,0 +1,21 @@
+# Illustrative stub for lesson 6.4+ — service names become DNS names on the project network.
+# Not used by up.sh / demo.sh; compare with the manual ch6-dns-net lab in README.md.
+services:
+  app:
+    image: alpine:3.20
+    command: ["sleep", "infinity"]
+    environment:
+      DB_HOST: db
+      REDIS_HOST: redis
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: app
+
+  redis:
+    image: redis:7-alpine

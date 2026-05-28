@@ -1,0 +1,106 @@
+name: CI image pipeline
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build for smoke and scan
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: ci-candidate:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test
+        run: |
+          docker run --rm ci-candidate:${{ github.sha }} php smoke.php | grep -q 'ch13 ci exercise ok'
+
+      - name: Trivy scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: ci-candidate:${{ github.sha }}
+          format: table
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: 1
+
+      - name: Build and push
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository }}:${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'main' }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          labels: |
+            org.opencontainers.image.source=${{ github.repositoryUrl }}
+            org.opencontainers.image.revision=${{ github.sha }}
+
+      - name: Print digest
+        run: |
+          echo "digest=${{ steps.build.outputs.digest }}"
+          echo "tags=${{ steps.build.outputs.tags }}"
+
+      - name: Comment digest on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+        with:
+          script: |
+            const image = `ghcr.io/${context.repo.owner}/${context.repo.repo}`;
+            const prNum = context.payload.pull_request.number;
+            const tag = `pr-${prNum}`;
+            const sha = context.payload.pull_request.head.sha.slice(0, 7);
+            const digest = process.env.DIGEST;
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              '## Container image (CI)',
+              '',
+              '| | |',
+              '|---|---|',
+              `| Image | \`${image}\` |`,
+              `| Tag | \`${tag}\` (\`${sha}\`) |`,
+              `| Digest | \`${digest}\` |`,
+              '',
+              `Deploy pin: \`${image}@${digest}\``,
+              '',
+              `[Workflow run](${runUrl})`,
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });

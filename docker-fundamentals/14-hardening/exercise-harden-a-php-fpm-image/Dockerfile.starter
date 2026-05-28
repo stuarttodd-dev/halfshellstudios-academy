@@ -1,0 +1,8 @@
+# Starter (soft) — root runtime, no chown — compare with Dockerfile
+FROM php:8.3-fpm-bookworm
+WORKDIR /var/www/html
+COPY docker/php-fpm/zzz-app-pool.conf /usr/local/etc/php-fpm.d/zzz-app-pool.conf
+COPY public/ ./public/
+RUN mkdir -p storage/logs
+EXPOSE 9000
+CMD ["php-fpm"]

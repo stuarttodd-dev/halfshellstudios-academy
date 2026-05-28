@@ -1,0 +1,26 @@
+name: ch11-security-headers
+
+services:
+  web:
+    image: nginx:1.27-alpine
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-8080}:80"
+      - "127.0.0.1:${HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/default-https.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/nginx/snippets/security-headers.conf:/etc/nginx/snippets/security-headers.conf:ro
+      - ./docker/nginx/certs:/etc/nginx/certs:ro
+      - ./:/var/www/html
+    depends_on:
+      - app
+
+  app:
+    image: php:8.3-fpm-alpine
+    expose:
+      - "9000"
+    working_dir: /var/www/html
+    environment:
+      FASTCGI_VIA: tcp
+    volumes:
+      - ./:/var/www/html

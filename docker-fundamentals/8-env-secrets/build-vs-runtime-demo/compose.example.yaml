@@ -1,0 +1,9 @@
+# Illustrative run-time wiring — same image tag, different env per environment.
+services:
+  app:
+    image: ch8-config:v1
+    environment:
+      DB_HOST: db
+      APP_ENV: ${APP_ENV:-local}
+    env_file:
+      - .env

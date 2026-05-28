@@ -1,0 +1,4 @@
+.env
+vendor/
+docker/nginx/certs/*.key
+docker/nginx/certs/*.crt

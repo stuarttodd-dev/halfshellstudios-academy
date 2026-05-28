@@ -1,0 +1,22 @@
+# Exercise 6.9 / Solution 6.10 — two services, one Compose network, DNS by service name
+name: ch6-two-services-dns
+
+services:
+  backend:
+    image: nginx:stable-alpine
+    # No ports: — reachable only as http://backend on the project network
+
+  client:
+    image: alpine:3.20
+    depends_on:
+      - backend
+    command:
+      - sh
+      - -c
+      - |
+        set -e
+        echo "Resolving backend..."
+        getent hosts backend || nslookup backend
+        echo "Fetching http://backend ..."
+        wget -qO- http://backend | head -5
+        echo "OK: client reached backend by DNS name"

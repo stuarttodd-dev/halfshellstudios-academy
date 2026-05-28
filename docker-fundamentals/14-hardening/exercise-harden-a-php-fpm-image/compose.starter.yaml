@@ -1,0 +1,13 @@
+name: ch14-harden-exercise
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.starter
+    image: ch14-harden-exercise:starter
+    ports:
+      - "127.0.0.1:9001:9000"
+
+volumes:
+  app-storage:

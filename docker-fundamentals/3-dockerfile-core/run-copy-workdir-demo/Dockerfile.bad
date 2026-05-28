@@ -1,0 +1,6 @@
+FROM php:8.3-cli-bookworm
+RUN apt-get update
+RUN apt-get install -y unzip
+COPY composer.json /var/www/html/composer.json
+ADD . /var/www/html
+RUN cd /var/www/html && composer install --no-dev --no-interaction 2>/dev/null || true

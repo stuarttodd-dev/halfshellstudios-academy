@@ -1,0 +1,5 @@
+{
+  "name": "context-demo",
+  "private": true,
+  "description": "Demo package.json so node_modules/ is realistic in .dockerignore exercises"
+}

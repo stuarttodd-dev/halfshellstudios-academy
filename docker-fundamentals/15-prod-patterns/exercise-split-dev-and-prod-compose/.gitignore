@@ -1,0 +1,4 @@
+.env
+vendor/
+public/index.php.bak
+compose.yaml.bak

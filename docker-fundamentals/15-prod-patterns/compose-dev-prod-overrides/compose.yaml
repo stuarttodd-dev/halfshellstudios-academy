@@ -1,0 +1,46 @@
+name: ch15-stack
+
+services:
+  web:
+    image: nginx:stable-alpine
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-8080}:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  app:
+    image: ${APP_IMAGE:-php:8.3-fpm-bookworm}
+    environment:
+      APP_ENV: ${APP_ENV:-local}
+      DB_HOST: db
+    healthcheck:
+      test: ["CMD-SHELL", "php-fpm -t || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: app
+      MARIADB_USER: app
+      MARIADB_PASSWORD: ${DB_PASSWORD:-devpass}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpass}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

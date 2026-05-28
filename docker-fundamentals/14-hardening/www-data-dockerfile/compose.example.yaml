@@ -1,0 +1,9 @@
+# Illustrative — production should omit user: when Dockerfile sets USER www-data.
+services:
+  app:
+    build: .
+    # user: "0:0"   # break-glass only — undoes Dockerfile USER
+
+  app-dev-bind-mount:
+    build: .
+    user: "${UID:-1000}:${GID:-1000}"   # dev-only uid alignment example
