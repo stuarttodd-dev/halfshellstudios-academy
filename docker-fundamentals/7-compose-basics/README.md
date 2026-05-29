@@ -10,5 +10,6 @@ Example code for chapter 7 lessons.
 | MySQL, Redis, Mailhog with profiles | [compose-two-service](compose-two-service/) (`compose.stack.yaml`) |
 | Dev overrides with compose.override.yaml | [compose-override-dev](compose-override-dev/) |
 | compose config, ps, logs, and run | [compose-config-ps-logs-run](compose-config-ps-logs-run/) |
+| Exercise / solution: compose inner loop | [exercise-compose-inner-loop](exercise-compose-inner-loop/) |
 
 ← [Docker fundamentals](../README.md)

@@ -88,6 +88,7 @@ Learn what containers are, how Docker works, and how to use images, containers, 
 | MySQL, Redis, Mailhog with profiles | [7-compose-basics/compose-two-service](7-compose-basics/compose-two-service/) (`compose.stack.yaml`) |
 | Dev overrides with compose.override.yaml | [7-compose-basics/compose-override-dev](7-compose-basics/compose-override-dev/) |
 | compose config, ps, logs, and run | [7-compose-basics/compose-config-ps-logs-run](7-compose-basics/compose-config-ps-logs-run/) |
+| Exercise / solution: compose inner loop | [7-compose-basics/exercise-compose-inner-loop](7-compose-basics/exercise-compose-inner-loop/) |
 
 ## Chapter 9 examples
 
