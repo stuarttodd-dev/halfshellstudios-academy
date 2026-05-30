@@ -3,72 +3,46 @@
 | Lesson | Use |
 | ------ | --- |
 | [Chapter project: write your app one-pager](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-write-your-app-one-pager-features-plugins-platforms) | Copy [`app-one-pager.template.md`](app-one-pager.template.md) and fill it in yourself |
-| Solution (this folder) | [`app-one-pager.md`](app-one-pager.md) — reference capstone for the **Field Notes** app |
-
-Lesson **1.16** in chapter 1 of [Using Native PHP](https://docker.learnio.dev/). You are not writing code yet — you are defining the app you will build through chapter 16.
-
-## The loop
-
-```text
-Define features → pick plugins → choose platforms → draft one-pager → review → iterate
-```
+| Solution | [`app-one-pager.md`](app-one-pager.md) + [`field-notes/`](field-notes/) Laravel app |
 
 ## Exercise
 
-1. Copy the template:
+1. Copy `app-one-pager.template.md` to your own file.
+2. Fill in features, plugins, and platforms.
+3. Compare to [`app-one-pager.md`](app-one-pager.md) and run the app below.
 
-   ```bash
-   cp app-one-pager.template.md ~/field-notes-one-pager.md
-   ```
+## Run the solution app
 
-2. Fill in **Features**, **Plugins**, and **Platforms** for your own app (or adapt the course capstone).
-3. Add at least three **non-goals** so v1 scope stays shippable.
-4. Complete the checklist at the bottom of the template before comparing to the solution.
+```bash
+cd field-notes
+chmod +x setup.sh
+./setup.sh
+php artisan serve --host=127.0.0.1 --port=8016
+```
 
-Constraints from the lesson:
+Open [http://127.0.0.1:8016/notes](http://127.0.0.1:8016/notes). Use **Activity** and **Settings** in the bottom nav.
 
-- Target **iOS and/or Android** via NativePHP Mobile v3 (not a server-hosted web app).
-- List plugins by **Composer package name** and type (official / community / custom).
-- Every feature should map to something you can demo on device by the end of the course.
+```bash
+php artisan test --filter=OfflineNoteTest
+```
 
-## Solution
+## NativePHP Mobile (chapter 3+)
 
-Reference one-pager for the course capstone app **Field Notes** (offline-first notes with sync, camera, biometrics, EDGE shell):
+```bash
+cd field-notes
+export NATIVEPHP_APP_ID=com.halfshell.fieldnotes
+php artisan native:install
+php artisan native:run
+```
 
-- [`app-one-pager.md`](app-one-pager.md)
+(`nativephp/mobile` is already in `field-notes/composer.json`.)
 
-Compare your plugin choices and platform matrix to the reference. Your app name and feature set can differ; structure and specificity should match.
-
-## Checklist (from the lesson)
-
-- [ ] Features list explains *what problem each feature solves*
-- [ ] Plugins table names real packages from the [NativePHP marketplace](https://nativephp.com/plugins/marketplace)
-- [ ] Platforms table states minimum OS versions and which devices you will test on
-- [ ] Non-goals section exists (scope control)
-- [ ] One-sentence debug ladder for when UI works but native behaviour does not
-
-## What's in this folder
+## What's here
 
 | Item | Purpose |
 | ---- | ------- |
-| [`app-one-pager.template.md`](app-one-pager.template.md) | Blank starter for the exercise |
-| [`app-one-pager.md`](app-one-pager.md) | Solution: course capstone **Field Notes** one-pager |
+| [`field-notes/`](field-notes/) | Laravel capstone starter — `OfflineNote` CRUD, `/notes` · `/activity` · `/settings` |
+| [`app-one-pager.md`](app-one-pager.md) | Reference one-pager |
+| [`app-one-pager.template.md`](app-one-pager.template.md) | Blank template |
 
-## Related
-
-| Lesson | Topic |
-| ------ | ----- |
-| [Course capstone app: what you will ship](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/course-capstone-app-what-you-will-ship) | High-level capstone features |
-| [The plugin model](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/the-plugin-model-official-community-custom) | Official vs community vs custom |
-| [Offline-first from one codebase](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/offline-first-and-cross-platform-from-one-codebase) | `OfflineNote` pattern |
-
-## Troubleshooting
-
-| Symptom | Fix |
-| ------- | --- |
-| Feature list is a wish list | Keep only what you can demo in 17 chapters; move the rest to non-goals |
-| Plugin names are vague ("camera plugin") | Open the marketplace page and copy the exact `composer require` package name |
-| Unsure which platforms | If you only have an iPhone, ship iOS v1 and mark Android as "parity pass before ch 16" |
-| One-pager feels too short | Add a success-criteria checklist and architecture one-liner — length comes from clarity, not padding |
-
-← [Chapter 1 — Introduction and mobile architecture](../README.md)
+← [Using Native PHP](../../README.md)
