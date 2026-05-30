@@ -25,4 +25,5 @@ Course materials and learning paths from Half Shell Studios.
 | [PHP to TypeScript](php-to-ts/README.md) | Types, tooling, and TS patterns vs PHP |
 | [PHP to Vue](php-to-vue/README.md) | Vue.js for developers used to server-rendered PHP |
 | [Writing decent PHP](writing-decent-php/README.md) | Style, structure, and maintainability in PHP |
+| [Using Native PHP](using-native-php/README.md) | Laravel + NativePHP Mobile v3 — cross-platform iOS and Android from one codebase |
 | [Zero to PHP](zero-to-php/README.md) | Sample code for *Namespaces, autoloading & Composer* — `composer.json` PSR-4 mapping, `vendor/autoload.php`, [Chapter 7 calculator practice](https://github.com/stuarttodd-dev/halfshellstudios-academy/tree/main/zero-to-php/chapter-7-calculator), [Chapter 7 recap walkthrough](zero-to-php/chapter-7-recap.md) |
