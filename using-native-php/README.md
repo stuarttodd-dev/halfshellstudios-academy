@@ -14,6 +14,6 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 
 | Lesson | Folder |
 | ------ | ------ |
-| Chapter project: write your app one-pager | [1-introduction-and-mobile-architecture/chapter-project-write-your-app-one-pager](1-introduction-and-mobile-architecture/chapter-project-write-your-app-one-pager/) |
+| Chapter project: first screen on mobile (Jump) | [chapter-project-first-mobile-screen](1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) |
 
 ← [Half Shell Studios Academy](../README.md)

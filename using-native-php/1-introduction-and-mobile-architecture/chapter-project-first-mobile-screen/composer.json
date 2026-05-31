@@ -1,8 +1,8 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "halfshell/field-notes",
+    "name": "halfshell/first-mobile-screen",
     "type": "project",
-    "description": "Field Notes — NativePHP Mobile course capstone starter (offline-first notes).",
+    "description": "NativePHP Mobile chapter 1 — first Laravel screen on device via Jump.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

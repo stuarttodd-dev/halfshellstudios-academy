@@ -20,6 +20,7 @@
 /storage/*.key
 /storage/pail
 /vendor
+/nativephp
 _ide_helper.php
 Homestead.json
 Homestead.yaml
