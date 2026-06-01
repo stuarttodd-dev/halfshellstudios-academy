@@ -158,6 +158,6 @@ Unchanged from Chapter 1: single route `/`, no database, no plugins beyond `nati
 
 ## Remember
 
-Chapter 4 adds EDGE navigation around this shell. Chapter 6 replaces placeholder rows with real SQLite-backed notes.
+Chapter 4 adds EDGE navigation around this shell — see [chapter-project-edge-shell](../../4-edge-native-navigation/chapter-project-edge-shell/). Chapter 6 replaces placeholder rows with real SQLite-backed notes.
 
 ← [Using Native PHP](../../README.md)

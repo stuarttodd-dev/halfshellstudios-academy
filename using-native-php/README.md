@@ -11,6 +11,7 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | 1 — Introduction and mobile architecture | [1-introduction-and-mobile-architecture](1-introduction-and-mobile-architecture/) | [chapter-introduction-and-mobile-architecture](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/) |
 | 2 — Environment setup | [2-environment-setup](2-environment-setup/) | [chapter-environment-setup](https://docker.learnio.dev/learn/sections/chapter-environment-setup/) |
 | 3 — WebView UI, branding and assets | [3-webview-ui-branding-and-assets](3-webview-ui-branding-and-assets/) | [chapter-webview-ui-branding-and-assets](https://docker.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/) |
+| 4 — EDGE native navigation | [4-edge-native-navigation](4-edge-native-navigation/) | [chapter-edge-native-navigation](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/) |
 
 ## Chapter 1 examples
 
@@ -29,6 +30,12 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | Lesson | Folder |
 | ------ | ------ |
 | Chapter project: icon, splash, and note list UI | [chapter-project-icon-splash-note-list](3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) |
+
+## Chapter 4 examples
+
+| Lesson | Folder |
+| ------ | ------ |
+| Chapter project: EDGE shell for Field Notes | [chapter-project-edge-shell](4-edge-native-navigation/chapter-project-edge-shell/) |
 
 ## Capstone stack
 
