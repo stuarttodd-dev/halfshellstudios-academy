@@ -14,6 +14,7 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | 4 — EDGE native navigation | [4-edge-native-navigation](4-edge-native-navigation/) | [chapter-edge-native-navigation](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/) |
 | 5 — Native functions, plugins and core APIs | [5-native-functions-plugins-and-core-apis](5-native-functions-plugins-and-core-apis/) | [chapter-native-functions-plugins-and-core-apis](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/) |
 | 6 — On-device databases and offline data | [6-on-device-databases-and-offline-data](6-on-device-databases-and-offline-data/) | [chapter-on-device-databases-and-offline-data](https://docker.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/) |
+| 7 — Security and authentication | [7-security-and-authentication](7-security-and-authentication/) | [chapter-security-and-authentication](https://docker.learnio.dev/learn/sections/chapter-security-and-authentication/) |
 
 ## Chapter 1 examples
 
@@ -50,6 +51,12 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | Lesson | Folder |
 | ------ | ------ |
 | Chapter project: offline notes CRUD | [chapter-project-offline-notes-crud](6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) |
+
+## Chapter 7 examples
+
+| Lesson | Folder |
+| ------ | ------ |
+| Chapter project: lock Field Notes | [chapter-project-lock-field-notes](7-security-and-authentication/chapter-project-lock-field-notes/) |
 
 ## Capstone stack
 

@@ -1,0 +1,2 @@
+
+<?php /**PATH /Users/stuart/PhpstormProjects/halfshellstudios-academy/using-native-php/7-security-and-authentication/chapter-project-lock-field-notes/vendor/nativephp/mobile/src/resources/views/components/native-placeholder.blade.php ENDPATH**/ ?>

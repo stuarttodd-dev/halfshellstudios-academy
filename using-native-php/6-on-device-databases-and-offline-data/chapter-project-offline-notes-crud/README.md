@@ -130,6 +130,6 @@ Unchanged: icon/splash, EDGE shell, Share plugin dependency.
 
 ## Remember
 
-Chapter 7 adds biometric lock on Settings. Chapter 8 covers push and background sync — local SQLite stays the source of truth for offline use.
+Chapter 7 adds biometric app lock on Settings — see [chapter-project-lock-field-notes](../../7-security-and-authentication/chapter-project-lock-field-notes/). Chapter 8 covers push and background sync.
 
 ← [Using Native PHP](../../README.md)
