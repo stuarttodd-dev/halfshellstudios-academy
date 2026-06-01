@@ -1,0 +1,2 @@
+
+<?php /**PATH /Users/stuart/PhpstormProjects/halfshellstudios-academy/using-native-php/9-deployment-and-store-submission/chapter-project-field-notes-release-candidate/vendor/nativephp/mobile/src/resources/views/components/native-placeholder.blade.php ENDPATH**/ ?>

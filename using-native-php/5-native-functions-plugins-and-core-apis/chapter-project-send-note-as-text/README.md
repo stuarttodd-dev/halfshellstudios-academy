@@ -1,17 +1,12 @@
 # Chapter 5 — Field Notes: send a note as text (Share plugin)
 
-**Course page:** [Chapter project: photo attachment in Field Notes](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/chapter-project-photo-attachment-in-field-notes) *(lesson title; this milestone is **send as text** via Share)*
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 4](../../4-edge-native-navigation/chapter-project-edge-shell/) · **Chapter 5** · [Chapter 6 →](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/)
 
-**Stack position:** This is the **Chapter 5 state** of the Field Notes capstone — everything from [Chapter 4](../../4-edge-native-navigation/chapter-project-edge-shell/), plus the **Share** plugin on Compose so users can open the system share sheet with note body text (Messages, Mail, etc.). No database yet.
+**Course:** [Chapter project: photo attachment in Field Notes](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/chapter-project-photo-attachment-in-field-notes) *(lesson title; milestone is **send as text** via Share)*
 
-| Chapter | What you added |
-| ------- | -------------- |
-| 1 | `mobile-home` on Jump |
-| 2 | `native:run` on simulator |
-| 3 | Icon, splash, branded home, placeholder note rows |
-| 4 | EDGE top bar + bottom nav (Home / Compose / Settings) |
-| **5** | **Share plugin — Compose form + `Share::file()` send as text** |
-| 6 | SQLite offline CRUD (coming) |
+**Previous:** [Chapter 4 — EDGE shell](../../4-edge-native-navigation/chapter-project-edge-shell/) · **Next:** [Chapter 6 — Offline CRUD](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/)
+
+**Built on:** [Chapter 4 — EDGE shell](../../4-edge-native-navigation/chapter-project-edge-shell/) · **You add:** `nativephp/mobile-share`, Compose form, `Share::file()`.
 
 ---
 
@@ -114,6 +109,6 @@ Unchanged: EDGE layout, icon/splash, static home rows, no SQLite.
 
 ## Remember
 
-Chapter 6 saves notes in SQLite and lists them on Home — see [chapter-project-offline-notes-crud](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/). Optional camera photo attach (lessons 5.4–5.5) can layer on Compose before or after CRUD.
+Chapter 6 saves notes in SQLite — see [Chapter 6 — Offline CRUD](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/).
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

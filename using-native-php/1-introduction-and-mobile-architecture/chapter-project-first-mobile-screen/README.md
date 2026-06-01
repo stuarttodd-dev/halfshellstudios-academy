@@ -1,10 +1,14 @@
-# Chapter project: first Laravel screen on your phone
+# Chapter 1 — Field Notes: first mobile screen
 
-**Course page:** [Chapter project: write your app one-pager (features, plugins, platforms)](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-write-your-app-one-pager-features-plugins-platforms)
+**Capstone:** [All chapters](../../CAPSTONE.md) · **Chapter 1** · [Chapter 2 →](../../2-environment-setup/chapter-project-environment-sign-off/)
 
-Reference solution: a minimal Laravel app with a custom splash page, packaged with **NativePHP Mobile**, previewed on your phone through **Jump**.
+**Course:** [Chapter project: first screen on mobile (Jump)](https://docker.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-first-mobile-screen-on-jump)
 
-You are not building a separate mobile codebase. The same Laravel project runs in your browser first, then on your phone via Jump.
+**Previous:** — · **Next:** [Chapter 2 — Environment sign-off](../../2-environment-setup/chapter-project-environment-sign-off/)
+
+**Stack position:** Starting point of the Field Notes capstone — minimal Laravel app on **Jump**.
+
+---
 
 ## What you will see when it works
 
@@ -199,4 +203,4 @@ For Xcode, Android Studio, and simulator builds, see chapter 2–3 in the course
 
 **Browser first, phone second.** Get the page right at `http://127.0.0.1:8000`, then prove the same Laravel code on device through Jump.
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

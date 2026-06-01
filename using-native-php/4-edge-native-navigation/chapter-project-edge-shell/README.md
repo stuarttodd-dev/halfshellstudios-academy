@@ -1,17 +1,12 @@
 # Chapter 4 — Field Notes: EDGE shell (top bar + bottom nav)
 
-**Course page:** [Chapter project: EDGE shell for Field Notes](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/chapter-project-edge-shell-for-field-notes)
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 3](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) · **Chapter 4** · [Chapter 5 →](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/)
 
-**Stack position:** This is the **Chapter 4 state** of the Field Notes capstone — everything from [Chapter 3](../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/), plus native EDGE navigation: a persistent top bar and bottom tab bar with Home, Compose, and Settings routes.
+**Course:** [Chapter project: EDGE shell for Field Notes](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/chapter-project-edge-shell-for-field-notes)
 
-| Chapter | What you added |
-| ------- | -------------- |
-| 1 | `mobile-home` on Jump |
-| 2 | `native:run` on simulator |
-| 3 | Icon, splash, branded home, placeholder note rows |
-| **4** | **EDGE layout, three routes, native top + bottom nav** |
-| 5 | Share sheet from Compose (coming) |
-| 6 | Real offline CRUD (coming) |
+**Previous:** [Chapter 3 — Icon, splash, note list](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) · **Next:** [Chapter 5 — Send as text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/)
+
+**Built on:** [Chapter 3 — Icon, splash, note list](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) · **You add:** EDGE top bar + bottom nav, three routes.
 
 ---
 
@@ -133,6 +128,6 @@ Unchanged from Chapter 3: icon/splash assets, Tailwind branding, static note row
 
 ## Remember
 
-Chapter 5 wires Compose to the Share sheet — see [chapter-project-send-note-as-text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/). Chapter 6 replaces placeholder rows with SQLite-backed notes.
+Chapter 5 wires Compose to the Share sheet — see [Chapter 5 — Send as text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/).
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

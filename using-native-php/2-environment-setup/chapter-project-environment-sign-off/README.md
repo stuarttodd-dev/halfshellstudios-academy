@@ -1,10 +1,14 @@
-# Chapter project: environment sign-off and first simulator run
+# Chapter 2 — Environment sign-off and first simulator run
 
-**Course page:** [Chapter project: environment sign-off and first simulator run](https://docker.learnio.dev/learn/sections/chapter-environment-setup/chapter-project-environment-sign-off-and-first-simulator-run)
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 1](../../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) · **Chapter 2** · [Chapter 3 →](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/)
 
-Document your NativePHP Mobile toolchain, verify it with scripts, then run the Chapter 1 Laravel app in the **iOS Simulator** (or Android emulator) with `php artisan native:run`.
+**Course:** [Chapter project: environment sign-off and first simulator run](https://docker.learnio.dev/learn/sections/chapter-environment-setup/chapter-project-environment-sign-off-and-first-simulator-run)
 
-This folder is the **sign-off kit** — checklist, template, and helper scripts. The runnable Laravel app lives in [Chapter 1 `chapter-project-first-mobile-screen`](../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/).
+**Previous:** [Chapter 1 — First mobile screen](../../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) · **Next:** [Chapter 3 — Icon, splash, note list](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/)
+
+**Stack position:** Sign-off kit for your toolchain — scripts and checklist. The runnable app under test is [Chapter 1](../../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/).
+
+---
 
 ## What you will deliver
 
@@ -215,4 +219,4 @@ Tick every row in your sign-off doc:
 
 **Document first, simulate second.** Your sign-off proves the toolchain is pinned and repeatable; `native:run` proves the same Laravel code runs in a native shell — not just in a browser or Jump.
 
-← [Using Native PHP](../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

@@ -1,15 +1,12 @@
 # Chapter 3 — Field Notes: icon, splash, and note list UI shell
 
-**Course page:** [Chapter project: icon, splash, and note list UI](https://docker.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/chapter-project-icon-splash-and-note-list-ui)
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 2](../../2-environment-setup/chapter-project-environment-sign-off/) · **Chapter 3** · [Chapter 4 →](../../4-edge-native-navigation/chapter-project-edge-shell/)
 
-**Stack position:** This is the **Chapter 3 state** of the Field Notes capstone — same Laravel app as [Chapter 1](../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) and [Chapter 2](../2-environment-setup/chapter-project-environment-sign-off/), now with app icon, splash screens, Tailwind branding, and a static note-list UI shell (no database yet).
+**Course:** [Chapter project: icon, splash, and note list UI](https://docker.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/chapter-project-icon-splash-and-note-list-ui)
 
-| Chapter | What you added |
-| ------- | -------------- |
-| 1 | `mobile-home` on Jump |
-| 2 | `native:run` on simulator |
-| **3** | **Icon, splash, branded home, placeholder note rows** |
-| 6 | Real offline CRUD (coming) |
+**Previous:** [Chapter 2 — Environment sign-off](../../2-environment-setup/chapter-project-environment-sign-off/) · **Next:** [Chapter 4 — EDGE shell](../../4-edge-native-navigation/chapter-project-edge-shell/)
+
+**Built on:** [Chapter 1 — First mobile screen](../../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) · **You add:** icon, splash, Tailwind branding, static note list placeholders.
 
 ---
 
@@ -158,6 +155,6 @@ Unchanged from Chapter 1: single route `/`, no database, no plugins beyond `nati
 
 ## Remember
 
-Chapter 4 adds EDGE navigation around this shell — see [chapter-project-edge-shell](../../4-edge-native-navigation/chapter-project-edge-shell/). Chapter 6 replaces placeholder rows with real SQLite-backed notes.
+Chapter 4 adds EDGE navigation — see [Chapter 4 — EDGE shell](../../4-edge-native-navigation/chapter-project-edge-shell/).
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

@@ -1,15 +1,12 @@
 # Chapter 7 — Field Notes: biometric app lock
 
-**Course page:** [Chapter project: lock Field Notes](https://docker.learnio.dev/learn/sections/chapter-security-and-authentication/chapter-project-lock-field-notes)
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 6](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) · **Chapter 7** · [Chapter 8 →](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/)
 
-**Stack position:** This is the **Chapter 7 state** of the Field Notes capstone — everything from [Chapter 6](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/), plus an optional **biometric lock** (Face ID, Touch ID, fingerprint, or device PIN fallback) before note content is shown.
+**Course:** [Chapter project: lock Field Notes](https://docker.learnio.dev/learn/sections/chapter-security-and-authentication/chapter-project-lock-field-notes)
 
-| Chapter | What you added |
-| ------- | -------------- |
-| 1–5 | Branding, EDGE nav, Share |
-| 6 | SQLite notes CRUD |
-| **7** | **Biometrics plugin, lock middleware, Livewire unlock gate, Settings toggle** |
-| 8 | Push + deep links (coming) |
+**Previous:** [Chapter 6 — Offline CRUD](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) · **Next:** [Chapter 8 — Deep link + sync stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/)
+
+**Built on:** [Chapter 6 — Offline CRUD](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) · **You add:** biometric lock middleware, Livewire unlock gate, Settings toggle.
 
 ---
 
@@ -123,6 +120,6 @@ Unchanged: SQLite CRUD, Share on edit, EDGE layout, branding assets.
 
 ## Remember
 
-Chapter 8 adds push alerts and deep links to notes — see [chapter-project-deep-link-sync-stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/).
+Chapter 8 adds push alerts and deep links — see [Chapter 8 — Deep link + sync stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/).
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

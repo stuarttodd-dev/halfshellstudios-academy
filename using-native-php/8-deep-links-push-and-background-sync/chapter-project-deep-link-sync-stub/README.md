@@ -1,15 +1,12 @@
 # Chapter 8 — Field Notes: deep link + push + sync stub
 
-**Course page:** [Chapter project: deep link and sync stub](https://docker.learnio.dev/learn/sections/chapter-deep-links-push-and-background-sync/chapter-project-deep-link-and-sync-stub)
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 7](../../7-security-and-authentication/chapter-project-lock-field-notes/) · **Chapter 8** · [Chapter 9 →](../../9-deployment-and-store-submission/chapter-project-release-candidate/)
 
-**Stack position:** This is the **Chapter 8 state** of the Field Notes capstone — everything from [Chapter 7](../../7-security-and-authentication/chapter-project-lock-field-notes/), plus **custom-scheme deep links**, **push enrollment**, and a **background sync job stub**.
+**Course:** [Chapter project: deep link and sync stub](https://docker.learnio.dev/learn/sections/chapter-deep-links-push-and-background-sync/chapter-project-deep-link-and-sync-stub)
 
-| Chapter | What you added |
-| ------- | -------------- |
-| 1–6 | Branding, CRUD, Share |
-| 7 | Biometric lock |
-| **8** | **Deep links, push tokens, `SyncNoteToApi` queue stub** |
-| 9 | Store release (coming) |
+**Previous:** [Chapter 7 — Biometric lock](../../7-security-and-authentication/chapter-project-lock-field-notes/) · **Next:** [Chapter 9 — Release candidate](../../9-deployment-and-store-submission/chapter-project-release-candidate/)
+
+**Built on:** [Chapter 7 — Biometric lock](../../7-security-and-authentication/chapter-project-lock-field-notes/) · **You add:** deep links, push enrollment, `SyncNoteToApi` job stub.
 
 ---
 
@@ -146,6 +143,6 @@ php artisan test --filter=DeepLinkAndSyncStubTest
 
 ## Remember
 
-Chapter 9 covers signed store builds, privacy labels, and release checklist.
+Chapter 9 ships the release candidate — see [Chapter 9 — Release candidate](../../9-deployment-and-store-submission/chapter-project-release-candidate/).
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)

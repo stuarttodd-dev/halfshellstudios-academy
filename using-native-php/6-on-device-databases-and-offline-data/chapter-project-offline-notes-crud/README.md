@@ -1,16 +1,12 @@
 # Chapter 6 — Field Notes: offline notes CRUD (SQLite)
 
-**Course page:** [Chapter project: offline notes CRUD](https://docker.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/chapter-project-offline-notes-crud)
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 5](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) · **Chapter 6** · [Chapter 7 →](../../7-security-and-authentication/chapter-project-lock-field-notes/)
 
-**Stack position:** This is the **Chapter 6 state** of the Field Notes capstone — everything from [Chapter 5](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/), plus **SQLite-backed notes** with full create, read, update, and delete on device. Share sends **saved** note bodies from the edit screen.
+**Course:** [Chapter project: offline notes CRUD](https://docker.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/chapter-project-offline-notes-crud)
 
-| Chapter | What you added |
-| ------- | -------------- |
-| 1–3 | Jump, branding, icon/splash |
-| 4 | EDGE top bar + bottom nav |
-| 5 | Share plugin (draft send-as-text) |
-| **6** | **`notes` table, Eloquent CRUD, real Home list** |
-| 7 | Biometric lock (coming) |
+**Previous:** [Chapter 5 — Send as text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) · **Next:** [Chapter 7 — Biometric lock](../../7-security-and-authentication/chapter-project-lock-field-notes/)
+
+**Built on:** [Chapter 5 — Send as text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) · **You add:** SQLite `notes` table, Eloquent CRUD, Share from saved notes.
 
 ---
 
@@ -130,6 +126,6 @@ Unchanged: icon/splash, EDGE shell, Share plugin dependency.
 
 ## Remember
 
-Chapter 7 adds biometric app lock on Settings — see [chapter-project-lock-field-notes](../../7-security-and-authentication/chapter-project-lock-field-notes/). Chapter 8 covers push and background sync.
+Chapter 7 adds biometric app lock — see [Chapter 7 — Biometric lock](../../7-security-and-authentication/chapter-project-lock-field-notes/).
 
-← [Using Native PHP](../../README.md)
+← [Field Notes capstone index](../../CAPSTONE.md)
