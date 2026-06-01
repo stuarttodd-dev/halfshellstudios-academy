@@ -1,12 +1,12 @@
 # Chapter 9 — Field Notes: release candidate
 
-**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 8](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) · **Chapter 9**
+**Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 8](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) · **Chapter 9** · [Chapter 10 →](../../capstone/)
 
 **Course:** [Chapter project: Field Notes release candidate](https://php-apps.learnio.dev/learn/sections/chapter-deployment-and-store-submission/chapter-project-field-notes-release-candidate)
 
 **Academy solution (GitHub):** [chapter-project-release-candidate](https://github.com/stuarttodd-dev/halfshellstudios-academy/tree/main/using-native-php/9-deployment-and-store-submission/chapter-project-release-candidate)
 
-**Previous:** [Chapter 8 — Deep link + sync stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) · **Next:** — (capstone complete)
+**Previous:** [Chapter 8 — Deep link + sync stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) · **Next:** [Chapter 10 — Capstone demo](../../capstone/)
 
 **Built on:** [Chapter 8 — Deep link + sync stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) · **You add:** versioned release builds, store checklist, release verification scripts. No new app features.
 
@@ -21,6 +21,7 @@
 | [7](../../7-security-and-authentication/chapter-project-lock-field-notes/) | Biometric lock |
 | [8](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) | Deep link + sync stub |
 | **9** | **Release candidate** |
+| [10](../../capstone/) | Capstone demo walkthrough |
 
 ---
 
@@ -148,6 +149,6 @@ Unchanged: all Chapter 8 features (CRUD, lock, deep links, push, sync stub).
 
 ## Remember
 
-[Chapter 10 — Capstone demo](https://php-apps.learnio.dev/learn/sections/chapter-course-closeout/capstone-demo-field-notes-walkthrough) walks through this release candidate in a demo — no new features.
+[Chapter 10 — Capstone demo](../../capstone/) walks through this release candidate on device — no new features.
 
 ← [Field Notes capstone index](../../CAPSTONE.md)

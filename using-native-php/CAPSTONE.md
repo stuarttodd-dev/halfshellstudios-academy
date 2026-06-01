@@ -2,6 +2,8 @@
 
 One Laravel app (**Field Notes**) grows chapter by chapter. Each folder below is a snapshot at that lesson — clone the chapter you are on, or continue your own copy from the previous one.
 
+**Demo walkthrough (Ch 10):** [capstone/README.md](capstone/README.md)
+
 **Course:** [Using NativePHP for Mobile](https://php-apps.learnio.dev/the-course)
 
 | Ch | Solution | Course lesson |
@@ -15,6 +17,7 @@ One Laravel app (**Field Notes**) grows chapter by chapter. Each folder below is
 | 7 | [Biometric lock](7-security-and-authentication/chapter-project-lock-field-notes/) | [chapter-project-lock-field-notes](https://php-apps.learnio.dev/learn/sections/chapter-security-and-authentication/chapter-project-lock-field-notes) |
 | 8 | [Deep link + sync stub](8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) | [chapter-project-deep-link-and-sync-stub](https://php-apps.learnio.dev/learn/sections/chapter-deep-links-push-and-background-sync/chapter-project-deep-link-and-sync-stub) |
 | 9 | [Release candidate](9-deployment-and-store-submission/chapter-project-release-candidate/) | [chapter-project-field-notes-release-candidate](https://php-apps.learnio.dev/learn/sections/chapter-deployment-and-store-submission/chapter-project-field-notes-release-candidate) |
+| 10 | [Capstone demo walkthrough](capstone/) | [capstone-demo-field-notes-walkthrough](https://php-apps.learnio.dev/learn/sections/chapter-course-closeout/capstone-demo-field-notes-walkthrough) |
 
 ## Stack at a glance
 
@@ -29,5 +32,6 @@ One Laravel app (**Field Notes**) grows chapter by chapter. Each folder below is
 | 7 | Optional biometric app lock |
 | 8 | Deep links, push enroll, sync job stub |
 | 9 | Versioned release builds + store checklist |
+| 10 | End-to-end demo on device — [walkthrough](capstone/) |
 
 ← [Using Native PHP](README.md)

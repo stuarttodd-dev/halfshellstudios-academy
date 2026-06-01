@@ -143,6 +143,6 @@ php artisan test --filter=DeepLinkAndSyncStubTest
 
 ## Remember
 
-Chapter 9 ships the release candidate — see [Chapter 9 — Release candidate](../../9-deployment-and-store-submission/chapter-project-release-candidate/).
+Chapter 9 ships the release candidate — see [Chapter 9 — Release candidate](../../9-deployment-and-store-submission/chapter-project-release-candidate/). Then [Chapter 10 — Capstone demo](../../capstone/) proves the full app on device.
 
 ← [Field Notes capstone index](../../CAPSTONE.md)

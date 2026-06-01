@@ -19,7 +19,8 @@ One app grows chapter by chapter. Each row is the **complete solution** for that
 | 7 — Security and authentication | [chapter-project-lock-field-notes](7-security-and-authentication/chapter-project-lock-field-notes/) |
 | 8 — Deep links, push and background sync | [chapter-project-deep-link-sync-stub](8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) |
 | 9 — Deployment and store submission | [chapter-project-release-candidate](9-deployment-and-store-submission/chapter-project-release-candidate/) |
+| 10 — Capstone demo | [capstone walkthrough](capstone/) |
 
-Full chapter details, course lesson links, and stack summary: **[Field Notes capstone index](CAPSTONE.md)**.
+Full chapter details, course lesson links, demo script, and stack summary: **[Field Notes capstone](capstone/README.md)** · [chapter index](CAPSTONE.md)
 
 ← [Half Shell Studios Academy](../README.md)
