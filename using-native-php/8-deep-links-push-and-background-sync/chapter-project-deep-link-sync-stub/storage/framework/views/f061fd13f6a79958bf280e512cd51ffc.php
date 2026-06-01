@@ -1,0 +1,2 @@
+
+<?php /**PATH /Users/stuart/PhpstormProjects/halfshellstudios-academy/using-native-php/8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/vendor/nativephp/mobile/src/resources/views/components/native-placeholder.blade.php ENDPATH**/ ?>

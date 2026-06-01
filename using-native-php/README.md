@@ -15,6 +15,7 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | 5 — Native functions, plugins and core APIs | [5-native-functions-plugins-and-core-apis](5-native-functions-plugins-and-core-apis/) | [chapter-native-functions-plugins-and-core-apis](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/) |
 | 6 — On-device databases and offline data | [6-on-device-databases-and-offline-data](6-on-device-databases-and-offline-data/) | [chapter-on-device-databases-and-offline-data](https://docker.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/) |
 | 7 — Security and authentication | [7-security-and-authentication](7-security-and-authentication/) | [chapter-security-and-authentication](https://docker.learnio.dev/learn/sections/chapter-security-and-authentication/) |
+| 8 — Deep links, push and background sync | [8-deep-links-push-and-background-sync](8-deep-links-push-and-background-sync/) | [chapter-deep-links-push-and-background-sync](https://docker.learnio.dev/learn/sections/chapter-deep-links-push-and-background-sync/) |
 
 ## Chapter 1 examples
 
@@ -57,6 +58,12 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | Lesson | Folder |
 | ------ | ------ |
 | Chapter project: lock Field Notes | [chapter-project-lock-field-notes](7-security-and-authentication/chapter-project-lock-field-notes/) |
+
+## Chapter 8 examples
+
+| Lesson | Folder |
+| ------ | ------ |
+| Chapter project: deep link and sync stub | [chapter-project-deep-link-sync-stub](8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) |
 
 ## Capstone stack
 

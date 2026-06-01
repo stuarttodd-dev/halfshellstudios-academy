@@ -123,6 +123,6 @@ Unchanged: SQLite CRUD, Share on edit, EDGE layout, branding assets.
 
 ## Remember
 
-Chapter 8 adds push notifications and deep links to individual notes. Biometric lock gates the **local UI**; API tokens for sync belong in SecureStorage (lesson 7.4).
+Chapter 8 adds push alerts and deep links to notes — see [chapter-project-deep-link-sync-stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/).
 
 ← [Using Native PHP](../../README.md)
