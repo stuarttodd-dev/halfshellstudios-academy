@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 4](../../4-edge-native-navigation/chapter-project-edge-shell/) · **Chapter 5** · [Chapter 6 →](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/)
 
-**Course:** [Chapter project: photo attachment in Field Notes](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/chapter-project-photo-attachment-in-field-notes) *(lesson title; milestone is **send as text** via Share)*
+**Course:** [Chapter project: photo attachment in Field Notes](https://php-apps.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/chapter-project-photo-attachment-in-field-notes) *(lesson title; milestone is **send as text** via Share)*
 
 **Previous:** [Chapter 4 — EDGE shell](../../4-edge-native-navigation/chapter-project-edge-shell/) · **Next:** [Chapter 6 — Offline CRUD](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/)
 

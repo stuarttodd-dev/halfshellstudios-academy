@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 1](../../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) · **Chapter 2** · [Chapter 3 →](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/)
 
-**Course:** [Chapter project: environment sign-off and first simulator run](https://docker.learnio.dev/learn/sections/chapter-environment-setup/chapter-project-environment-sign-off-and-first-simulator-run)
+**Course:** [Chapter project: environment sign-off and first simulator run](https://php-apps.learnio.dev/learn/sections/chapter-environment-setup/chapter-project-environment-sign-off-and-first-simulator-run)
 
 **Previous:** [Chapter 1 — First mobile screen](../../1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) · **Next:** [Chapter 3 — Icon, splash, note list](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/)
 

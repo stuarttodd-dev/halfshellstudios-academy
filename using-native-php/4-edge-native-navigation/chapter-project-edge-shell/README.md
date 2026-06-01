@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 3](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) · **Chapter 4** · [Chapter 5 →](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/)
 
-**Course:** [Chapter project: EDGE shell for Field Notes](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/chapter-project-edge-shell-for-field-notes)
+**Course:** [Chapter project: EDGE shell for Field Notes](https://php-apps.learnio.dev/learn/sections/chapter-edge-native-navigation/chapter-project-edge-shell-for-field-notes)
 
 **Previous:** [Chapter 3 — Icon, splash, note list](../../3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) · **Next:** [Chapter 5 — Send as text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/)
 

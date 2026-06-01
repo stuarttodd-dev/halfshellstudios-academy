@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 8](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/) · **Chapter 9**
 
-**Course:** [Chapter project: Field Notes release candidate](https://docker.learnio.dev/learn/sections/chapter-deployment-and-store-submission/chapter-project-field-notes-release-candidate)
+**Course:** [Chapter project: Field Notes release candidate](https://php-apps.learnio.dev/learn/sections/chapter-deployment-and-store-submission/chapter-project-field-notes-release-candidate)
 
 **Academy solution (GitHub):** [chapter-project-release-candidate](https://github.com/stuarttodd-dev/halfshellstudios-academy/tree/main/using-native-php/9-deployment-and-store-submission/chapter-project-release-candidate)
 
@@ -148,6 +148,6 @@ Unchanged: all Chapter 8 features (CRUD, lock, deep links, push, sync stub).
 
 ## Remember
 
-[Chapter 10](https://docker.learnio.dev/learn/sections/chapter-course-closeout/) walks through this release candidate in a demo — no new features.
+[Chapter 10](https://php-apps.learnio.dev/learn/sections/chapter-course-closeout/) walks through this release candidate in a demo — no new features.
 
 ← [Field Notes capstone index](../../CAPSTONE.md)

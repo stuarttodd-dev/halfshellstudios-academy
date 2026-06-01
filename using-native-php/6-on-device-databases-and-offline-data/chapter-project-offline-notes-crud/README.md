@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 5](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) · **Chapter 6** · [Chapter 7 →](../../7-security-and-authentication/chapter-project-lock-field-notes/)
 
-**Course:** [Chapter project: offline notes CRUD](https://docker.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/chapter-project-offline-notes-crud)
+**Course:** [Chapter project: offline notes CRUD](https://php-apps.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/chapter-project-offline-notes-crud)
 
 **Previous:** [Chapter 5 — Send as text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) · **Next:** [Chapter 7 — Biometric lock](../../7-security-and-authentication/chapter-project-lock-field-notes/)
 

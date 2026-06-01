@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 2](../../2-environment-setup/chapter-project-environment-sign-off/) · **Chapter 3** · [Chapter 4 →](../../4-edge-native-navigation/chapter-project-edge-shell/)
 
-**Course:** [Chapter project: icon, splash, and note list UI](https://docker.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/chapter-project-icon-splash-and-note-list-ui)
+**Course:** [Chapter project: icon, splash, and note list UI](https://php-apps.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/chapter-project-icon-splash-and-note-list-ui)
 
 **Previous:** [Chapter 2 — Environment sign-off](../../2-environment-setup/chapter-project-environment-sign-off/) · **Next:** [Chapter 4 — EDGE shell](../../4-edge-native-navigation/chapter-project-edge-shell/)
 

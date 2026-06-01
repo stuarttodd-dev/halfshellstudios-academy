@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 7](../../7-security-and-authentication/chapter-project-lock-field-notes/) · **Chapter 8** · [Chapter 9 →](../../9-deployment-and-store-submission/chapter-project-release-candidate/)
 
-**Course:** [Chapter project: deep link and sync stub](https://docker.learnio.dev/learn/sections/chapter-deep-links-push-and-background-sync/chapter-project-deep-link-and-sync-stub)
+**Course:** [Chapter project: deep link and sync stub](https://php-apps.learnio.dev/learn/sections/chapter-deep-links-push-and-background-sync/chapter-project-deep-link-and-sync-stub)
 
 **Previous:** [Chapter 7 — Biometric lock](../../7-security-and-authentication/chapter-project-lock-field-notes/) · **Next:** [Chapter 9 — Release candidate](../../9-deployment-and-store-submission/chapter-project-release-candidate/)
 

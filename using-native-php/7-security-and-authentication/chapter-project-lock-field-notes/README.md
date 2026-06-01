@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · [← Chapter 6](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) · **Chapter 7** · [Chapter 8 →](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/)
 
-**Course:** [Chapter project: lock Field Notes](https://docker.learnio.dev/learn/sections/chapter-security-and-authentication/chapter-project-lock-field-notes)
+**Course:** [Chapter project: lock Field Notes](https://php-apps.learnio.dev/learn/sections/chapter-security-and-authentication/chapter-project-lock-field-notes)
 
 **Previous:** [Chapter 6 — Offline CRUD](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) · **Next:** [Chapter 8 — Deep link + sync stub](../../8-deep-links-push-and-background-sync/chapter-project-deep-link-sync-stub/)
 
