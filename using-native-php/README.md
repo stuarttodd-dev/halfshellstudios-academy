@@ -13,6 +13,7 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | 3 — WebView UI, branding and assets | [3-webview-ui-branding-and-assets](3-webview-ui-branding-and-assets/) | [chapter-webview-ui-branding-and-assets](https://docker.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/) |
 | 4 — EDGE native navigation | [4-edge-native-navigation](4-edge-native-navigation/) | [chapter-edge-native-navigation](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/) |
 | 5 — Native functions, plugins and core APIs | [5-native-functions-plugins-and-core-apis](5-native-functions-plugins-and-core-apis/) | [chapter-native-functions-plugins-and-core-apis](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/) |
+| 6 — On-device databases and offline data | [6-on-device-databases-and-offline-data](6-on-device-databases-and-offline-data/) | [chapter-on-device-databases-and-offline-data](https://docker.learnio.dev/learn/sections/chapter-on-device-databases-and-offline-data/) |
 
 ## Chapter 1 examples
 
@@ -43,6 +44,12 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | Lesson | Folder |
 | ------ | ------ |
 | Chapter project: send note as text (Share) | [chapter-project-send-note-as-text](5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) |
+
+## Chapter 6 examples
+
+| Lesson | Folder |
+| ------ | ------ |
+| Chapter project: offline notes CRUD | [chapter-project-offline-notes-crud](6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/) |
 
 ## Capstone stack
 

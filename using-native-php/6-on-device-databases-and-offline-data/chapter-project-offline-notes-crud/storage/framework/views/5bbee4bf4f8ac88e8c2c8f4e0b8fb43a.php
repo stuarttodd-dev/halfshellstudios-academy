@@ -1,0 +1,2 @@
+
+<?php /**PATH /Users/stuart/PhpstormProjects/halfshellstudios-academy/using-native-php/6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/vendor/nativephp/mobile/src/resources/views/components/native-placeholder.blade.php ENDPATH**/ ?>

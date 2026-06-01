@@ -114,6 +114,6 @@ Unchanged: EDGE layout, icon/splash, static home rows, no SQLite.
 
 ## Remember
 
-Chapter 6 saves notes in SQLite and lists them on Home. Optional camera photo attach (lessons 5.4–5.5) can layer on Compose before or after CRUD.
+Chapter 6 saves notes in SQLite and lists them on Home — see [chapter-project-offline-notes-crud](../../6-on-device-databases-and-offline-data/chapter-project-offline-notes-crud/). Optional camera photo attach (lessons 5.4–5.5) can layer on Compose before or after CRUD.
 
 ← [Using Native PHP](../../README.md)
