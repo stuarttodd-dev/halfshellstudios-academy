@@ -133,6 +133,6 @@ Unchanged from Chapter 3: icon/splash assets, Tailwind branding, static note row
 
 ## Remember
 
-Chapter 5 wires Compose to the Share sheet. Chapter 6 replaces placeholder rows with SQLite-backed notes.
+Chapter 5 wires Compose to the Share sheet — see [chapter-project-send-note-as-text](../../5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/). Chapter 6 replaces placeholder rows with SQLite-backed notes.
 
 ← [Using Native PHP](../../README.md)

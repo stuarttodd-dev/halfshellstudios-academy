@@ -12,6 +12,7 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | 2 — Environment setup | [2-environment-setup](2-environment-setup/) | [chapter-environment-setup](https://docker.learnio.dev/learn/sections/chapter-environment-setup/) |
 | 3 — WebView UI, branding and assets | [3-webview-ui-branding-and-assets](3-webview-ui-branding-and-assets/) | [chapter-webview-ui-branding-and-assets](https://docker.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/) |
 | 4 — EDGE native navigation | [4-edge-native-navigation](4-edge-native-navigation/) | [chapter-edge-native-navigation](https://docker.learnio.dev/learn/sections/chapter-edge-native-navigation/) |
+| 5 — Native functions, plugins and core APIs | [5-native-functions-plugins-and-core-apis](5-native-functions-plugins-and-core-apis/) | [chapter-native-functions-plugins-and-core-apis](https://docker.learnio.dev/learn/sections/chapter-native-functions-plugins-and-core-apis/) |
 
 ## Chapter 1 examples
 
@@ -36,6 +37,12 @@ Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mo
 | Lesson | Folder |
 | ------ | ------ |
 | Chapter project: EDGE shell for Field Notes | [chapter-project-edge-shell](4-edge-native-navigation/chapter-project-edge-shell/) |
+
+## Chapter 5 examples
+
+| Lesson | Folder |
+| ------ | ------ |
+| Chapter project: send note as text (Share) | [chapter-project-send-note-as-text](5-native-functions-plugins-and-core-apis/chapter-project-send-note-as-text/) |
 
 ## Capstone stack
 
