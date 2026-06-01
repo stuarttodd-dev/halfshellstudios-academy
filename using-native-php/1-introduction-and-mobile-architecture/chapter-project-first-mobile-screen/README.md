@@ -2,7 +2,7 @@
 
 **Capstone:** [All chapters](../../CAPSTONE.md) · **Chapter 1** · [Chapter 2 →](../../2-environment-setup/chapter-project-environment-sign-off/)
 
-**Course:** [Chapter project: first screen on mobile (Jump)](https://php-apps.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-first-mobile-screen-on-jump)
+**Course:** [Chapter project: your first screen on mobile](https://php-apps.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-your-first-screen-on-mobile)
 
 **Previous:** — · **Next:** [Chapter 2 — Environment sign-off](../../2-environment-setup/chapter-project-environment-sign-off/)
 

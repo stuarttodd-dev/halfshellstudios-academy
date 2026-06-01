@@ -148,6 +148,6 @@ Unchanged: all Chapter 8 features (CRUD, lock, deep links, push, sync stub).
 
 ## Remember
 
-[Chapter 10](https://php-apps.learnio.dev/learn/sections/chapter-course-closeout/) walks through this release candidate in a demo — no new features.
+[Chapter 10 — Capstone demo](https://php-apps.learnio.dev/learn/sections/chapter-course-closeout/capstone-demo-field-notes-walkthrough) walks through this release candidate in a demo — no new features.
 
 ← [Field Notes capstone index](../../CAPSTONE.md)

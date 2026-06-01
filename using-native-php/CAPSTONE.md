@@ -2,11 +2,11 @@
 
 One Laravel app (**Field Notes**) grows chapter by chapter. Each folder below is a snapshot at that lesson — clone the chapter you are on, or continue your own copy from the previous one.
 
-**Course:** [Using Native PHP](https://php-apps.learnio.dev/)
+**Course:** [Using NativePHP for Mobile](https://php-apps.learnio.dev/the-course)
 
 | Ch | Solution | Course lesson |
 | -- | -------- | ------------- |
-| 1 | [First mobile screen](1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) | [chapter-project-first-mobile-screen-on-jump](https://php-apps.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-first-mobile-screen-on-jump) |
+| 1 | [First mobile screen](1-introduction-and-mobile-architecture/chapter-project-first-mobile-screen/) | [chapter-project-your-first-screen-on-mobile](https://php-apps.learnio.dev/learn/sections/chapter-introduction-and-mobile-architecture/chapter-project-your-first-screen-on-mobile) |
 | 2 | [Environment sign-off](2-environment-setup/chapter-project-environment-sign-off/) | [chapter-project-environment-sign-off-and-first-simulator-run](https://php-apps.learnio.dev/learn/sections/chapter-environment-setup/chapter-project-environment-sign-off-and-first-simulator-run) |
 | 3 | [Icon, splash, note list UI](3-webview-ui-branding-and-assets/chapter-project-icon-splash-note-list/) | [chapter-project-icon-splash-and-note-list-ui](https://php-apps.learnio.dev/learn/sections/chapter-webview-ui-branding-and-assets/chapter-project-icon-splash-and-note-list-ui) |
 | 4 | [EDGE shell](4-edge-native-navigation/chapter-project-edge-shell/) | [chapter-project-edge-shell-for-field-notes](https://php-apps.learnio.dev/learn/sections/chapter-edge-native-navigation/chapter-project-edge-shell-for-field-notes) |

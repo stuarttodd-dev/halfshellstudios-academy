@@ -2,7 +2,7 @@
 
 Build and ship cross-platform iOS and Android apps with Laravel and NativePHP Mobile v3.
 
-**Course:** [Using Native PHP](https://php-apps.learnio.dev/)
+**Course:** [Using NativePHP for Mobile](https://php-apps.learnio.dev/the-course)
 
 ## Field Notes capstone
 
